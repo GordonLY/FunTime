@@ -12,6 +12,8 @@ target :takeEasy do
   pod 'Alamofire', '~> 4.4'
   pod 'YYModel'
   pod 'Kingfisher'
+  pod 'Jukebox'
+  pod 'MJRefresh'
   
 end
 
