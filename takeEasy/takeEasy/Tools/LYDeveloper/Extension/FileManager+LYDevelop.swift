@@ -14,9 +14,20 @@ extension FileManager {
     class func ly_libraryCachesPath() -> String {
         return NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first ?? ""
     }
+    /// 获取cachesPath URL
+    class func ly_libraryCachesURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+    }
     /// 文件是否存在
     class func ly_fileExists(atPath path: String) -> Bool {
         return FileManager.default.fileExists(atPath:path)
+    }
+    /// 删除文件
+    class func ly_deleteItem(atPath path: String) ->  Bool {
+        if let _ = try? FileManager.default.removeItem(atPath: path) {
+            return true
+        }
+        return false
     }
     /// 创建文件夹
     class func ly_createDirectories(forPath path: String) ->  Bool {

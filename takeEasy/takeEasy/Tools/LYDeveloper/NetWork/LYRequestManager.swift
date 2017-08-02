@@ -40,7 +40,7 @@ class LYRequestManager: NSObject {
     }
     
     func lyLoaclCache(urlStr:String, param:Dictionary<String, Any>?) -> Dictionary<String, Any>? {
-        return LYNetWorkRequest.loadCacheDataBy(urlStr: urlStr, dict: param)
+        return LYNetWorkRequest.loadCacheDataWith(urlStr: urlStr, dict: param)
     }
     // MARK: - ********* 网络请求
     // MARK: >>> get post Request
@@ -62,7 +62,7 @@ class LYRequestManager: NSObject {
         if net_needCache.contains(urlStr) {
             needCache = true
         }
-        requestsArr.append(LYNetWorkRequest.baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, needToken: true, success: { [weak self](response) in
+        requestsArr.append(LYNetWorkRequest.baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, success: { [weak self](response) in
             self?.p_callDelegate(success: urlStr, data: response)
             }, notSuccess: { [weak self](message) in
                 self?.p_callDelegate(incorrect: urlStr, msg: message)
@@ -72,7 +72,7 @@ class LYRequestManager: NSObject {
     }
     // MARK: >>> upload file
     func lyUpload(imgData:Data, urlStr:String) {
-        LYNetWorkRequest.uploadPhoto(imgData: imgData, urlStr: urlStr, success: { [weak self](response) in
+        LYNetWorkRequest.ly_uploadPhoto(imgData: imgData, urlStr: urlStr, success: { [weak self](response) in
             self?.p_callDelegate(success: urlStr, data: response)
         }) { [weak self](error) in
             self?.p_callDelegate(fail: urlStr, error: error)
@@ -102,7 +102,7 @@ class LYRequestManager: NSObject {
         if net_needCache.contains(urlStr) {
             needCache = true
         }
-        requestsArr.append(LYNetWorkRequest.baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, needToken: true, success: { (response) in
+        requestsArr.append(LYNetWorkRequest.baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, success: { (response) in
             if success != nil {
                 success!(response)
             }
