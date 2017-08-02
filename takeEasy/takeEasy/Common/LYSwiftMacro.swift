@@ -73,8 +73,8 @@ func kSeparateLineColor() -> UIColor {
 func kPlaceholderColor() -> UIColor {
     return UIColor.lyColorRGBA(0xf4f4f4, 1)
 }
-func kBgColorF4() -> UIColor {
-    return UIColor.lyColorRGBA(0xf4f4f4, 1)
+func kBgColorF5() -> UIColor {
+    return UIColor.lyColorRGBA(0xf5f5f5, 1)
 }
 func kDisableColor() -> UIColor {
     return UIColor.gray

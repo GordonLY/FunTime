@@ -11,8 +11,6 @@
 		F8AC41C41F31A45D007BFD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */; };
 		F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */; };
 		F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */; };
-		F8AC41C71F31A45D007BFD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BE1F31A45D007BFD8C /* Main.storyboard */; };
-		F8AC41C91F31A45D007BFD8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41C21F31A45D007BFD8C /* ViewController.swift */; };
 		F8AC41CB1F31A4F3007BFD8C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41CA1F31A4F3007BFD8C /* Info.plist */; };
 		F8AC41DB1F31BCE3007BFD8C /* LYNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */; };
 		F8AC42131F31BCED007BFD8C /* LYContentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */; };
@@ -53,6 +51,7 @@
 		F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */; };
 		F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */; };
 		F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */; };
+		F8AC424E1F3207E3007BFD8C /* NEHomeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC424D1F3207E3007BFD8C /* NEHomeViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,9 +62,7 @@
 		F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8AC41BD1F31A45D007BFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F8AC41BF1F31A45D007BFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8AC41C11F31A45D007BFD8C /* takeEasy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "takeEasy-Bridging-Header.h"; sourceTree = "<group>"; };
-		F8AC41C21F31A45D007BFD8C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8AC41CA1F31A4F3007BFD8C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYNoDataView.swift; sourceTree = "<group>"; };
 		F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYContentPickerView.swift; sourceTree = "<group>"; };
@@ -108,6 +105,7 @@
 		F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYBaseViewC.swift; sourceTree = "<group>"; };
 		F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYHitTestView.swift; sourceTree = "<group>"; };
 		F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+LYDevelop.swift"; sourceTree = "<group>"; };
+		F8AC424D1F3207E3007BFD8C /* NEHomeViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NEHomeViewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +169,8 @@
 		F8AC41B71F31A45D007BFD8C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F8AC424D1F3207E3007BFD8C /* NEHomeViewVC.swift */,
+				F8AC42481F3207AF007BFD8C /* 轻松一刻 */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -191,13 +191,11 @@
 		F8AC41B91F31A45D007BFD8C /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				F8AC41CA1F31A4F3007BFD8C /* Info.plist */,
 				F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */,
+				F8AC41CA1F31A4F3007BFD8C /* Info.plist */,
 				F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */,
 				F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */,
-				F8AC41BE1F31A45D007BFD8C /* Main.storyboard */,
 				F8AC41C11F31A45D007BFD8C /* takeEasy-Bridging-Header.h */,
-				F8AC41C21F31A45D007BFD8C /* ViewController.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -300,6 +298,45 @@
 			path = Refresh;
 			sourceTree = "<group>";
 		};
+		F8AC42481F3207AF007BFD8C /* 轻松一刻 */ = {
+			isa = PBXGroup;
+			children = (
+				F8AC42491F3207AF007BFD8C /* Model */,
+				F8AC424A1F3207AF007BFD8C /* VC */,
+				F8AC424B1F3207AF007BFD8C /* View */,
+				F8AC424C1F3207AF007BFD8C /* ViewModel */,
+			);
+			path = "轻松一刻";
+			sourceTree = "<group>";
+		};
+		F8AC42491F3207AF007BFD8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8AC424A1F3207AF007BFD8C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F8AC424B1F3207AF007BFD8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8AC424C1F3207AF007BFD8C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -369,7 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8AC41CB1F31A4F3007BFD8C /* Info.plist in Resources */,
-				F8AC41C71F31A45D007BFD8C /* Main.storyboard in Resources */,
 				F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */,
 				F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */,
 			);
@@ -431,7 +467,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8AC42371F31BCED007BFD8C /* LYRefreshFooter.swift in Sources */,
-				F8AC41C91F31A45D007BFD8C /* ViewController.swift in Sources */,
 				F8AC42361F31BCED007BFD8C /* LYRequestManager.swift in Sources */,
 				F8AC42311F31BCED007BFD8C /* LYTransitionLikePop.swift in Sources */,
 				F8AC42241F31BCED007BFD8C /* UIColor+LYDevelop.swift in Sources */,
@@ -457,6 +492,7 @@
 				F8AC42251F31BCED007BFD8C /* UIImage+LYDevelop.swift in Sources */,
 				F8AC421A1F31BCED007BFD8C /* UICountingLabel.m in Sources */,
 				F8AC42271F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift in Sources */,
+				F8AC424E1F3207E3007BFD8C /* NEHomeViewVC.swift in Sources */,
 				F8AC422F1F31BCED007BFD8C /* LYInteractiveController.swift in Sources */,
 				F8AC42391F31BCED007BFD8C /* UIViewRefreshExtension.swift in Sources */,
 				F8AC422A1F31BCED007BFD8C /* LYToastView.swift in Sources */,
@@ -483,14 +519,6 @@
 				F8AC41BD1F31A45D007BFD8C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		F8AC41BE1F31A45D007BFD8C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F8AC41BF1F31A45D007BFD8C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -537,7 +565,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -582,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

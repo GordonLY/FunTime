@@ -42,7 +42,7 @@ extension UITableView {
     static let noDataViewTag = 121212
     func ly_addNoDataView(tips: String) {
         let noDataView = LYNoDataView.init(frame: self.bounds)
-        noDataView.backgroundColor = kBgColorF4()
+        noDataView.backgroundColor = kBgColorF5()
         noDataView.tipsTitle.text = tips
         noDataView.isHidden = true
         noDataView.tag = UITableView.noDataViewTag
