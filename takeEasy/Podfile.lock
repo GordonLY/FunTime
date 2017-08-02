@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.0)
+  - FDFullscreenPopGesture (1.1)
+  - Kingfisher (3.10.2)
+  - MBProgressHUD (1.0.0)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - FDFullscreenPopGesture (= 1.1)
+  - Kingfisher
+  - MBProgressHUD (~> 1.0.0)
+  - YYModel
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 8042985dd80b0cdff35c716f1b10b6587e6542c0
+
+COCOAPODS: 1.2.1

@@ -1,0 +1,28 @@
+use_frameworks!
+inhibit_all_warnings!
+
+platform :ios, '8.0'
+workspace 'takeEasy'
+project 'takeEasy.xcodeproj'
+
+target :takeEasy do
+  
+  pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'FDFullscreenPopGesture', '1.1'
+  pod 'Alamofire', '~> 4.4'
+  pod 'YYModel'
+  pod 'Kingfisher'
+  
+end
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        puts target.name
+        target.build_configurations.each do |config|
+            config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+            config.build_settings['VALID_ARCHS'] = 'armv7 arm64'
+            config.build_settings['ARCHS'] = 'armv7 arm64'
+        end
+    end
+end
