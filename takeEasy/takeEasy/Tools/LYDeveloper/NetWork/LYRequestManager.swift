@@ -14,7 +14,7 @@ protocol LYRequestManagerDelegate: NSObjectProtocol {
     ///  请求成功
     func lyNetworkReponseSucceed(urlStr:String, result: Dictionary<String, Any>?)
     ///  请求参数错误
-    func lyNetworkReponseIncorrectParam(urlStr:String, message: String?)
+    func lyNetworkReponseIncorrectParam(urlStr:String, code: Int, message: String?)
     ///  请求失败
     func lyNetworkReponseFailed(urlStr:String, error: Error?)
 }
@@ -32,29 +32,36 @@ class LYRequestManager: NSObject {
     func p_callDelegate(success urlStr:String, data:Dictionary<String, Any>?) {
         delegate?.lyNetworkReponseSucceed(urlStr: urlStr, result: data)
     }
-    func p_callDelegate(incorrect urlStr:String, msg:String?) {
-        delegate?.lyNetworkReponseIncorrectParam(urlStr: urlStr, message: msg)
+    func p_callDelegate(incorrect urlStr:String, code: Int, msg:String?) {
+        delegate?.lyNetworkReponseIncorrectParam(urlStr: urlStr, code: code, message: msg)
     }
     func p_callDelegate(fail urlStr:String, error:Error?) {
         delegate?.lyNetworkReponseFailed(urlStr: urlStr, error: error)
     }
     
-    func lyLoaclCache(urlStr:String, param:Dictionary<String, Any>?) -> Dictionary<String, Any>? {
-        return LYNetWorkRequest.loadCacheDataWith(urlStr: urlStr, dict: param)
-    }
     // MARK: - ********* 网络请求
-    // MARK: >>> get post Request
-    func lyRequest(urlStr:String, param:Dictionary<String, Any>?) {
-        var methodType: HTTPMethod = .post
-        if net_getMethods.contains(urlStr) {
-            methodType = .get
-        }
-        self.p_request(type: methodType, urlStr: urlStr, param: param)
+    // MARK: === 查找本地缓存数据
+    func ly_LoaclCache(urlStr: String, param: Dictionary<String, Any>?) -> Dictionary<String, Any>? {
+        return LYNetWorkRequest.ly_loadCacheDataWith(urlStr: urlStr, dict: param)
     }
-    func lyGetRequset(urlStr:String, param:Dictionary<String, Any>?) {
+    // MARK: === 上传文件
+    func ly_Upload(imgData:Data, urlStr: String) {
+        LYNetWorkRequest.ly_uploadPhoto(imgData: imgData, urlStr: urlStr, success: { [weak self](response) in
+            self?.p_callDelegate(success: urlStr, data: response)
+        }) { [weak self](error) in
+            self?.p_callDelegate(fail: urlStr, error: error)
+        }
+    }
+    // MARK: === 下载文件
+    func ly_down(filePath path: String, progress: ((Progress, String) -> Void)?, success: ((URL?) -> Void)?) -> Void {
+        _ = LYNetWorkRequest.ly_downloadFile(atPath: path, progress: progress, success: success)
+    }
+    
+    // MARK: === 代理回调方式 请求
+    func ly_GetRequset(urlStr:String, param:Dictionary<String, Any>?) {
         self.p_request(type: .get, urlStr: urlStr, param: param)
     }
-    func lyPostRequset(urlStr:String, param:Dictionary<String, Any>?) {
+    func ly_PostRequset(urlStr:String, param:Dictionary<String, Any>?) {
         self.p_request(type: .post, urlStr: urlStr, param: param)
     }
     private func p_request(type:HTTPMethod, urlStr:String, param:Dictionary<String, Any>?) {
@@ -62,53 +69,33 @@ class LYRequestManager: NSObject {
         if net_needCache.contains(urlStr) {
             needCache = true
         }
-        requestsArr.append(LYNetWorkRequest.baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, success: { [weak self](response) in
+        requestsArr.append(LYNetWorkRequest.ly_baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, success: { [weak self](response) in
             self?.p_callDelegate(success: urlStr, data: response)
-            }, notSuccess: { [weak self](message) in
-                self?.p_callDelegate(incorrect: urlStr, msg: message)
+            }, notSuccess: { [weak self](code, message) in
+                self?.p_callDelegate(incorrect: urlStr, code: code, msg: message)
         }) { [weak self](error) in
             self?.p_callDelegate(fail: urlStr, error: error)
         })
     }
-    // MARK: >>> upload file
-    func lyUpload(imgData:Data, urlStr:String) {
-        LYNetWorkRequest.ly_uploadPhoto(imgData: imgData, urlStr: urlStr, success: { [weak self](response) in
-            self?.p_callDelegate(success: urlStr, data: response)
-        }) { [weak self](error) in
-            self?.p_callDelegate(fail: urlStr, error: error)
-        }
-    }
-    
-    // MARK: >>> request with block
-    ///  request with block call back
-    func lyRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((String?) -> Void)?, fail:((Error?) -> Void)?) {
-        var methodType: HTTPMethod = .post
-        if net_getMethods.contains(urlStr) {
-            methodType = .get
-        }
-        self.p_lyRequest(type: methodType, urlStr: urlStr, param: param, success: success, incorrect: incorrect, fail: fail)
-    }
-    ///  get request with block call back
-    func lyGetRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((String?) -> Void)?, fail:((Error?) -> Void)?) {
+    // MARK: === block回调方式 请求
+    func ly_GetRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int,String?) -> Void)?, fail:((Error?) -> Void)?) {
         self.p_lyRequest(type: .get, urlStr: urlStr, param: param, success: success, incorrect: incorrect, fail: fail)
     }
-    ///  post request with block call back
-    func lyPostRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((String?) -> Void)?, fail:((Error?) -> Void)?) {
+    func ly_PostRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int, String?) -> Void)?, fail:((Error?) -> Void)?) {
         self.p_lyRequest(type: .post, urlStr: urlStr, param: param, success: success, incorrect: incorrect, fail: fail)
     }
-    ///  get request with block call back
-    private func p_lyRequest(type:HTTPMethod, urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((String?) -> Void)?, fail:((Error?) -> Void)?) {
+    private func p_lyRequest(type:HTTPMethod, urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int, String?) -> Void)?, fail:((Error?) -> Void)?) {
         var needCache = false
         if net_needCache.contains(urlStr) {
             needCache = true
         }
-        requestsArr.append(LYNetWorkRequest.baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, success: { (response) in
+        requestsArr.append(LYNetWorkRequest.ly_baseRequest(httpMethod: type, urlStr: urlStr, dict: param, isCache: needCache, success: { (response) in
             if success != nil {
                 success!(response)
             }
-        }, notSuccess: { (message) in
+        }, notSuccess: { (code, message) in
             if incorrect != nil {
-                incorrect!(message)
+                incorrect!(code, message)
             }
         }) { (error) in
             if fail != nil {
@@ -116,5 +103,4 @@ class LYRequestManager: NSObject {
             }
         })
     }
-    
 }

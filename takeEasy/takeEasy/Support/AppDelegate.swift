@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func p_initWindow() {
         if window == nil {
             window = UIWindow.init(frame: UIScreen.main.bounds)
-            let homeVc = NEHomeViewVC()
+            let homeVc = TEFunTimeVC()
             let rootVc = LYNavigationController.init(rootViewController: homeVc)
             window!.rootViewController = rootVc
             window!.makeKeyAndVisible()

@@ -51,13 +51,9 @@ class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManag
     // MARK: - ********* Net Response delegate
     func lyNetworkReponseSucceed(urlStr: String, result: Dictionary<String, Any>?) {
     }
-    func lyNetworkReponseIncorrect(code: Int, urlStr: String, message: String?) {
+    func lyNetworkReponseIncorrectParam(urlStr: String, code: Int, message: String?) {
     }
     func lyNetworkReponseFailed(urlStr: String, error: Error?) {
-        
-    }
-    ///  请求参数错误
-    func lyNetworkReponseIncorrectParam(urlStr: String, message: String?) {
         
     }
 }

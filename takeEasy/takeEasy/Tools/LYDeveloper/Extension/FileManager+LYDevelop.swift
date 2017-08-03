@@ -23,7 +23,7 @@ extension FileManager {
         return FileManager.default.fileExists(atPath:path)
     }
     /// 删除文件
-    class func ly_deleteItem(atPath path: String) ->  Bool {
+    class func ly_removeItem(atPath path: String) ->  Bool {
         if let _ = try? FileManager.default.removeItem(atPath: path) {
             return true
         }

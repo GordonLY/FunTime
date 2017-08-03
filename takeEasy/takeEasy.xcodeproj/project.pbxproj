@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E8D5757BBD8C5F8CE60FDC44 /* Pods_takeEasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1797A226B7E5AA9126F294 /* Pods_takeEasy.framework */; };
+		F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */; };
+		F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */; };
+		F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */; };
 		F8AC41C41F31A45D007BFD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */; };
 		F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */; };
 		F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */; };
@@ -51,13 +54,15 @@
 		F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */; };
 		F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */; };
 		F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */; };
-		F8AC424E1F3207E3007BFD8C /* NEHomeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC424D1F3207E3007BFD8C /* NEHomeViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DF002A7C398D18B4C16DE4B /* Pods-takeEasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-takeEasy.release.xcconfig"; path = "Pods/Target Support Files/Pods-takeEasy/Pods-takeEasy.release.xcconfig"; sourceTree = "<group>"; };
 		9F1797A226B7E5AA9126F294 /* Pods_takeEasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_takeEasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD659ED8231D326EC80B36A4 /* Pods-takeEasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-takeEasy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-takeEasy/Pods-takeEasy.debug.xcconfig"; sourceTree = "<group>"; };
+		F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeVC.swift; sourceTree = "<group>"; };
+		F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeListModel.swift; sourceTree = "<group>"; };
+		F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimDetailModel.swift; sourceTree = "<group>"; };
 		F8AC419E1F31A1C8007BFD8C /* takeEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = takeEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,7 +110,6 @@
 		F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYBaseViewC.swift; sourceTree = "<group>"; };
 		F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYHitTestView.swift; sourceTree = "<group>"; };
 		F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+LYDevelop.swift"; sourceTree = "<group>"; };
-		F8AC424D1F3207E3007BFD8C /* NEHomeViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NEHomeViewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +173,6 @@
 		F8AC41B71F31A45D007BFD8C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F8AC424D1F3207E3007BFD8C /* NEHomeViewVC.swift */,
 				F8AC42481F3207AF007BFD8C /* 轻松一刻 */,
 			);
 			path = Classes;
@@ -301,10 +304,10 @@
 		F8AC42481F3207AF007BFD8C /* 轻松一刻 */ = {
 			isa = PBXGroup;
 			children = (
-				F8AC42491F3207AF007BFD8C /* Model */,
 				F8AC424A1F3207AF007BFD8C /* VC */,
-				F8AC424B1F3207AF007BFD8C /* View */,
 				F8AC424C1F3207AF007BFD8C /* ViewModel */,
+				F8AC424B1F3207AF007BFD8C /* View */,
+				F8AC42491F3207AF007BFD8C /* Model */,
 			);
 			path = "轻松一刻";
 			sourceTree = "<group>";
@@ -312,6 +315,8 @@
 		F8AC42491F3207AF007BFD8C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */,
+				F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 		F8AC424A1F3207AF007BFD8C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -470,6 +476,8 @@
 				F8AC42361F31BCED007BFD8C /* LYRequestManager.swift in Sources */,
 				F8AC42311F31BCED007BFD8C /* LYTransitionLikePop.swift in Sources */,
 				F8AC42241F31BCED007BFD8C /* UIColor+LYDevelop.swift in Sources */,
+				F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */,
+				F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */,
 				F8AC42331F31BCED007BFD8C /* LYTransitionPushPopManger.swift in Sources */,
 				F8AC42221F31BCED007BFD8C /* Optional+Wrap.swift in Sources */,
 				F8AC42411F31BE4E007BFD8C /* LYSwiftMacro.swift in Sources */,
@@ -492,7 +500,6 @@
 				F8AC42251F31BCED007BFD8C /* UIImage+LYDevelop.swift in Sources */,
 				F8AC421A1F31BCED007BFD8C /* UICountingLabel.m in Sources */,
 				F8AC42271F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift in Sources */,
-				F8AC424E1F3207E3007BFD8C /* NEHomeViewVC.swift in Sources */,
 				F8AC422F1F31BCED007BFD8C /* LYInteractiveController.swift in Sources */,
 				F8AC42391F31BCED007BFD8C /* UIViewRefreshExtension.swift in Sources */,
 				F8AC422A1F31BCED007BFD8C /* LYToastView.swift in Sources */,
@@ -502,6 +509,7 @@
 				F8AC42321F31BCED007BFD8C /* LYTransitionLikePush.swift in Sources */,
 				F8AC42181F31BCED007BFD8C /* LYSearchBar.swift in Sources */,
 				F8AC423F1F31BE1D007BFD8C /* LYNavigationController.swift in Sources */,
+				F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */,
 				F8AC42261F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift in Sources */,
 				F8AC42281F31BCED007BFD8C /* UIView+Rect.swift in Sources */,
 				F8AC42381F31BCED007BFD8C /* LYRefreshHeader.swift in Sources */,
