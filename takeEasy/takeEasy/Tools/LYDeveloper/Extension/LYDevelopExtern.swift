@@ -57,7 +57,8 @@ class LYDevelopExtern: NSObject {
         }
     }
     //  默认参考size = (320,568)
-    private let designSize = CGSize.init(width: 320, height: 568)
+    //  默认参考size = (375,667)
+    private let designSize = CGSize.init(width: 375, height: 667)
     private var screenWidth: CGFloat = 1
     private var screenHeight: CGFloat = 1
     private var screenWidthRatio: CGFloat = 1

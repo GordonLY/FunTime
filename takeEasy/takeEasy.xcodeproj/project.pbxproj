@@ -11,10 +11,14 @@
 		F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */; };
 		F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */; };
 		F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */; };
+		F842A3371F32FA3200B9BE4F /* TEFunTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3361F32FA3200B9BE4F /* TEFunTimeCell.swift */; };
+		F842A3391F33028C00B9BE4F /* NSObject+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3381F33028C00B9BE4F /* NSObject+LYDevelop.swift */; };
+		F8579F6D1F330839000579DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8579F6C1F330839000579DB /* Info.plist */; };
+		F8579F6F1F330CD2000579DB /* LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8579F6E1F330CD2000579DB /* LYDevelop.swift */; };
+		F8579F711F333023000579DB /* TEFunTimeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8579F701F333023000579DB /* TEFunTimeDetailVC.swift */; };
 		F8AC41C41F31A45D007BFD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */; };
 		F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */; };
 		F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */; };
-		F8AC41CB1F31A4F3007BFD8C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41CA1F31A4F3007BFD8C /* Info.plist */; };
 		F8AC41DB1F31BCE3007BFD8C /* LYNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */; };
 		F8AC42131F31BCED007BFD8C /* LYContentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */; };
 		F8AC42141F31BCED007BFD8C /* LYDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41DF1F31BCED007BFD8C /* LYDatePickerView.swift */; };
@@ -63,12 +67,16 @@
 		F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeVC.swift; sourceTree = "<group>"; };
 		F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeListModel.swift; sourceTree = "<group>"; };
 		F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimDetailModel.swift; sourceTree = "<group>"; };
+		F842A3361F32FA3200B9BE4F /* TEFunTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeCell.swift; sourceTree = "<group>"; };
+		F842A3381F33028C00B9BE4F /* NSObject+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+LYDevelop.swift"; sourceTree = "<group>"; };
+		F8579F6C1F330839000579DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		F8579F6E1F330CD2000579DB /* LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYDevelop.swift; sourceTree = "<group>"; };
+		F8579F701F333023000579DB /* TEFunTimeDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeDetailVC.swift; sourceTree = "<group>"; };
 		F8AC419E1F31A1C8007BFD8C /* takeEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = takeEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8AC41BD1F31A45D007BFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8AC41C11F31A45D007BFD8C /* takeEasy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "takeEasy-Bridging-Header.h"; sourceTree = "<group>"; };
-		F8AC41CA1F31A4F3007BFD8C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYNoDataView.swift; sourceTree = "<group>"; };
 		F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYContentPickerView.swift; sourceTree = "<group>"; };
 		F8AC41DF1F31BCED007BFD8C /* LYDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYDatePickerView.swift; sourceTree = "<group>"; };
@@ -194,8 +202,8 @@
 		F8AC41B91F31A45D007BFD8C /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				F8579F6C1F330839000579DB /* Info.plist */,
 				F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */,
-				F8AC41CA1F31A4F3007BFD8C /* Info.plist */,
 				F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */,
 				F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */,
 				F8AC41C11F31A45D007BFD8C /* takeEasy-Bridging-Header.h */,
@@ -243,6 +251,7 @@
 		F8AC41E81F31BCED007BFD8C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F8579F6E1F330CD2000579DB /* LYDevelop.swift */,
 				F8AC41EC1F31BCED007BFD8C /* LYDevelopExtern.swift */,
 				F8AC41E91F31BCED007BFD8C /* CALayer+LYDevelop.swift */,
 				F8AC41EA1F31BCED007BFD8C /* DateHelper.swift */,
@@ -255,6 +264,7 @@
 				F8AC41F81F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift */,
 				F8AC41F91F31BCED007BFD8C /* UIView+Rect.swift */,
 				F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */,
+				F842A3381F33028C00B9BE4F /* NSObject+LYDevelop.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -325,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */,
+				F8579F701F333023000579DB /* TEFunTimeDetailVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -332,6 +343,7 @@
 		F8AC424B1F3207AF007BFD8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F842A3361F32FA3200B9BE4F /* TEFunTimeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,9 +423,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8AC41CB1F31A4F3007BFD8C /* Info.plist in Resources */,
 				F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */,
 				F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */,
+				F8579F6D1F330839000579DB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,15 +494,18 @@
 				F8AC42221F31BCED007BFD8C /* Optional+Wrap.swift in Sources */,
 				F8AC42411F31BE4E007BFD8C /* LYSwiftMacro.swift in Sources */,
 				F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */,
+				F842A3391F33028C00B9BE4F /* NSObject+LYDevelop.swift in Sources */,
 				F8AC421C1F31BCED007BFD8C /* DateHelper.swift in Sources */,
 				F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */,
 				F8AC421D1F31BCED007BFD8C /* Dictionary+LYDevelop.swift in Sources */,
 				F8AC42131F31BCED007BFD8C /* LYContentPickerView.swift in Sources */,
 				F8AC422E1F31BCED007BFD8C /* LYInteractiveAnimator.swift in Sources */,
+				F8579F6F1F330CD2000579DB /* LYDevelop.swift in Sources */,
 				F8AC42231F31BCED007BFD8C /* String+LYDevelop.swift in Sources */,
 				F8AC42141F31BCED007BFD8C /* LYDatePickerView.swift in Sources */,
 				F8AC42151F31BCED007BFD8C /* LYFrameButton.swift in Sources */,
 				F8AC41DB1F31BCE3007BFD8C /* LYNoDataView.swift in Sources */,
+				F8579F711F333023000579DB /* TEFunTimeDetailVC.swift in Sources */,
 				F8AC42191F31BCED007BFD8C /* LYTextView.m in Sources */,
 				F8AC42301F31BCED007BFD8C /* LYInteractiveDelegate.swift in Sources */,
 				F8AC421E1F31BCED007BFD8C /* LYDevelopExtern.swift in Sources */,
@@ -515,6 +530,7 @@
 				F8AC42381F31BCED007BFD8C /* LYRefreshHeader.swift in Sources */,
 				F8AC423B1F31BD44007BFD8C /* LYLocalDataMng.swift in Sources */,
 				F8AC42291F31BCED007BFD8C /* LYAlertView.swift in Sources */,
+				F842A3371F32FA3200B9BE4F /* TEFunTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

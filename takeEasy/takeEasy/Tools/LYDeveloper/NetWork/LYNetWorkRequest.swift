@@ -71,20 +71,13 @@ class LYNetWorkRequest: NSObject {
             d_print(String.init(format: "\n=======================================================\n### 响应结果: \n  <responseUrl> : %@ \n  <response>    : %@ ", urlStr,response.result.value as? Dictionary<String, Any> ?? "no response data"))
             if let success = success, response.result.isSuccess,
                 let result = response.result.value as? Dictionary<String, Any>,
-                  result.keys.contains("sid") {
+                  result.keys.contains("S1426236711448") {
                 // success
                 // 缓存 (只缓存成功的数据)
-                if let code = result["sid"] as? String, code != "" {
-                    if fileCachePath != nil {
-                        (result as NSDictionary).write(toFile: fileCachePath!, atomically: true)
-                    }
-                    success(result)
-                } else {
-                    /*//  code != 0 ，not success
-                    if let notSuccess = notSuccess, let msg = result["mes"] as? String, let code = result["code"] as? Int {
-                        notSuccess(code,msg)
-                    } */
+                if fileCachePath != nil {
+                    (result as NSDictionary).write(toFile: fileCachePath!, atomically: true)
                 }
+                success(result)
             } else {
                 // failure
                 if let failure = failure,
@@ -96,7 +89,7 @@ class LYNetWorkRequest: NSObject {
     }
     
     // MARK: === 上传图片
-    class func ly_uploadPhoto(imgData:Data, urlStr:String, success:((Dictionary<String, Any>) -> Void)?, failure:((Error?) -> Void)?) {
+    class func ly_uploadPhoto(imgData:Data, urlStr:String, success:((Dictionary<String, Any>) -> Void)?, failure:((LYError?) -> Void)?) {
         
         Alamofire.upload(multipartFormData: { (formData) in
             formData.append(imgData, withName: "file", fileName: "kemiBear.png", mimeType: "application/octet-stream")
@@ -116,7 +109,7 @@ class LYNetWorkRequest: NSObject {
             case .failure(let encodingError):
                 LYToastView.hideLoading()
                 if let failure = failure {
-                    failure(encodingError)
+                    failure(LYError.netError(encodingError.localizedDescription))
                 }
             }
         })
@@ -204,7 +197,7 @@ class LYNetWorkRequest: NSObject {
         }
         let dict = dict ?? [:]
         let nameStr = urlStr.appending(dict.description)
-        let name = nameStr.md5() 
+        let name = nameStr.ly.md5()
         let filePath = (path as NSString).appendingPathComponent(name)
         return filePath
     }
@@ -217,3 +210,51 @@ class LYNetWorkRequest: NSObject {
         return path
     }
 }
+
+/*
+// MARK: === base request
+class func ly_baseRequest(httpMethod:HTTPMethod, urlStr:String, dict:Dictionary<String, Any>?, isCache:Bool, success:((Dictionary<String, Any>) -> Void)?, notSuccess:((Int, String) -> Void)?, failure:((LYError?) -> Void)?) -> DataRequest {
+    // 缓存设置
+    var fileCachePath: String? = nil
+    if isCache {
+        fileCachePath = self.p_getCachePathBy(urlStr: urlStr, dict: dict)
+    }
+    // 添加token
+    let headers: HTTPHeaders = ["token":LYLocalDataMng.shared.token]
+    // 打开loading
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    // 打印请求
+    d_print(String.init(format: "\n=======================================================\n### 网络请求: \n  <requestUrl> : %@ \n  <paramDict>  : %@ ", urlStr,dict ?? "no request param"))
+    // 发送请求
+    return Alamofire.request(urlStr, method: httpMethod, parameters: dict, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+        // 关闭loading
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        LYToastView.hideLoading()
+        // 打印结果
+        d_print(String.init(format: "\n=======================================================\n### 响应结果: \n  <responseUrl> : %@ \n  <response>    : %@ ", urlStr,response.result.value as? Dictionary<String, Any> ?? "no response data"))
+        if let success = success, response.result.isSuccess,
+            let result = response.result.value as? Dictionary<String, Any>,
+            result.keys.contains("code") {
+            // success
+            // 缓存 (只缓存成功的数据)
+            if let code = result["code"] as? Int, code == 0 {
+                if fileCachePath != nil {
+                    (result as NSDictionary).write(toFile: fileCachePath!, atomically: true)
+                }
+                success(result)
+            } else {
+                 //  code != 0 ，not success
+                 if let notSuccess = notSuccess, let msg = result["mes"] as? String, let code = result["code"] as? Int {
+                    notSuccess(code,msg)
+                 }
+            }
+        } else {
+            // failure
+            if let failure = failure,
+                let error = response.result.error {
+                failure(LYError.netError(error.localizedDescription))
+            }
+        }
+    }
+}
+*/

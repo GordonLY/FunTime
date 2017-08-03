@@ -28,6 +28,7 @@ class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -49,11 +50,10 @@ class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManag
     }
     
     // MARK: - ********* Net Response delegate
-    func lyNetworkReponseSucceed(urlStr: String, result: Dictionary<String, Any>?) {
+    func ly_netReponseSuccess(urlStr: String, result: Dictionary<String, Any>?) {
     }
-    func lyNetworkReponseIncorrectParam(urlStr: String, code: Int, message: String?) {
+    func ly_netReponseIncorrect(urlStr: String, code: Int, message: String?) {
     }
-    func lyNetworkReponseFailed(urlStr: String, error: Error?) {
-        
+    func ly_netReponseFailed(urlStr: String, error: LYError?) {
     }
 }

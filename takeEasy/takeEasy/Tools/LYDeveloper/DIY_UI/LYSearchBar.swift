@@ -13,7 +13,7 @@ class LYSearchBar: UITextField {
     var placeholderColor = kSeparateLineColor()
     var placeholderTxt = "" {
         didSet {
-            self.attributedPlaceholder = placeholderTxt.ly_AttributeStr(font: self.font ?? kRegularFitFont(size: 11), color: self.placeholderColor, wordSpacing: 0)
+            self.attributedPlaceholder = placeholderTxt.ly.attributeStr(font: self.font ?? kRegularFitFont(size: 11), color: self.placeholderColor, wordSpacing: 0)
         }
     }
     
@@ -49,7 +49,7 @@ class LYSearchBar: UITextField {
             rightBtn.addTarget(self, action: #selector(p_actionClearBtn), for: .touchUpInside)
             rightBtn.imageView?.contentMode = .center
             rightBtn.setImage(UIImage.init(named: "jz_search_clear"), for: .normal)
-            rightBtn.setImage(UIImage.init(named: "jz_search_clear")?.lyImage(tintColor: UIColor.init(white: 1, alpha: 0.4)), for: .highlighted)
+            rightBtn.setImage(UIImage.init(named: "jz_search_clear")?.ly_image(tintColor: UIColor.init(white: 1, alpha: 0.4)), for: .highlighted)
             self.rightView = rightBtn
             self.rightViewMode = .whileEditing
             

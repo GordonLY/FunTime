@@ -8,24 +8,24 @@
 
 import UIKit
 
-extension CALayer {
-
+extension LYDevelop where Base: CALayer {
     
     /// 设置圆角
-    func lySetRoundRect() {
-        self.cornerRadius = self.bounds.size.height * 0.5
-        self.masksToBounds = true
+    func setRoundRect() {
+        base.cornerRadius = base.bounds.size.height * 0.5
+        base.masksToBounds = true
     }
     /// 设置圆角 角度
-    func lySetCornerRadius(_ radius:CGFloat) {
-        self.cornerRadius = radius
-        self.masksToBounds = true
+    func setCornerRadius(_ radius:CGFloat) {
+        base.cornerRadius = radius
+        base.masksToBounds = true
     }
     
     /// 设置border
-    func lySetBorder(width: CGFloat, color: UIColor) {
-        self.borderColor = color.cgColor
-        self.borderWidth = width
-        self.masksToBounds = true   
+    func setBorder(width: CGFloat, color: UIColor) {
+        base.borderColor = color.cgColor
+        base.borderWidth = width
+        base.masksToBounds = true
     }
 }
+

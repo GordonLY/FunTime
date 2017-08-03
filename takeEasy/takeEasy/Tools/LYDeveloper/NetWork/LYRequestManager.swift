@@ -12,11 +12,11 @@ import Alamofire
 protocol LYRequestManagerDelegate: NSObjectProtocol {
     
     ///  请求成功
-    func lyNetworkReponseSucceed(urlStr:String, result: Dictionary<String, Any>?)
+    func ly_netReponseSuccess(urlStr:String, result: Dictionary<String, Any>?)
     ///  请求参数错误
-    func lyNetworkReponseIncorrectParam(urlStr:String, code: Int, message: String?)
+    func ly_netReponseIncorrect(urlStr:String, code: Int, message: String?)
     ///  请求失败
-    func lyNetworkReponseFailed(urlStr:String, error: Error?)
+    func ly_netReponseFailed(urlStr:String, error: LYError?)
 }
 
 class LYRequestManager: NSObject {
@@ -30,13 +30,13 @@ class LYRequestManager: NSObject {
     }
     // MARK: - ********* 代理回调
     func p_callDelegate(success urlStr:String, data:Dictionary<String, Any>?) {
-        delegate?.lyNetworkReponseSucceed(urlStr: urlStr, result: data)
+        delegate?.ly_netReponseSuccess(urlStr: urlStr, result: data)
     }
     func p_callDelegate(incorrect urlStr:String, code: Int, msg:String?) {
-        delegate?.lyNetworkReponseIncorrectParam(urlStr: urlStr, code: code, message: msg)
+        delegate?.ly_netReponseIncorrect(urlStr: urlStr, code: code, message: msg)
     }
-    func p_callDelegate(fail urlStr:String, error:Error?) {
-        delegate?.lyNetworkReponseFailed(urlStr: urlStr, error: error)
+    func p_callDelegate(fail urlStr:String, error:LYError?) {
+        delegate?.ly_netReponseFailed(urlStr: urlStr, error: error)
     }
     
     // MARK: - ********* 网络请求

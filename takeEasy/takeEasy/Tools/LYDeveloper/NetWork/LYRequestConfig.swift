@@ -22,7 +22,7 @@ private enum DevelopEnvironment {
     /// 线上环境
     case online
 }
-private let developConfig: DevelopEnvironment = .online
+private let developConfig: DevelopEnvironment = .debug
 
 
 ///  print 

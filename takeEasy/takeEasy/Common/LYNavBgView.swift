@@ -44,14 +44,14 @@ class LYNavBgView: UIView {
         
         leftView = UIButton.init(frame: CGRect.init(x: 0, y: 20, width: 48, height: 44))
         leftView.setImage(UIImage.init(named: "km_back"), for: .normal)
-        leftView.setImage(UIImage.init(named: "km_back")?.lyImage(tintColor: kTitleColorHalf()), for: .highlighted)
+        leftView.setImage(UIImage.init(named: "km_back")?.ly_image(tintColor: kTitleColorHalf()), for: .highlighted)
         leftView.isHidden = true
         leftView.addTarget(self, action: #selector(p_ActionleftView), for: .touchUpInside)
         self.addSubview(leftView)
         
         rightView = UIButton.init(frame: CGRect.init(x: kScreenWid() - 48, y: 20, width: 48, height: 44))
         rightView.setImage(UIImage.init(named: "share_icon"), for: .normal)
-        rightView.setImage(UIImage.init(named: "share_icon")?.lyImage(tintColor: kTitleColorHalf()), for: .highlighted)
+        rightView.setImage(UIImage.init(named: "share_icon")?.ly_image(tintColor: kTitleColorHalf()), for: .highlighted)
         rightView.isHidden = true
         rightView.addTarget(self, action: #selector(p_ActionRightView), for: .touchUpInside)
         self.addSubview(rightView)
@@ -74,10 +74,10 @@ class LYNavBgView: UIView {
         switch style {
         case .back:
             leftView.setImage(UIImage.init(named: "km_back"), for: .normal)
-            leftView.setImage(UIImage.init(named: "km_back")?.lyImage(tintColor: kSubTitleColorHalf()), for: .highlighted)
+            leftView.setImage(UIImage.init(named: "km_back")?.ly_image(tintColor: kSubTitleColorHalf()), for: .highlighted)
         case .close:
             leftView.setImage(UIImage.init(named: "home_close"), for: .normal)
-            leftView.setImage(UIImage.init(named: "home_close")?.lyImage(tintColor: kSubTitleColorHalf()), for: .highlighted)
+            leftView.setImage(UIImage.init(named: "home_close")?.ly_image(tintColor: kSubTitleColorHalf()), for: .highlighted)
         }
         leftView.isHidden = false
     }

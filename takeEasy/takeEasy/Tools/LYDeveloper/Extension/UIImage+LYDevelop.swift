@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 extension UIImage {
     
     /// 改变图标的颜色，用于小图标绘制
@@ -15,7 +16,7 @@ extension UIImage {
     /// - Parameter tintColor: 目标颜色
     ///
     /// - Returns: 改变颜色后的image
-    func lyImage(tintColor:UIColor) -> UIImage {
+    func ly_image(tintColor:UIColor) -> UIImage {
         //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
         tintColor.setFill()
@@ -29,7 +30,7 @@ extension UIImage {
     }
     
     /// 返回一张带有颜色尺寸带圆角的 image
-    class func lyImage(color:UIColor, size: CGSize, cornerRadius: CGFloat) -> UIImage {
+    class func ly_image(color:UIColor, size: CGSize, cornerRadius: CGFloat) -> UIImage {
      
         let rect = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
         let path = UIBezierPath.init(roundedRect: rect, cornerRadius: cornerRadius)

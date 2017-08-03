@@ -62,51 +62,51 @@ func kNaviBtnFont() -> UIFont {
 // MARK: - ****** 颜色相关 ******
 // color
 func kThemeColor() -> UIColor {
-    return UIColor.lyColorRGBA(0xff5722, 1)
+    return UIColor.ly_color(0xff5722)
 }
 func kThemeColorHalf() -> UIColor {
-    return UIColor.lyColorRGBA(0xfe5722, 0.5)
+    return UIColor.ly_color(0xfe5722, 0.5)
 }
 func kSeparateLineColor() -> UIColor {
-    return UIColor.lyColorRGBA(0xeeeeee, 1)
+    return UIColor.ly_color(0xdddddd, 1)
 }
 func kPlaceholderColor() -> UIColor {
-    return UIColor.lyColorRGBA(0xf4f4f4, 1)
+    return UIColor.ly_color(0xf4f4f4, 1)
 }
 func kBgColorF5() -> UIColor {
-    return UIColor.lyColorRGBA(0xf5f5f5, 1)
+    return UIColor.ly_color(0xf5f5f5, 1)
 }
 func kDisableColor() -> UIColor {
     return UIColor.gray
 }
 
 func kMaleColor() -> UIColor {
-    return UIColor.lyColorRGB(0x75aaf2)
+    return UIColor.ly_color(0x75aaf2)
 }
 func kFemaleColor() -> UIColor {
-    return UIColor.lyColorRGB(0xf8537a)
+    return UIColor.ly_color(0xf8537a)
 }
 
 /**  主标题颜色 - 黑  */
 func kTitleColor() -> UIColor {
-    return UIColor.lyColorRGBA(0x333333, 1)
+    return UIColor.ly_color(0x333333, 1)
 }
 func kTitleColorHalf() -> UIColor {
-    return UIColor.lyColorRGBA(0x333333, 0.5)
+    return UIColor.ly_color(0x333333, 0.5)
 }
 /**  次标题颜色 - 黑  */
 func kMidTitleColor() -> UIColor {
-    return UIColor.lyColorRGBA(0x666666, 1)
+    return UIColor.ly_color(0x666666, 1)
 }
 func kMidTitleColorHalf() -> UIColor {
-    return UIColor.lyColorRGBA(0x666666, 0.5)
+    return UIColor.ly_color(0x666666, 0.5)
 }
 /**  副标题颜色 - 淡灰  */
 func kSubTitleColor() -> UIColor {
-    return UIColor.lyColorRGBA(0x999999, 1)
+    return UIColor.ly_color(0x999999, 1)
 }
 func kSubTitleColorHalf() -> UIColor {
-    return UIColor.lyColorRGBA(0x999999, 0.5)
+    return UIColor.ly_color(0x999999, 0.5)
 }
 
 // MARK: - ****** placeHolder ******

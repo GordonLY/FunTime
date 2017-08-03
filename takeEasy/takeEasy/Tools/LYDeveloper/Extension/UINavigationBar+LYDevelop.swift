@@ -8,23 +8,22 @@
 
 import UIKit
 
-extension UINavigationBar {
+extension LYDevelop where Base: UINavigationBar {
     
-    
-    func lySetNavBar(bgColor:UIColor, shadowColor:UIColor) {
-        self.isTranslucent = true;
-        let shadowImg = UIImage.lyImage(color: shadowColor, size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
-        let bgImg = UIImage.lyImage(color: bgColor, size: CGSize.init(width: kScreenWid(), height: 64), cornerRadius: 0)
-        self.shadowImage = shadowImg
-        self.setBackgroundImage(bgImg, for: .default)
+    func setNavBar(bgColor:UIColor, shadowColor:UIColor) {
+        base.isTranslucent = true;
+        let shadowImg = UIImage.ly_image(color: shadowColor, size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
+        let bgImg = UIImage.ly_image(color: bgColor, size: CGSize.init(width: kScreenWid(), height: 64), cornerRadius: 0)
+        base.shadowImage = shadowImg
+        base.setBackgroundImage(bgImg, for: .default)
     }
     
     /// 将导航栏设置全透明   注意 设置之后可能会改变 UIframe的 Y 值
-    func lySetNavBarFullClear() {
+    func setNavBarFullClear() {
         
-        self.isTranslucent = true;
-        self.shadowImage = UIImage.lyImage(color: UIColor.init(white: 0, alpha: 0), size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
-        self.setBackgroundImage(UIImage.lyImage(color: UIColor.init(white: 0, alpha: 0), size: CGSize.init(width: kScreenWid(), height: 64), cornerRadius: 0), for: .default)
+        base.isTranslucent = true;
+        base.shadowImage = UIImage.ly_image(color: UIColor.init(white: 0, alpha: 0), size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
+        base.setBackgroundImage(UIImage.ly_image(color: UIColor.init(white: 0, alpha: 0), size: CGSize.init(width: kScreenWid(), height: 64), cornerRadius: 0), for: .default)
     }
     
     
@@ -35,11 +34,13 @@ extension UINavigationBar {
     /// - Parameter titleColor: navTitle的文字颜色
     ///
     /// - Parameter barBgColor: navBar的背景色
-    func lyUpdateNavBar(font:UIFont, titleColor:UIColor, barBgColor: UIColor) {
-     
-        self.titleTextAttributes =
-        [NSFontAttributeName: font,
-            NSForegroundColorAttributeName: titleColor]
-        self.backgroundColor = barBgColor
+    func updateNavBar(font:UIFont, titleColor:UIColor, barBgColor: UIColor) {
+        
+        base.titleTextAttributes =
+            [NSFontAttributeName: font,
+             NSForegroundColorAttributeName: titleColor]
+        base.backgroundColor = barBgColor
     }
+    
 }
+

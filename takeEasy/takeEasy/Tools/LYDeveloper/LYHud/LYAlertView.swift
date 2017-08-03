@@ -135,7 +135,7 @@ class LYAlertView: UIView {
         
         contain = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kFitWid(260), height: kFitWid(160)))
         contain.backgroundColor = UIColor.white
-        contain.layer.lySetCornerRadius(kFitWid(5))
+        contain.layer.ly.setCornerRadius(kFitWid(5))
         self.addSubview(contain)
         contain.center = self.center
         
@@ -154,7 +154,7 @@ class LYAlertView: UIView {
         
         btnYes = LYFrameButton.init(type: .custom)
         btnYes.frame = CGRect.init(x: contain.width - btnW - kFitWid(20), y: 0, width: btnW, height: btnH)
-        btnYes.layer.lySetCornerRadius(kFitWid(5))
+        btnYes.layer.ly.setCornerRadius(kFitWid(5))
         btnYes.backgroundColor = kThemeColor()
         btnYes.titleLabel?.font = kRegularFitFont(size: 14)
         btnYes.setTitleColor(UIColor.white, for: .normal)
@@ -165,7 +165,7 @@ class LYAlertView: UIView {
         
         btnNo = LYFrameButton.init(type: .custom)
         btnNo.frame = CGRect.init(x: kFitWid(20), y: 0, width: btnW, height: btnH)
-        btnNo.layer.lySetCornerRadius(kFitWid(5))
+        btnNo.layer.ly.setCornerRadius(kFitWid(5))
         btnNo.layer.borderColor = kThemeColor().cgColor
         btnNo.layer.borderWidth = 0.5
         btnNo.isBorderAnimate = true
@@ -179,7 +179,7 @@ class LYAlertView: UIView {
         okBtn = LYFrameButton.init(type: .custom)
         okBtn.frame = CGRect.init(x: 0, y: 0, width: kFitWid(110), height: btnH)
         okBtn.centerX = btnContain.width * 0.5
-        okBtn.layer.lySetCornerRadius(kFitWid(5))
+        okBtn.layer.ly.setCornerRadius(kFitWid(5))
         okBtn.backgroundColor = kThemeColor()
         okBtn.titleLabel?.font = kRegularFitFont(size: 15)
         okBtn.setTitleColor(UIColor.white, for: .normal)
@@ -267,7 +267,7 @@ class LYShowView: UIView {
         
         contain = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kFitWid(144), height: kFitWid(144)))
         contain.backgroundColor = UIColor.white
-        contain.layer.lySetCornerRadius(kFitWid(5))
+        contain.layer.ly.setCornerRadius(kFitWid(5))
         self.addSubview(contain)
         contain.center = self.center
         

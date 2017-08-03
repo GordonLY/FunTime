@@ -18,7 +18,7 @@ class LYNavigationController: UINavigationController {
             [NSFontAttributeName: kNaviFont(),
              NSForegroundColorAttributeName: UIColor.white]
         
-        self.navigationBar.lySetNavBar(bgColor: kThemeColor(), shadowColor: UIColor.clear)
+        self.navigationBar.ly.setNavBar(bgColor: kThemeColor(), shadowColor: UIColor.clear)
     }
     
     // 监听即将进入的controller
@@ -42,7 +42,7 @@ class LYNavigationController: UINavigationController {
         btn.frame = CGRect.init(x: 0, y: 0, width: 44, height: 44)
         btn.contentHorizontalAlignment = .left
         btn.setImage(UIImage.init(named: "jz_nav_back"), for: .normal)
-        btn.setImage(UIImage.init(named: "jz_nav_back")?.lyImage(tintColor: UIColor.init(white: 1, alpha: 0.5)), for: .highlighted)
+        btn.setImage(UIImage.init(named: "jz_nav_back")?.ly_image(tintColor: UIColor.init(white: 1, alpha: 0.5)), for: .highlighted)
         btn.addTarget(self, action: #selector(p_backBtnOnClick), for: .touchUpInside)
         return btn
     }
