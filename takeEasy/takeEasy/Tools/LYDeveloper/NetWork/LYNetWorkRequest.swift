@@ -123,10 +123,10 @@ class LYNetWorkRequest: NSObject {
         // 2.视频缓存位置
         let cachePath = self.p_getFileCachePath()
         let v_filePath = (cachePath as NSString).appendingPathComponent(fileName)
-        let v_fileUrl = URL.init(string: v_filePath)!
+        let v_fileUrl = URL.init(fileURLWithPath: v_filePath)
         let v_cachePath = (cachePath as NSString).appendingPathComponent("\(fileName)cache")
         let destination: DownloadRequest.DownloadFileDestination = { _, response in
-            return (v_fileUrl, [.removePreviousFile, .createIntermediateDirectories])
+            return (v_fileUrl, [.createIntermediateDirectories, .removePreviousFile])
         }
         // 3.分情况处理请求
         // 3.1 已下载完成
@@ -204,7 +204,7 @@ class LYNetWorkRequest: NSObject {
     // MARK: === 文件下载的目录
     private class func p_getFileCachePath() -> String {
         let path = (FileManager.ly_libraryCachesPath() as NSString).appendingPathComponent("takeEasy_fileCaches")
-        if FileManager.ly_fileExists(atPath: path) {
+        if !FileManager.ly_fileExists(atPath: path) {
             _ = FileManager.ly_createDirectories(forPath: path)
         }
         return path

@@ -70,6 +70,15 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
     // MARK: === 网络请求
     func p_startNetWorkRequest() {
         netMng.ly_GetRequset(urlStr: kNet_funtimeList, param: nil)
+        
+        let mp3 = "http://mobilepics.nosdn.127.net/zYRB%3DxBO2mOPdJCAsju7bOWSv02b1Uhx%3D%3DEJ1LQKJS.mp3"
+        netMng.ly_down(filePath: mp3, progress: { (downProgress, fileName) in
+            d_print("=== download >>> \(fileName) ... \(downProgress.completedUnitCount)/\(downProgress.totalUnitCount) ")
+        }) { (filePath) in
+            d_print("=== finished ===")
+            
+            d_print("=== filePath: \(filePath?.absoluteString)")
+        }
     }
     // MARK: - ********* Private Method
     func p_setUpNav() {

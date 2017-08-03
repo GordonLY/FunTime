@@ -44,7 +44,7 @@ class TEFunTimeDetailVC: LYBaseViewC {
     // MARK: - ********* Private Method
     func p_setUpNav() {
         self.navigationItem.title = "轻松一刻语音版"
-        
+        // https://img6.cache.netease.com/utf8/3g-new/img/74c0513beb60b0117ba06f8a64acb3da.png
     }
     func p_initSubviews() {
         

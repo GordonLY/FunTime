@@ -13,7 +13,6 @@
 		F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */; };
 		F842A3371F32FA3200B9BE4F /* TEFunTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3361F32FA3200B9BE4F /* TEFunTimeCell.swift */; };
 		F842A3391F33028C00B9BE4F /* NSObject+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3381F33028C00B9BE4F /* NSObject+LYDevelop.swift */; };
-		F8579F6D1F330839000579DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8579F6C1F330839000579DB /* Info.plist */; };
 		F8579F6F1F330CD2000579DB /* LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8579F6E1F330CD2000579DB /* LYDevelop.swift */; };
 		F8579F711F333023000579DB /* TEFunTimeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8579F701F333023000579DB /* TEFunTimeDetailVC.swift */; };
 		F8AC41C41F31A45D007BFD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */; };
@@ -425,7 +424,6 @@
 			files = (
 				F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */,
 				F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */,
-				F8579F6D1F330839000579DB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
