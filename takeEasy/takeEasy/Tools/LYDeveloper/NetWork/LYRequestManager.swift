@@ -58,10 +58,10 @@ class LYRequestManager: NSObject {
     }
     
     // MARK: === 代理回调方式 请求
-    func ly_GetRequset(urlStr:String, param:Dictionary<String, Any>?) {
+    func ly_getRequset(urlStr:String, param:Dictionary<String, Any>?) {
         self.p_request(type: .get, urlStr: urlStr, param: param)
     }
-    func ly_PostRequset(urlStr:String, param:Dictionary<String, Any>?) {
+    func ly_postRequset(urlStr:String, param:Dictionary<String, Any>?) {
         self.p_request(type: .post, urlStr: urlStr, param: param)
     }
     private func p_request(type:HTTPMethod, urlStr:String, param:Dictionary<String, Any>?) {
@@ -78,10 +78,10 @@ class LYRequestManager: NSObject {
         })
     }
     // MARK: === block回调方式 请求
-    func ly_GetRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int,String?) -> Void)?, fail:((Error?) -> Void)?) {
+    func ly_getRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int,String?) -> Void)?, fail:((Error?) -> Void)?) {
         self.p_lyRequest(type: .get, urlStr: urlStr, param: param, success: success, incorrect: incorrect, fail: fail)
     }
-    func ly_PostRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int, String?) -> Void)?, fail:((Error?) -> Void)?) {
+    func ly_postRequest(urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int, String?) -> Void)?, fail:((Error?) -> Void)?) {
         self.p_lyRequest(type: .post, urlStr: urlStr, param: param, success: success, incorrect: incorrect, fail: fail)
     }
     private func p_lyRequest(type:HTTPMethod, urlStr:String, param:Dictionary<String, Any>?, success:((Dictionary<String, Any>?) -> Void)?, incorrect:((Int, String?) -> Void)?, fail:((Error?) -> Void)?) {

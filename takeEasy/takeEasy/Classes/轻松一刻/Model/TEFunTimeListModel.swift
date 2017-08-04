@@ -15,7 +15,15 @@ class TEFunTimeListModel: NSObject {
     /// 投票数
     var votecount = 0
     /// 发布时间
-    var ptime = ""
+    var ptime = "" {
+        didSet {
+            guard let date = Date.init(fromString: ptime, format: .custom("yyyy-MM-dd HH:mm:ss")) else {
+                return
+            }
+            time_show = date.ly_toStringWithRelativeTime()
+        }
+    }
+    var time_show = ""
     /// 来源
     var source = ""
     /// 标题

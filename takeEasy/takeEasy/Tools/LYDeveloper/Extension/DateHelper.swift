@@ -244,6 +244,44 @@ public extension Date {
     }
     
     
+    /// Converts the date to string based on a relative time language. i.e. just now, 1 minute ago etc...
+    func ly_toStringWithRelativeTime(strings:[RelativeTimeStringType:String]? = nil) -> String {
+        
+        let time = self.timeIntervalSince1970
+        let nowDate = Date()
+        let now = nowDate.timeIntervalSince1970
+        let isPast = now - time > 0
+        
+        let sec:Double = abs(now - time)
+        let min:Double = round(sec/60)
+        let hr:Double = round(min/60)
+        let d:Double = round(hr/24)
+        
+        if min < 60 {
+            if min <= 3 {
+                return "刚刚"
+            } else {
+                return "\(min)分钟前"
+            }
+        }
+        if hr < 24 {
+            if self.component(.day) != nowDate.component(.day) {
+                return "昨天"
+            }
+            return "\(hr)小时前"
+        }
+        if d == 1 {
+                return "昨天"
+        }
+        if compare(.isThisYear) {
+            return self.toString(format: .custom("MM-dd"))
+        }
+        if isPast {
+            return self.toString(format: .custom("yyyy-MM-dd"))
+        }
+        return ""
+    }
+    
     // MARK: Compare Dates
     
     /// Compares dates to see if they are equal while ignoring time.

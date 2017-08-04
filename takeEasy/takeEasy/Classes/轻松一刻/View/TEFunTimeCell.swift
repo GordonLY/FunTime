@@ -16,11 +16,13 @@ class TEFunTimeCell: UITableViewCell {
             titleLabel?.text = model.title
             titleLabel.sizeToFit()
             imgView?.kf.setImage(with: URL.init(string: model.imgsrc))
+            dateLabel.text = model.time_show
         }
     }
     
     private var imgView: UIImageView!
     private var titleLabel: UILabel!
+    private var dateLabel: UILabel!
     
     static let CellReuseId = "TEFunTimeCell"
     class func cellWithTableView(_ tableView: UITableView, indexPath: IndexPath) -> TEFunTimeCell {
@@ -41,11 +43,17 @@ class TEFunTimeCell: UITableViewCell {
         contentView.addSubview(imgView)
         
         titleLabel = UILabel.init(frame: CGRect.init(x: imgView.right + kFitCeilWid(8), y: imgView.top, width: kScreenWid() - kFitCeilWid(130), height: kFitCeilWid(40)))
-        titleLabel.font = kRegularFitFont(size: 12)
+        titleLabel.font = kRegularFitFont(size: 14)
         titleLabel.textColor = kTitleColor()
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 3
         contentView.addSubview(titleLabel)
+        
+        dateLabel = UILabel.init(frame: CGRect.init(x: titleLabel.left, y: imgView.bottom - kFitCeilWid(11), width: titleLabel.width - kFitCeilWid(10), height: kFitCeilWid(12)))
+        dateLabel.font = kRegularFitFont(size: 11)
+        dateLabel.textAlignment = .right
+        dateLabel.textColor = kSubTitleColor()
+        contentView.addSubview(dateLabel)
         
         let line = UIView.init(frame: CGRect.init(x: imgView.left, y: kFitCeilWid(90) - 0.5, width: kScreenWid() - imgView.left, height: 0.5))
         line.backgroundColor = kSeparateLineColor()

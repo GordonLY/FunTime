@@ -31,10 +31,13 @@ class LYNetWorkRequest: NSObject {
     class func ly_loadCacheDataWith(urlStr:String, dict:Dictionary<String, Any>?) -> Dictionary<String, Any>? {
         let filePath = self.p_getCachePathBy(urlStr: urlStr, dict: dict)
         if FileManager.default.fileExists(atPath: filePath),
-            var dict = NSMutableDictionary.init(contentsOfFile: filePath) as? Dictionary<String, Any> {
+            let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: filePath)),
+            let dicData = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Dictionary<String, Any>,
+            var dict = dicData
+            {
             let cacheDate = FileManager.ly_modifyDateOfItem(atPath: filePath)
             let currentDate = Date()
-            dict["needRefresh"] = currentDate.timeIntervalSince(cacheDate) > kCacheDataSaveTimeShort
+            dict["needRefresh"] = currentDate.timeIntervalSince(cacheDate) > kCacheDataSaveTimeLong
             return dict
         }
         return nil
@@ -75,7 +78,12 @@ class LYNetWorkRequest: NSObject {
                 // success
                 // 缓存 (只缓存成功的数据)
                 if fileCachePath != nil {
-                    (result as NSDictionary).write(toFile: fileCachePath!, atomically: true)
+                    let data = (result as NSDictionary).yy_modelToJSONData()
+                    do {
+                     try data?.write(to: URL.init(fileURLWithPath: fileCachePath!))
+                    } catch {
+                        d_print("*** write to file failed ***")
+                    }
                 }
                 success(result)
             } else {
@@ -121,7 +129,7 @@ class LYNetWorkRequest: NSObject {
         guard let url = URL.init(string: path) else { return nil }
         let fileName = url.lastPathComponent
         // 2.视频缓存位置
-        let cachePath = self.p_getFileCachePath()
+        let cachePath = FileManager.ly_funTimeDirectory()
         let v_filePath = (cachePath as NSString).appendingPathComponent(fileName)
         let v_fileUrl = URL.init(fileURLWithPath: v_filePath)
         let v_cachePath = (cachePath as NSString).appendingPathComponent("\(fileName)cache")
@@ -175,7 +183,7 @@ class LYNetWorkRequest: NSObject {
             return
         }
         let fileName = requestUrl.lastPathComponent
-        let cachePath = self.p_getFileCachePath()
+        let cachePath = FileManager.ly_funTimeDirectory()
         let v_cachePath = (cachePath as NSString).appendingPathComponent("\(fileName)cache")
         let cacheUrl = URL.init(string: v_cachePath)!
         do {
@@ -201,13 +209,12 @@ class LYNetWorkRequest: NSObject {
         let filePath = (path as NSString).appendingPathComponent(name)
         return filePath
     }
-    // MARK: === 文件下载的目录
-    private class func p_getFileCachePath() -> String {
-        let path = (FileManager.ly_libraryCachesPath() as NSString).appendingPathComponent("takeEasy_fileCaches")
-        if !FileManager.ly_fileExists(atPath: path) {
-            _ = FileManager.ly_createDirectories(forPath: path)
-        }
-        return path
+}
+
+extension Progress {
+    
+    var percent: CGFloat {
+        return CGFloat(self.completedUnitCount) / CGFloat(self.totalUnitCount)
     }
 }
 
@@ -236,12 +243,16 @@ class func ly_baseRequest(httpMethod:HTTPMethod, urlStr:String, dict:Dictionary<
             let result = response.result.value as? Dictionary<String, Any>,
             result.keys.contains("code") {
             // success
-            // 缓存 (只缓存成功的数据)
-            if let code = result["code"] as? Int, code == 0 {
-                if fileCachePath != nil {
-                    (result as NSDictionary).write(toFile: fileCachePath!, atomically: true)
-                }
-                success(result)
+             // 缓存 (只缓存成功的数据)
+             if fileCachePath != nil {
+                 let data = (result as NSDictionary).yy_modelToJSONData()
+                 do {
+                 try data?.write(to: URL.init(fileURLWithPath: fileCachePath!))
+                 } catch {
+                 d_print("*** write to file failed ***")
+                 }
+             }
+             success(result)
             } else {
                  //  code != 0 ，not success
                  if let notSuccess = notSuccess, let msg = result["mes"] as? String, let code = result["code"] as? Int {

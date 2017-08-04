@@ -10,6 +10,8 @@ import UIKit
 
 class TEFunTimeDetailVC: LYBaseViewC {
 
+    var funTimeModel = TEFunTimeListModel()
+    private var playBtn: LYFrameButton!
     // MARK: view cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +49,40 @@ class TEFunTimeDetailVC: LYBaseViewC {
         // https://img6.cache.netease.com/utf8/3g-new/img/74c0513beb60b0117ba06f8a64acb3da.png
     }
     func p_initSubviews() {
+        let imgView = UIImageView.init(frame: CGRect.init(x: 0, y: 64, width: kScreenWid(), height: kFitWid(64)))
+        imgView.backgroundColor = UIColor.white
+        imgView.contentMode = .scaleAspectFit
+        imgView.image = UIImage.init(named: "ft_detail_img")
+        self.view.addSubview(imgView)
+        
+        let line = UIView.init(frame: CGRect.init(x: kFitCeilWid(16), y: imgView.height - 0.5, width: imgView.width - kFitCeilWid(32), height: 0.5))
+        line.backgroundColor = kSeparateLineColor()
+        imgView.addSubview(line)
+        
+        let title = UILabel.init(frame: CGRect.init(x: kFitCeilWid(16), y: imgView.bottom + kFitCeilWid(20), width: kScreenWid() - kFitCeilWid(32), height: 0))
+        title.textColor = UIColor.ly_color(0x111111)
+        title.textAlignment = .left
+        title.font = kBoldFitFont(size: 22)
+        title.numberOfLines = 0
+        title.text = funTimeModel.title
+        title.sizeToFit()
+        self.view.addSubview(title)
+        
+        let subTitle = UILabel.init(frame: CGRect.init(x: kFitCeilWid(16), y: title.bottom + kFitCeilWid(10), width: kScreenWid() - kFitCeilWid(32), height: kFitCeilWid(13)))
+        subTitle.font = kRegularFitFont(size: 12)
+        subTitle.textColor = kSubTitleColor()
+        subTitle.text = funTimeModel.source + " " + funTimeModel.ptime
+        self.view.addSubview(subTitle)
+        
+        let detail = UILabel.init(frame: CGRect.init(x: subTitle.left, y: subTitle.bottom + kFitCeilWid(30), width: subTitle.width, height: 0))
+        detail.textColor = kTitleColor()
+        detail.numberOfLines = 0
+        detail.font = kRegularFitFont(size: 15)
+        detail.text = "轻松一刻语音版，每周二、四、六早上不见不散，期待各地广播电台加盟合作，推出原汁原味地地道道的方言版！"
+        detail.sizeToFit()
+        self.view.addSubview(detail)
+        
+        
         
     }
 

@@ -48,7 +48,9 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        let detail = TEFunTimeDetailVC()
+        detail.funTimeModel = cellModels[indexPath.row]
+        self.navigationController?.pushViewController(detail, animated: true)
     }
     
     // MARK: - ********* 网络数据
@@ -69,15 +71,16 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: === 网络请求
     func p_startNetWorkRequest() {
-        netMng.ly_GetRequset(urlStr: kNet_funtimeList, param: nil)
         
-        let mp3 = "http://mobilepics.nosdn.127.net/zYRB%3DxBO2mOPdJCAsju7bOWSv02b1Uhx%3D%3DEJ1LQKJS.mp3"
-        netMng.ly_down(filePath: mp3, progress: { (downProgress, fileName) in
-            d_print("=== download >>> \(fileName) ... \(downProgress.completedUnitCount)/\(downProgress.totalUnitCount) ")
-        }) { (filePath) in
-            d_print("=== finished ===")
-            
-            d_print("=== filePath: \(filePath?.absoluteString)")
+        if let cacheDic = netMng.ly_LoaclCache(urlStr: kNet_funtimeList, param: nil),
+            let needRefresh = cacheDic["needRefresh"] as? Bool
+        {
+            self.ly_netReponseSuccess(urlStr: kNet_funtimeList, result: cacheDic)
+            if needRefresh {
+                netMng.ly_getRequset(urlStr: kNet_funtimeList, param: nil)
+            }
+        } else {
+            netMng.ly_getRequset(urlStr: kNet_funtimeList, param: nil)
         }
     }
     // MARK: - ********* Private Method
