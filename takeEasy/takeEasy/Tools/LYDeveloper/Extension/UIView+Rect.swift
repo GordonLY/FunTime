@@ -157,6 +157,13 @@ extension UIView {
         }
     }
     
+    var b_center: CGPoint {
+        get {
+            return CGPoint.init(x: middleX, y: middleY)
+        }
+    }
+    
+    
     var middleX : CGFloat {
         
         get {

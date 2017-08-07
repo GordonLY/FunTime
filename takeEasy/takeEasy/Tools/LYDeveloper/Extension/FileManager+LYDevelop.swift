@@ -56,7 +56,7 @@ extension FileManager {
     }
     // MARK: === 轻松一刻下载目录
     class func ly_funTimeDirectory() -> String {
-        let path = (self.ly_downloadDirectory() as NSString).appendingPathComponent("网易轻松一刻")
+        let path = (self.ly_downloadDirectory() as NSString).appendingPathComponent("轻松一刻语音版")
         if !self.ly_fileExists(atPath: path) {
             _ = FileManager.ly_createDirectories(forPath: path)
         }

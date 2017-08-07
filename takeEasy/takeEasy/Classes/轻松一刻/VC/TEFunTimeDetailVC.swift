@@ -11,7 +11,7 @@ import UIKit
 class TEFunTimeDetailVC: LYBaseViewC {
 
     var funTimeModel = TEFunTimeListModel()
-    private var playBtn: LYFrameButton!
+    private var playView: TEFunTimePlayerView!
     // MARK: view cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,12 +78,15 @@ class TEFunTimeDetailVC: LYBaseViewC {
         detail.textColor = kTitleColor()
         detail.numberOfLines = 0
         detail.font = kRegularFitFont(size: 15)
-        detail.text = "轻松一刻语音版，每周二、四、六早上不见不散，期待各地广播电台加盟合作，推出原汁原味地地道道的方言版！"
+        detail.text = "轻松一刻语音版，每周二、四、六早上不见不散!"
         detail.sizeToFit()
         self.view.addSubview(detail)
         
+        playView = TEFunTimePlayerView.init(frame: CGRect.init(x: 0, y: detail.bottom + kFitCeilWid(20), width: 0, height: 0))
+        playView.funTimeModel = funTimeModel
+        self.view.addSubview(playView)
         
         
     }
-
+    
 }

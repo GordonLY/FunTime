@@ -268,7 +268,7 @@ public extension Date {
             if self.component(.day) != nowDate.component(.day) {
                 return "昨天"
             }
-            return "\(hr)小时前"
+            return String.init(format: "%.f小时前", hr)
         }
         if d == 1 {
                 return "昨天"

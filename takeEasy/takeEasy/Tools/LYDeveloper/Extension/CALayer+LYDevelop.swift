@@ -10,6 +10,20 @@ import UIKit
 
 extension LYDevelop where Base: CALayer {
     
+    /// 给layer添加阴影
+    ///
+    /// - Parameter color:  颜色
+    /// - Parameter blur:   blur radius
+    /// - Parameter opacity: 不透明
+    /// - Parameter rect:   shadowPath
+    ///
+    func addShadowWith(color: UIColor, blur: CGFloat, opacity: CGFloat, path: CGRect) {
+        base.shadowColor = color.cgColor
+        base.shadowRadius = blur
+        base.shadowOpacity = Float(opacity)
+        base.shadowPath = UIBezierPath.init(rect: path).cgPath
+    }
+    
     /// 设置圆角
     func setRoundRect() {
         base.cornerRadius = base.bounds.size.height * 0.5

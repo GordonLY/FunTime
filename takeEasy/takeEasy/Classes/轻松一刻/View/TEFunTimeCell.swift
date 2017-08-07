@@ -43,7 +43,7 @@ class TEFunTimeCell: UITableViewCell {
         contentView.addSubview(imgView)
         
         titleLabel = UILabel.init(frame: CGRect.init(x: imgView.right + kFitCeilWid(8), y: imgView.top, width: kScreenWid() - kFitCeilWid(130), height: kFitCeilWid(40)))
-        titleLabel.font = kRegularFitFont(size: 14)
+        titleLabel.font = kRegularFitFont(size: 15)
         titleLabel.textColor = kTitleColor()
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 3
