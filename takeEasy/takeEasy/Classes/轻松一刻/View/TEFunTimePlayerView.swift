@@ -30,10 +30,15 @@ class TEFunTimePlayerView: UIView {
     private var effectView: UIVisualEffectView!
     private var playBgView: UIImageView!
     private var playBtn: LYFrameButton!
+    private var downloadBtn: UIButton!
     
+    // MARK: - ********* Actions
     func p_actionPlayBtn() {
         
         
+        
+    }
+    func p_actionDownloadBtn() {
         
         
     }
@@ -78,24 +83,37 @@ class TEFunTimePlayerView: UIView {
         let sliderView = LYPlaySlider.init(frame: CGRect.init(x: kFitCeilWid(20), y: self.height - kFitCeilWid(25), width: self.width - kFitCeilWid(40), height: kFitCeilWid(25)))
         self.addSubview(sliderView)
         
-        let circle = LYCircleProgressView.init(frame: CGRect.init(x: self.width - kFitCeilWid(110), y: 10, width: kFitCeilWid(100), height: kFitCeilWid(100)))
-        self.addSubview(circle)
+        
+        downloadBtn = UIButton.init(frame: CGRect.init(x: self.width - kFitCeilWid(50), y: 0, width: kFitCeilWid(50), height: kFitCeilWid(50)))
+        downloadBtn.imageView?.contentMode = .center
+        downloadBtn.setImage(nil, for: .disabled)
+        downloadBtn.addTarget(self, action: #selector(p_actionDownloadBtn), for: .touchUpInside)
+        self.addSubview(downloadBtn)
+        
+        let circle = LYCircleProgressView.init(frame: CGRect.init(x: 0, y: 0, width: kFitCeilWid(35), height: kFitCeilWid(35)))
+        circle.center = downloadBtn.b_center
+        circle.isUserInteractionEnabled = false
+        downloadBtn.addSubview(circle)
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             circle.progress = 0.3
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            circle.progress = 0.5
+            circle.progress = 0.4
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            circle.progress = 0.6
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             circle.progress = 0.8
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.1) {
-            circle.progress = 0.95
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
+            circle.progress = 0.92
         }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
-//            circle.progress = 1
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            circle.progress = 1
+        }
     }
     
     

@@ -37,17 +37,16 @@ class LYCircleProgressView: UIView {
     }
     
     
-    private let lineWid = kFitCeilWid(10)
+    private let lineWid = kFitCeilWid(3)
     private let selColor = kThemeColor()
     private let bgColor = kSubTitleColor()
     private var circleLayer = CAShapeLayer()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.lightGray
         
         label = UICountingLabel.init(frame: self.bounds)
-        label.textColor = kTitleColor()
-        label.font = kRegularFitFont(size: 11)
+        label.textColor = kBgColorF5()
+        label.font = kRegularFitFont(size: 9)
         label.textAlignment = .center
         label.text = "0%"
         label.formatBlock = { (value) in
