@@ -38,7 +38,7 @@ class LYCircleProgressView: UIView {
     
     
     private let lineWid = kFitCeilWid(3)
-    private let selColor = kThemeColor()
+    private let selColor = UIColor.init(white: 1, alpha: 0.8)
     private let bgColor = kSubTitleColor()
     private var circleLayer = CAShapeLayer()
     override init(frame: CGRect) {

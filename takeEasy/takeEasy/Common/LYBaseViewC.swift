@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManagerDelegate {
     
@@ -38,8 +39,12 @@ class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManag
     }
     deinit {
         d_print("==== \(self) >>> dealloc ")
+        KingfisherManager.shared.cache.clearMemoryCache()
     }
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        KingfisherManager.shared.cache.clearMemoryCache()
+    }
     
     func ly_startAnimating() {
         animateView.superview?.bringSubview(toFront: animateView)

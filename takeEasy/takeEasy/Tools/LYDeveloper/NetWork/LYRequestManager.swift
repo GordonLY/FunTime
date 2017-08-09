@@ -54,7 +54,7 @@ class LYRequestManager: NSObject {
     }
     // MARK: === 下载文件
     func ly_down(filePath path: String, progress: ((Progress, String) -> Void)?, success: ((URL?) -> Void)?) -> Void {
-        _ = LYNetWorkRequest.ly_downloadFile(atPath: path, progress: progress, success: success)
+        _ = LYNetWorkRequest.ly_downloadFile(atPath: path, downProgress: progress, success: success)
     }
     
     // MARK: === 代理回调方式 请求

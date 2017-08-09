@@ -11,6 +11,7 @@ import UIKit
 class TEFunTimeDetailVC: LYBaseViewC {
 
     var funTimeModel = TEFunTimeListModel()
+    private var detailModel = TEFunTimDetailModel()
     private var playView: TEFunTimePlayerView!
     // MARK: view cycle
     override func viewDidLoad() {
@@ -32,16 +33,23 @@ class TEFunTimeDetailVC: LYBaseViewC {
     
     
     // MARK: - ********* 网络数据
-    // MARK: === 网络响应
     override func ly_netReponseSuccess(urlStr: String, result: Dictionary<String, Any>?) {
-        
+        if let data = result?[funTimeModel.postid] as? [String: Any],
+            let video = data["video"] as? [[String: Any]],
+            let first = video.first,
+            let model = TEFunTimDetailModel.yy_model(with: first)
+        {
+            detailModel = model
+            playView.detailModel = detailModel
+        }
     }
     override func ly_netReponseIncorrect(urlStr: String, code: Int, message: String?) {
-
+        d_print("==== incorrect : \(message ?? "")")
     }
     // MARK: === 网络请求
     func p_startNetWorkRequest() {
-        
+        let urlStr = kNet_funtimeDetail + funTimeModel.postid + "/full.html"
+        netMng.ly_getRequset(urlStr: urlStr, param: nil)
     }
     // MARK: - ********* Private Method
     func p_setUpNav() {
@@ -85,7 +93,6 @@ class TEFunTimeDetailVC: LYBaseViewC {
         playView = TEFunTimePlayerView.init(frame: CGRect.init(x: 0, y: detail.bottom + kFitCeilWid(20), width: 0, height: 0))
         playView.funTimeModel = funTimeModel
         self.view.addSubview(playView)
-        
         
     }
     

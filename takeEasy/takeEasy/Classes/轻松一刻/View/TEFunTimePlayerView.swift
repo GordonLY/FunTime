@@ -8,8 +8,10 @@
 
 import UIKit
 import Kingfisher
+import Jukebox
+import AVFoundation
 
-class TEFunTimePlayerView: UIView {
+class TEFunTimePlayerView: UIView, JukeboxDelegate {
 
     var funTimeModel = TEFunTimeListModel() {
         didSet {
@@ -26,21 +28,89 @@ class TEFunTimePlayerView: UIView {
             }
         }
     }
+    var detailModel = TEFunTimDetailModel() {
+        didSet {
+            guard let url = detailModel.mp3Url else {
+                return
+            }
+            if detailModel.isDownload {
+                self.downloadBtn.isUserInteractionEnabled = false
+                self.downloadBtn.isSelected = true
+                self.circleProgress.isHidden = true
+            }
+            
+            player = Jukebox.init(delegate: self, items: [JukeboxItem.init(URL: url, localTitle: detailModel.alt)])
+            
+//            avPlayer = AVPlayer.init(url: url)
+//            if #available(iOS 10.0, *) {
+//                avPlayer?.automaticallyWaitsToMinimizeStalling = false
+//            } else {
+//                // Fallback on earlier versions
+//            }
+//            d_print("playItem : \(String(describing: avPlayer?.currentItem))")
+        }
+    }
+    private var player: Jukebox?
     private var bgImgView: UIImageView!
     private var effectView: UIVisualEffectView!
     private var playBgView: UIImageView!
     private var playBtn: LYFrameButton!
-    private var downloadBtn: UIButton!
+    private var downloadBtn: LYFrameButton!
+    private var circleProgress: LYCircleProgressView!
     
-    // MARK: - ********* Actions
-    func p_actionPlayBtn() {
-        
-        
+//    private var avPlayer: AVPlayer?
+    
+    // MARK: - ********* Player delegate
+    func jukeboxStateDidChange(_ jukebox: Jukebox) {
         
     }
+    func jukeboxPlaybackProgressDidChange(_ jukebox: Jukebox) {
+        
+    }
+    func jukeboxDidLoadItem(_ jukebox: Jukebox, item: JukeboxItem) {
+        
+    }
+    func jukeboxDidUpdateMetadata(_ jukebox: Jukebox, forItem: JukeboxItem) {
+        
+    }
+    // MARK: - ********* Actions
+    // MARK: - ********* 点击播放/暂停
+    func p_actionPlayBtn() {
+        if detailModel.url_m3u8 == "" { return }
+        playBtn.isSelected = !playBtn.isSelected
+        if playBtn.isSelected {
+            playBgView.layer.ly.rotate360degree(duration: 12, repeatCount: MAXFLOAT)
+            if #available(iOS 10.0, *) {
+                player?.play()
+            } else {
+                
+            }
+        } else {
+            playBgView.layer.ly.stopRotate360()
+            player?.pause()
+        }
+        
+    }
+    // MARK: - ********* 点击下载
     func p_actionDownloadBtn() {
         
+        if detailModel.url_m3u8 == "" { return }
+        downloadBtn.isUserInteractionEnabled = false
+        downloadBtn.setImage(nil, for: .normal)
+        circleProgress.isHidden = false
+        self.p_actionStartDownload()
+    }
+    // MARK: - ********* 开始下载
+    func p_actionStartDownload() {
         
+        LYNetWorkRequest.ly_downloadFile(atPath: detailModel.url_m3u8, downProgress: { [weak self](progress, fileName) in
+            self?.circleProgress.progress = progress.percent
+        }) { [weak self](fileUrl) in
+            self?.circleProgress.progress = 1
+            self?.downloadBtn.isSelected = true
+            self?.circleProgress.isHidden = true
+            self?.detailModel.mp3Url = fileUrl
+        }
     }
     
     override init(frame: CGRect) {
@@ -84,36 +154,20 @@ class TEFunTimePlayerView: UIView {
         self.addSubview(sliderView)
         
         
-        downloadBtn = UIButton.init(frame: CGRect.init(x: self.width - kFitCeilWid(50), y: 0, width: kFitCeilWid(50), height: kFitCeilWid(50)))
+        downloadBtn = LYFrameButton.init(frame: CGRect.init(x: self.width - kFitCeilWid(44), y: 0, width: kFitCeilWid(44), height: kFitCeilWid(44)))
+        downloadBtn.lyImageViewFrame = downloadBtn.bounds
         downloadBtn.imageView?.contentMode = .center
-        downloadBtn.setImage(nil, for: .disabled)
+        downloadBtn.setImage(UIImage.init(named: "ft_play_download")?.ly_image(tintColor: UIColor.init(white: 1, alpha: 0.8)), for: .normal)
+        downloadBtn.setImage(UIImage.init(named: "ft_play_havDownload")?.ly_image(tintColor: UIColor.init(white: 1, alpha: 0.8)), for: .selected)
         downloadBtn.addTarget(self, action: #selector(p_actionDownloadBtn), for: .touchUpInside)
         self.addSubview(downloadBtn)
         
-        let circle = LYCircleProgressView.init(frame: CGRect.init(x: 0, y: 0, width: kFitCeilWid(35), height: kFitCeilWid(35)))
-        circle.center = downloadBtn.b_center
-        circle.isUserInteractionEnabled = false
-        downloadBtn.addSubview(circle)
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            circle.progress = 0.3
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            circle.progress = 0.4
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            circle.progress = 0.6
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            circle.progress = 0.8
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
-            circle.progress = 0.92
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            circle.progress = 1
-        }
+        circleProgress = LYCircleProgressView.init(frame: CGRect.init(x: 0, y: 0, width: kFitCeilWid(34), height: kFitCeilWid(34)))
+        circleProgress.center = downloadBtn.b_center
+        circleProgress.isUserInteractionEnabled = false
+        downloadBtn.addSubview(circleProgress)
+        circleProgress.isHidden = true
+    
     }
     
     

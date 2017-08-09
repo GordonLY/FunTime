@@ -73,8 +73,7 @@ class LYNetWorkRequest: NSObject {
             // 打印结果
             d_print(String.init(format: "\n=======================================================\n### 响应结果: \n  <responseUrl> : %@ \n  <response>    : %@ ", urlStr,response.result.value as? Dictionary<String, Any> ?? "no response data"))
             if let success = success, response.result.isSuccess,
-                let result = response.result.value as? Dictionary<String, Any>,
-                  result.keys.contains("S1426236711448") {
+                let result = response.result.value as? Dictionary<String, Any> {
                 // success
                 // 缓存 (只缓存成功的数据)
                 if fileCachePath != nil {
@@ -122,8 +121,10 @@ class LYNetWorkRequest: NSObject {
             }
         })
     }
+ 
     // MARK: === 下载文件
-    class func ly_downloadFile(atPath path: String, progress: ((Progress, String) -> Void)?, success: ((URL?) -> Void)?) -> DownloadRequest? {
+    @discardableResult
+    class func ly_downloadFile(atPath path: String, downProgress: ((Progress, String) -> Void)?, success: ((URL?) -> Void)?) -> DownloadRequest? {
         
         // 1.视频地址
         guard let url = URL.init(string: path) else { return nil }
@@ -131,16 +132,15 @@ class LYNetWorkRequest: NSObject {
         // 2.视频缓存位置
         let cachePath = FileManager.ly_funTimeDirectory()
         let v_filePath = (cachePath as NSString).appendingPathComponent(fileName)
-        let v_fileUrl = URL.init(fileURLWithPath: v_filePath)
         let v_cachePath = (cachePath as NSString).appendingPathComponent("\(fileName)cache")
         let destination: DownloadRequest.DownloadFileDestination = { _, response in
-            return (v_fileUrl, [.createIntermediateDirectories, .removePreviousFile])
+            return (URL.init(fileURLWithPath: v_filePath), [.createIntermediateDirectories, .removePreviousFile])
         }
         // 3.分情况处理请求
         // 3.1 已下载完成
         if FileManager.ly_fileExists(atPath: v_filePath) {
             if let success = success {
-                success(URL.init(string: v_filePath))
+                success(URL.init(fileURLWithPath: v_filePath))
             }
             return nil
         }
@@ -149,9 +149,9 @@ class LYNetWorkRequest: NSObject {
             let v_cacheUrl = URL.init(string: v_cachePath),
               let resumeData = try? Data.init(contentsOf: v_cacheUrl) {
             return Alamofire.download(resumingWith: resumeData, to: destination)
-                .downloadProgress(closure: {(downProgress) in
-                    if let progress = progress {
-                        progress(downProgress,fileName)
+                .downloadProgress(closure: {(progress) in
+                    if let downProgress = downProgress {
+                        downProgress(progress,fileName)
                     }
                 })
                 .response { (response) in
@@ -163,9 +163,9 @@ class LYNetWorkRequest: NSObject {
         }
         // 3.3 未下载
         return Alamofire.download(url, to: destination)
-            .downloadProgress(closure: {(downProgress) in
-                if let progress = progress {
-                    progress(downProgress,fileName)
+            .downloadProgress(closure: {(progress) in
+                if let downProgress = downProgress {
+                    downProgress(progress,fileName)
                 }
             })
             .response { (response) in

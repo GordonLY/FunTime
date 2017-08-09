@@ -41,5 +41,22 @@ extension LYDevelop where Base: CALayer {
         base.borderWidth = width
         base.masksToBounds = true
     }
+    
+    /// layer旋转360°
+    ///
+    /// - Parameter duration: 时间(旋转360度需要的时间)
+    /// - Parameter repeatCount: 重复次数
+    func rotate360degree(duration: TimeInterval, repeatCount: Float) {
+        let rotation = CABasicAnimation.init(keyPath: "transform.rotation.z")
+        rotation.toValue = CGFloat.pi * 2
+        rotation.duration = duration
+        rotation.isCumulative = true
+        rotation.repeatCount = repeatCount
+        base.add(rotation, forKey: "ly_rotate360Degree")
+    }
+    func stopRotate360() {
+        base.removeAnimation(forKey: "ly_rotate360Degree")
+    }
+    
 }
 
