@@ -14,8 +14,8 @@ target :takeEasy do
   pod 'Kingfisher'
   pod 'Jukebox'
   pod 'MJRefresh'
-  pod 'Jukebox'
-  
+
+
 end
 
 

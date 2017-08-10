@@ -39,26 +39,17 @@ class TEFunTimePlayerView: UIView, JukeboxDelegate {
                 self.circleProgress.isHidden = true
             }
             
-            player = Jukebox.init(delegate: self, items: [JukeboxItem.init(URL: url, localTitle: detailModel.alt)])
+        
             
-//            avPlayer = AVPlayer.init(url: url)
-//            if #available(iOS 10.0, *) {
-//                avPlayer?.automaticallyWaitsToMinimizeStalling = false
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//            d_print("playItem : \(String(describing: avPlayer?.currentItem))")
         }
     }
-    private var player: Jukebox?
+
     private var bgImgView: UIImageView!
     private var effectView: UIVisualEffectView!
     private var playBgView: UIImageView!
     private var playBtn: LYFrameButton!
     private var downloadBtn: LYFrameButton!
     private var circleProgress: LYCircleProgressView!
-    
-//    private var avPlayer: AVPlayer?
     
     // MARK: - ********* Player delegate
     func jukeboxStateDidChange(_ jukebox: Jukebox) {
@@ -80,14 +71,10 @@ class TEFunTimePlayerView: UIView, JukeboxDelegate {
         playBtn.isSelected = !playBtn.isSelected
         if playBtn.isSelected {
             playBgView.layer.ly.rotate360degree(duration: 12, repeatCount: MAXFLOAT)
-            if #available(iOS 10.0, *) {
-                player?.play()
-            } else {
-                
-            }
+            
         } else {
             playBgView.layer.ly.stopRotate360()
-            player?.pause()
+            
         }
         
     }
