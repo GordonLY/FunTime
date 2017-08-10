@@ -20,7 +20,6 @@
 		F80379E01F3B380F006503D7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80379DF1F3B380E006503D7 /* MobileCoreServices.framework */; };
 		F80379E21F3B3891006503D7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80379E11F3B3891006503D7 /* OpenGLES.framework */; };
 		F80379E41F3B389B006503D7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80379E31F3B389B006503D7 /* QuartzCore.framework */; };
-		F80379E61F3B38E5006503D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80379E51F3B38E5006503D7 /* UIKit.framework */; };
 		F80379E81F3B38F2006503D7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80379E71F3B38F2006503D7 /* VideoToolbox.framework */; };
 		F80379EB1F3BEFF4006503D7 /* LYPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80379EA1F3BEFF4006503D7 /* LYPlayerManager.swift */; };
 		F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */; };
@@ -166,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F80379E81F3B38F2006503D7 /* VideoToolbox.framework in Frameworks */,
-				F80379E61F3B38E5006503D7 /* UIKit.framework in Frameworks */,
 				F80379E41F3B389B006503D7 /* QuartzCore.framework in Frameworks */,
 				F80379E21F3B3891006503D7 /* OpenGLES.framework in Frameworks */,
 				F80379E01F3B380F006503D7 /* MobileCoreServices.framework in Frameworks */,

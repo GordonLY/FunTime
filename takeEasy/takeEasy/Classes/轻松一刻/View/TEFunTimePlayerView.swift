@@ -8,10 +8,9 @@
 
 import UIKit
 import Kingfisher
-import Jukebox
 import AVFoundation
 
-class TEFunTimePlayerView: UIView, JukeboxDelegate {
+class TEFunTimePlayerView: UIView {
 
     var funTimeModel = TEFunTimeListModel() {
         didSet {
@@ -50,20 +49,7 @@ class TEFunTimePlayerView: UIView, JukeboxDelegate {
     private var playBtn: LYFrameButton!
     private var downloadBtn: LYFrameButton!
     private var circleProgress: LYCircleProgressView!
-    
-    // MARK: - ********* Player delegate
-    func jukeboxStateDidChange(_ jukebox: Jukebox) {
-        
-    }
-    func jukeboxPlaybackProgressDidChange(_ jukebox: Jukebox) {
-        
-    }
-    func jukeboxDidLoadItem(_ jukebox: Jukebox, item: JukeboxItem) {
-        
-    }
-    func jukeboxDidUpdateMetadata(_ jukebox: Jukebox, forItem: JukeboxItem) {
-        
-    }
+
     // MARK: - ********* Actions
     // MARK: - ********* 点击播放/暂停
     func p_actionPlayBtn() {
