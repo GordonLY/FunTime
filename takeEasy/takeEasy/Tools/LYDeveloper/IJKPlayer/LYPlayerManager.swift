@@ -52,12 +52,21 @@ class LYPlayerManager: NSObject {
         }
         state = .playing
     }
-    func start(atPercent percent: CGFloat) {
+    var currentPlayTimePercent:TimeInterval = 0 {
+        didSet {
+            guard let _ = player else {
+                return
+            }
+            timer.fireDate = Date.distantFuture
+            NSObject.cancelPreviousPerformRequests(withTarget: self)
+            self.perform(#selector(p_setCurrentPlaybackTime), with: nil, afterDelay: 0.3)
+        }
+    }
+    func p_setCurrentPlaybackTime() {
         guard let play = player else {
             return
         }
-        timer.fireDate = Date.distantFuture
-        play.currentPlaybackTime = play.duration * TimeInterval(percent)
+        play.currentPlaybackTime = play.duration * currentPlayTimePercent
     }
     func pause() {
         guard let play = player else {

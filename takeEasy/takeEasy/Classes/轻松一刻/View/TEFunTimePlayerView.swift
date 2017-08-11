@@ -125,8 +125,8 @@ class TEFunTimePlayerView: UIView {
         
         sliderView = LYPlaySlider.init(frame: CGRect.init(x: kFitCeilWid(20), y: self.height - kFitCeilWid(25), width: self.width - kFitCeilWid(40), height: kFitCeilWid(25)))
         self.addSubview(sliderView)
-        sliderView.valueChanged = { [weak self] (currentTime) in
-            self?.player.start(atPercent: currentTime)
+        sliderView.valueChanged = { [weak self] (percent) in
+            self?.player.currentPlayTimePercent = TimeInterval(percent)
         }
         player.playStateChanged = { [weak self] (state, totalTime) in
             self?.sliderView.setTotalTime(totalTime)

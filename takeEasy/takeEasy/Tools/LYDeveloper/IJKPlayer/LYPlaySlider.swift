@@ -50,16 +50,12 @@ class LYPlaySlider: UIControl {
         didSet {
             thumbView.centerX = self.value
             selView.width = thumbView.centerX
-            NSObject.cancelPreviousPerformRequests(withTarget: self)
-            self.perform(#selector(p_callSliderChanged), with: nil, afterDelay: 0.5)
+            if let valueChanged = valueChanged {
+                valueChanged(self.value/self.width)
+            }
         }
     }
-    func p_callSliderChanged() {
-        if let valueChanged = valueChanged {
-            valueChanged(self.value/self.width)
-        }
-    }
-    
+
     // MARK: - ********* UIControl delegate
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let point_x = touch.location(in: self).x
