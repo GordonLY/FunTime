@@ -37,18 +37,18 @@ class TEFunTimePlayerView: UIView {
                 self.downloadBtn.isSelected = true
                 self.circleProgress.isHidden = true
             }
-            
-        
-            
+            player.playUrl = url
         }
     }
 
+    private let player = LYPlayerManager.shared
     private var bgImgView: UIImageView!
     private var effectView: UIVisualEffectView!
     private var playBgView: UIImageView!
     private var playBtn: LYFrameButton!
     private var downloadBtn: LYFrameButton!
     private var circleProgress: LYCircleProgressView!
+    private var sliderView: LYPlaySlider!
 
     // MARK: - ********* Actions
     // MARK: - ********* 点击播放/暂停
@@ -57,10 +57,10 @@ class TEFunTimePlayerView: UIView {
         playBtn.isSelected = !playBtn.isSelected
         if playBtn.isSelected {
             playBgView.layer.ly.rotate360degree(duration: 12, repeatCount: MAXFLOAT)
-            
+            player.start()
         } else {
             playBgView.layer.ly.stopRotate360()
-            
+            player.pause()
         }
         
     }
@@ -123,9 +123,31 @@ class TEFunTimePlayerView: UIView {
         self.addSubview(playBtn)
         
         
-        let sliderView = LYPlaySlider.init(frame: CGRect.init(x: kFitCeilWid(20), y: self.height - kFitCeilWid(25), width: self.width - kFitCeilWid(40), height: kFitCeilWid(25)))
+        sliderView = LYPlaySlider.init(frame: CGRect.init(x: kFitCeilWid(20), y: self.height - kFitCeilWid(25), width: self.width - kFitCeilWid(40), height: kFitCeilWid(25)))
         self.addSubview(sliderView)
-        
+        sliderView.valueChanged = { [weak self] (currentTime) in
+            self?.player.start(atPercent: currentTime)
+        }
+        player.playStateChanged = { [weak self] (state, totalTime) in
+            self?.sliderView.setTotalTime(totalTime)
+            switch state {
+            case .connecting:
+                break
+            case .pause:
+                break
+            case .playing:
+                break
+            case .stop:
+                break
+            case .failed:
+                break
+            }
+        }
+        player.playTimeChanged = { [weak self] (curr_str, curr_per, playable_per) in
+            self?.sliderView.setCurrentTime(curr_str)
+            self?.sliderView.setCurrent(curr_per)
+            self?.sliderView.setPlayable(playable_per)
+        }
         
         downloadBtn = LYFrameButton.init(frame: CGRect.init(x: self.width - kFitCeilWid(44), y: 0, width: kFitCeilWid(44), height: kFitCeilWid(44)))
         downloadBtn.lyImageViewFrame = downloadBtn.bounds
@@ -140,7 +162,7 @@ class TEFunTimePlayerView: UIView {
         circleProgress.isUserInteractionEnabled = false
         downloadBtn.addSubview(circleProgress)
         circleProgress.isHidden = true
-    
+        
     }
     
     

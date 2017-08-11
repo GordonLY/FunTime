@@ -8,3 +8,4 @@
 
 #import "UIImage+ImageEffects.h"
 #import "UICountingLabel.h"
+#import "MSWeakTimer.h"

@@ -23,8 +23,9 @@
 
 #import "IJKMediaPlayback.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 
-@interface IJKMPMoviePlayerController : MPMoviePlayerController <IJKMediaPlayback>
+@interface IJKMPMoviePlayerController : AVPlayerViewController <IJKMediaPlayback>
 
 - (id)initWithContentURL:(NSURL *)aUrl;
 - (id)initWithContentURLString:(NSString *)aUrl;
