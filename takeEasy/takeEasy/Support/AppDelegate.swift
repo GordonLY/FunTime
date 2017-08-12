@@ -31,6 +31,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    // MARK: - ********* 远程控制 remote control
+    override func remoteControlReceived(with event: UIEvent?) {
+        if event?.type == .remoteControl {
+            var type = UIEventSubtype.none
+            switch event!.subtype {
+            case .remoteControlPlay :
+                type = .remoteControlPlay
+            case .remoteControlPause :
+                type = .remoteControlPause
+            case .remoteControlNextTrack :
+                type = .remoteControlNextTrack
+            case .remoteControlPreviousTrack:
+                type = .remoteControlPreviousTrack
+            case .remoteControlTogglePlayPause:
+                type = .remoteControlTogglePlayPause
+            default:
+                break
+            }
+            let info = ["type": type]
+            NotificationCenter.default.post(name:.ly_AppDidReceiveRemoteControlNotification, object: nil, userInfo: info)
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

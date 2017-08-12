@@ -9,35 +9,39 @@
 import UIKit
 import IJKMediaFramework
 
-class LYPlayerManager: NSObject {
+enum LYPlayeState {
+    case stop
+    case connecting
+    case playing
+    case pause
+    case failed
+}
+
+class LYPlayerManager: UIResponder  {
 
     // MARK: - ********* public properties
     /// currentTime , currentPercent , playablePercent
-    var playTimeChanged: ((String, CGFloat, CGFloat) -> Void)?
+    var playTimeChanged: ((TimeInterval, CGFloat, CGFloat) -> Void)?
     /// state , totalTime
     var playStateChanged: ((LYPlayeState, String) -> Void)?
     static let shared = LYPlayerManager()
     private override init() {
         super.init()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(p_updateTime), userInfo: nil, repeats: true)
-    }
-    enum LYPlayeState {
-        case stop
-        case connecting
-        case playing
-        case pause
-        case failed
+        timer.fireDate = Date.distantFuture
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
     var state = LYPlayeState.stop
-    var playUrl: URL? {
+    var model = LYPlayerModel() {
         didSet {
             self.stop()
             self.p_resetPlayer()
         }
     }
     
+    let playOption = LYPlayerOption()
+    
     private var player: IJKFFMoviePlayerController?
-    private let playOption = LYPlayerOption()
     private var timer: Timer!
     
     // MARK: - ********* play action
@@ -51,6 +55,8 @@ class LYPlayerManager: NSObject {
             play.prepareToPlay()
         }
         state = .playing
+        UIApplication.shared.isIdleTimerDisabled = false
+        self.p_updateInfoCenter()
     }
     var currentPlayTimePercent:TimeInterval = 0 {
         didSet {
@@ -72,21 +78,26 @@ class LYPlayerManager: NSObject {
         guard let play = player else {
             return
         }
-        play.pause()
         state = .pause
+        play.pause()
+        self.p_updateInfoCenter()
     }
     func stop() {
         guard let play = player else {
             return
         }
-        play.stop()
         state = .stop
+        play.stop()
         self.p_resetPlayer()
+        self.p_updateInfoCenter()
         
     }
+
     // MARK: === 重新构建 player
     func p_resetPlayer() {
-        if let url = playUrl {
+        if let url = model.url {
+            playOption.currenTime = 0
+            playOption.totalTime = 0
             let options = IJKFFOptions.byDefault()
             player = IJKFFMoviePlayerController.init(contentURL: url, with: options)
             player?.shouldAutoplay = true
@@ -94,7 +105,6 @@ class LYPlayerManager: NSObject {
             self.p_registerIJKPlayerNoti()
         }
     }
- 
     
     // MARK: === 更新时间（每秒钟更新一次）
     func p_updateTime() {
@@ -102,14 +112,58 @@ class LYPlayerManager: NSObject {
             let timeChanged = playTimeChanged {
             
             playOption.currenTime = play.currentPlaybackTime
-            let curr_str = play.currentPlaybackTime.ly.toTimeString()
             let total = CGFloat(play.duration)
             let curr_per = CGFloat(play.currentPlaybackTime) / total
             let able_per = CGFloat(play.playableDuration) / total
-            timeChanged(curr_str,curr_per,able_per)
+            timeChanged(playOption.currenTime,curr_per,able_per)
         }
     }
-    
+    // MARK: === 更新 info center
+    func p_updateInfoCenter() {
+        var nowInfo = [String: Any]()
+        nowInfo[MPMediaItemPropertyTitle] = model.title
+        nowInfo[MPMediaItemPropertyArtist] = model.artist
+        if model.cover_img != nil {
+            nowInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(image: model.cover_img!)
+        }
+        nowInfo[MPMediaItemPropertyPlaybackDuration] = playOption.totalTime
+        nowInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = playOption.currenTime
+        nowInfo[MPMediaItemPropertyMediaType] = MPMediaType.anyAudio.rawValue
+        if state == .playing {
+            nowInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1
+        } else {
+            nowInfo[MPNowPlayingInfoPropertyPlaybackRate] = 0
+        }
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowInfo
+    }
+    // MARK: - ********* remote Control
+    func p_remoteControlReceived(noti: Notification) {
+        guard let info = noti.userInfo as? [String: UIEventSubtype],
+                let type = info["type"] else {
+            return
+        }
+        switch type {
+        case .remoteControlPlay :
+            self.start()
+        case .remoteControlPause :
+            self.pause()
+        case .remoteControlNextTrack :
+            //                jukebox.playNext()
+            break
+        case .remoteControlPreviousTrack:
+            //                jukebox.playPrevious()
+            break
+        case .remoteControlTogglePlayPause:
+            if state == .playing {
+                self.pause()
+            } else {
+                self.start()
+            }
+        default:
+            break
+        }
+        self.p_updateInfoCenter()
+    }
     // MARK: - ********* IJKPlayer 监听相关方法
     // MARK: === 加载状态改变
     ///  Posted when the network load state changes.
@@ -118,6 +172,7 @@ class LYPlayerManager: NSObject {
                 let stateChanged = playStateChanged else {
             return
         }
+        playOption.totalTime = play.duration
         switch play.loadState {
         case [.playthroughOK]:
             // Playback will be automatically started in this state when shouldAutoplay is YES
@@ -171,10 +226,16 @@ class LYPlayerManager: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(p_isPreparedToPlay(noti:)), name: .IJKMPMediaPlaybackIsPreparedToPlayDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(p_playStateChanged(noti:)), name: .IJKMPMoviePlayerPlaybackStateDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(p_playFinishStateChanged(noti:)), name: .IJKMPMoviePlayerPlaybackDidFinish, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(p_remoteControlReceived(noti:)), name: .ly_AppDidReceiveRemoteControlNotification, object: nil)
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
+        UIApplication.shared.endReceivingRemoteControlEvents()
         timer.invalidate()
+        if let play = player {
+            play.shutdown()
+        }
     }
 }
 

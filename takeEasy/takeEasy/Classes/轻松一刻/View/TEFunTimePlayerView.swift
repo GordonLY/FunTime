@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-import AVFoundation
+import MediaPlayer
 
 class TEFunTimePlayerView: UIView {
 
@@ -21,6 +21,7 @@ class TEFunTimePlayerView: UIView {
             }
             bgImgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, progressBlock: nil) { [weak self](image, error, url, data) in
                 if error == nil {
+                    self?.coverImg = image
                     self?.bgImgView.image = image?.blur()
                     self?.effectView.removeFromSuperview()
                 }
@@ -37,11 +38,17 @@ class TEFunTimePlayerView: UIView {
                 self.downloadBtn.isSelected = true
                 self.circleProgress.isHidden = true
             }
-            player.playUrl = url
+            let model = LYPlayerModel()
+            model.cover_img = coverImg
+            model.title = funTimeModel.title
+            model.artist = funTimeModel.source
+            model.url = url
+            player.model = model
         }
     }
 
     private let player = LYPlayerManager.shared
+    private var coverImg: UIImage?
     private var bgImgView: UIImageView!
     private var effectView: UIVisualEffectView!
     private var playBgView: UIImageView!
@@ -49,7 +56,6 @@ class TEFunTimePlayerView: UIView {
     private var downloadBtn: LYFrameButton!
     private var circleProgress: LYCircleProgressView!
     private var sliderView: LYPlaySlider!
-
     // MARK: - ********* Actions
     // MARK: - ********* 点击播放/暂停
     func p_actionPlayBtn() {
@@ -62,7 +68,6 @@ class TEFunTimePlayerView: UIView {
             playBgView.layer.ly.stopRotate360()
             player.pause()
         }
-        
     }
     // MARK: - ********* 点击下载
     func p_actionDownloadBtn() {
@@ -73,7 +78,7 @@ class TEFunTimePlayerView: UIView {
         circleProgress.isHidden = false
         self.p_actionStartDownload()
     }
-    // MARK: - ********* 开始下载
+    // MARK: === 开始下载
     func p_actionStartDownload() {
         
         LYNetWorkRequest.ly_downloadFile(atPath: detailModel.url_m3u8, downProgress: { [weak self](progress, fileName) in
@@ -85,9 +90,33 @@ class TEFunTimePlayerView: UIView {
             self?.detailModel.mp3Url = fileUrl
         }
     }
+    // MARK: === 播放器状态 改变
+    func p_playerStateChanged(state: LYPlayeState, totalTime: String) {
+        sliderView.setTotalTime(totalTime)
+
+        switch state {
+        case .connecting:
+            break
+        case .pause:
+            break
+        case .playing:
+            break
+        case .stop:
+            break
+        case .failed:
+            break
+        }
+    }
+    // MARK: === 播放器时间 改变
+    func p_playerTimeChanged(currTime: TimeInterval, currTime_per: CGFloat, playable_per: CGFloat) {
+        sliderView.setCurrentTime(currTime.ly.toTimeString())
+        sliderView.setCurrent(currTime_per)
+        sliderView.setPlayable(playable_per)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         self.ly_size = CGSize.init(width: kScreenWid(), height: kFitCeilWid(188))
         self.backgroundColor = UIColor.white
         self.clipsToBounds = true
@@ -127,26 +156,13 @@ class TEFunTimePlayerView: UIView {
         self.addSubview(sliderView)
         sliderView.valueChanged = { [weak self] (percent) in
             self?.player.currentPlayTimePercent = TimeInterval(percent)
+            
         }
         player.playStateChanged = { [weak self] (state, totalTime) in
-            self?.sliderView.setTotalTime(totalTime)
-            switch state {
-            case .connecting:
-                break
-            case .pause:
-                break
-            case .playing:
-                break
-            case .stop:
-                break
-            case .failed:
-                break
-            }
+            self?.p_playerStateChanged(state: state, totalTime: totalTime)
         }
-        player.playTimeChanged = { [weak self] (curr_str, curr_per, playable_per) in
-            self?.sliderView.setCurrentTime(curr_str)
-            self?.sliderView.setCurrent(curr_per)
-            self?.sliderView.setPlayable(playable_per)
+        player.playTimeChanged = { [weak self] (curr_time, curr_per, playable_per) in
+            self?.p_playerTimeChanged(currTime: curr_time,  currTime_per: curr_per, playable_per: playable_per)
         }
         
         downloadBtn = LYFrameButton.init(frame: CGRect.init(x: self.width - kFitCeilWid(44), y: 0, width: kFitCeilWid(44), height: kFitCeilWid(44)))
@@ -164,8 +180,6 @@ class TEFunTimePlayerView: UIView {
         circleProgress.isHidden = true
         
     }
-    
-    
     
     
     

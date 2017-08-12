@@ -30,6 +30,8 @@
 		F8037A201F3D3542006503D7 /* LYPlaySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8037A1F1F3D3542006503D7 /* LYPlaySlider.swift */; };
 		F8037A221F3D3EE6006503D7 /* LYPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8037A211F3D3EE6006503D7 /* LYPlayerView.swift */; };
 		F8037A251F3D6B3E006503D7 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8037A241F3D6B3E006503D7 /* AVKit.framework */; };
+		F8037A2A1F3DDD1C006503D7 /* NotiName+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8037A291F3DDD1C006503D7 /* NotiName+LYDevelop.swift */; };
+		F8037A2D1F3ED6BF006503D7 /* LYPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8037A2C1F3ED6BF006503D7 /* LYPlayerModel.swift */; };
 		F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */; };
 		F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */; };
 		F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */; };
@@ -113,6 +115,8 @@
 		F8037A1F1F3D3542006503D7 /* LYPlaySlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYPlaySlider.swift; sourceTree = "<group>"; };
 		F8037A211F3D3EE6006503D7 /* LYPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYPlayerView.swift; sourceTree = "<group>"; };
 		F8037A241F3D6B3E006503D7 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		F8037A291F3DDD1C006503D7 /* NotiName+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotiName+LYDevelop.swift"; sourceTree = "<group>"; };
+		F8037A2C1F3ED6BF006503D7 /* LYPlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYPlayerModel.swift; sourceTree = "<group>"; };
 		F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeVC.swift; sourceTree = "<group>"; };
 		F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeListModel.swift; sourceTree = "<group>"; };
 		F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimDetailModel.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		F80379E91F3BEA9B006503D7 /* IJKPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				F8037A2C1F3ED6BF006503D7 /* LYPlayerModel.swift */,
 				F80379EA1F3BEFF4006503D7 /* LYPlayerManager.swift */,
 				F8037A131F3C5A0C006503D7 /* LYPlayerOption.swift */,
 				F8037A211F3D3EE6006503D7 /* LYPlayerView.swift */,
@@ -378,6 +383,7 @@
 				F842A3381F33028C00B9BE4F /* NSObject+LYDevelop.swift */,
 				F8037A1B1F3C9561006503D7 /* TimeInterval+LYDevelop.swift */,
 				F8037A1D1F3C95DC006503D7 /* Int+LYDevelop.swift */,
+				F8037A291F3DDD1C006503D7 /* NotiName+LYDevelop.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -631,6 +637,7 @@
 				F8AC421E1F31BCED007BFD8C /* LYDevelopExtern.swift in Sources */,
 				F8AC42341F31BCED007BFD8C /* LYNetWorkRequest.swift in Sources */,
 				F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */,
+				F8037A2D1F3ED6BF006503D7 /* LYPlayerModel.swift in Sources */,
 				F8AC42351F31BCED007BFD8C /* LYRequestConfig.swift in Sources */,
 				F8037A221F3D3EE6006503D7 /* LYPlayerView.swift in Sources */,
 				F8AC42251F31BCED007BFD8C /* UIImage+LYDevelop.swift in Sources */,
@@ -656,6 +663,7 @@
 				F8AC423B1F31BD44007BFD8C /* LYLocalDataMng.swift in Sources */,
 				F8AC42291F31BCED007BFD8C /* LYAlertView.swift in Sources */,
 				F842A3371F32FA3200B9BE4F /* TEFunTimeCell.swift in Sources */,
+				F8037A2A1F3DDD1C006503D7 /* NotiName+LYDevelop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
