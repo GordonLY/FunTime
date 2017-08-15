@@ -46,13 +46,31 @@ extension LYDevelop where Base: CALayer {
     ///
     /// - Parameter duration: 时间(旋转360度需要的时间)
     /// - Parameter repeatCount: 重复次数
-    func rotate360degree(duration: TimeInterval, repeatCount: Float) {
+    func start360Rotate(duration: TimeInterval, repeatCount: Float) {
+        if let _ = base.animation(forKey: "ly_rotate360Degree") {
+            let pausedTime = base.timeOffset
+            base.speed = 1.0
+            base.timeOffset = 0.0
+            base.beginTime = 0.0
+            let timeSincePause = base.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+            base.beginTime = timeSincePause
+            return
+        }
         let rotation = CABasicAnimation.init(keyPath: "transform.rotation.z")
         rotation.toValue = CGFloat.pi * 2
         rotation.duration = duration
-        rotation.isCumulative = true
         rotation.repeatCount = repeatCount
+        rotation.isCumulative = true
+        rotation.isRemovedOnCompletion = false
+        rotation.fillMode = kCAFillModeForwards
+        base.speed = 1.0
         base.add(rotation, forKey: "ly_rotate360Degree")
+    }
+    func pause360Rotate() {
+        guard let _ = base.animation(forKey: "ly_rotate360Degree") else { return }
+        let pauseTime = base.convertTime(CACurrentMediaTime(), from: nil)
+        base.speed = 0
+        base.timeOffset = pauseTime
     }
     func stopRotate360() {
         base.removeAnimation(forKey: "ly_rotate360Degree")

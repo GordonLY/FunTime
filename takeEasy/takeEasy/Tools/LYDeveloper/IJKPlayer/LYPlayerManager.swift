@@ -12,18 +12,20 @@ import IJKMediaFramework
 enum LYPlayeState {
     case stop
     case connecting
+    case prepareToPlay
     case playing
     case pause
     case failed
+    case done
 }
 
 class LYPlayerManager: UIResponder  {
 
     // MARK: - ********* public properties
-    /// currentTime , currentPercent , playablePercent
-    var playTimeChanged: ((TimeInterval, CGFloat, CGFloat) -> Void)?
+    /// totalTime ,currentTime , currentPercent , playablePercent
+    var playTimeChanged: ((TimeInterval, TimeInterval, CGFloat, CGFloat) -> Void)?
     /// state , totalTime
-    var playStateChanged: ((LYPlayeState, String) -> Void)?
+    var playStateChanged: ((LYPlayeState) -> Void)?
     static let shared = LYPlayerManager()
     private override init() {
         super.init()
@@ -112,10 +114,11 @@ class LYPlayerManager: UIResponder  {
             let timeChanged = playTimeChanged {
             
             playOption.currenTime = play.currentPlaybackTime
+            playOption.totalTime = play.duration
             let total = CGFloat(play.duration)
             let curr_per = CGFloat(play.currentPlaybackTime) / total
             let able_per = CGFloat(play.playableDuration) / total
-            timeChanged(playOption.currenTime,curr_per,able_per)
+            timeChanged(playOption.totalTime,playOption.currenTime,curr_per,able_per)
         }
     }
     // MARK: === 更新 info center
@@ -176,15 +179,15 @@ class LYPlayerManager: UIResponder  {
         switch play.loadState {
         case [.playthroughOK]:
             // Playback will be automatically started in this state when shouldAutoplay is YES
-            state = .playing
-            stateChanged(state, play.duration.ly.toTimeString())
+            state = .prepareToPlay
+            stateChanged(state)
         case [.stalled]:
             // Playback will be automatically paused in this state, if started
             state = .pause
-            stateChanged(state, play.duration.ly.toTimeString())
+            stateChanged(state)
         case [.playable,.playthroughOK]:
-            state = .playing
-            stateChanged(state, play.duration.ly.toTimeString())
+            state = .prepareToPlay
+            stateChanged(state)
         default:
             break
         }
@@ -219,6 +222,24 @@ class LYPlayerManager: UIResponder  {
     /// Posted when movie playback ends or a user exits playback.
     func p_playFinishStateChanged(noti: Notification) {
         d_print("=== noti : PlayBackFinish")
+        guard let stateChanged = playStateChanged,
+            let reason = noti.userInfo?[IJKMPMoviePlayerPlaybackDidFinishReasonUserInfoKey] as? NSNumber,
+            let finishReason = IJKMPMovieFinishReason.init(rawValue: reason.intValue) else {
+            return
+        }
+        
+        switch finishReason {
+        case .playbackEnded:    // 播放完成
+            state = .done
+        case .userExited:       // 用户退出
+            state = .failed
+        case .playbackError:    // 播放错误
+            state = .failed
+        }
+        playOption.currenTime = 0
+        playOption.totalTime = 0
+        stateChanged(state)
+        self.stop()
     }
     // MARK: - ********* 添加监听 IJKPlayer notification
     func p_registerIJKPlayerNoti() {

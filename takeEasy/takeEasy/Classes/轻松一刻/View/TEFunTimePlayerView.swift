@@ -62,10 +62,10 @@ class TEFunTimePlayerView: UIView {
         if detailModel.url_m3u8 == "" { return }
         playBtn.isSelected = !playBtn.isSelected
         if playBtn.isSelected {
-            playBgView.layer.ly.rotate360degree(duration: 12, repeatCount: MAXFLOAT)
+            playBgView.layer.ly.start360Rotate(duration: 12, repeatCount: MAXFLOAT)
             player.start()
         } else {
-            playBgView.layer.ly.stopRotate360()
+            playBgView.layer.ly.pause360Rotate()
             player.pause()
         }
     }
@@ -91,27 +91,32 @@ class TEFunTimePlayerView: UIView {
         }
     }
     // MARK: === 播放器状态 改变
-    func p_playerStateChanged(state: LYPlayeState, totalTime: String) {
-        sliderView.setTotalTime(totalTime)
-
+    func p_playerStateChanged(state: LYPlayeState) {
+        
         switch state {
         case .connecting:
             break
         case .pause:
             break
+        case .prepareToPlay:
+            sliderView.setTotalTime(player.playOption.totalTime.ly.toTimeString())
         case .playing:
             break
         case .stop:
             break
-        case .failed:
-            break
+        case .failed, .done:
+            self.p_actionPlayBtn()
+            playBgView.layer.ly.stopRotate360()
+            self.p_playerTimeChanged(totalTime: 0, currTime: player.playOption.currenTime, currTime_per: 0, playable_per: 0)
         }
     }
     // MARK: === 播放器时间 改变
-    func p_playerTimeChanged(currTime: TimeInterval, currTime_per: CGFloat, playable_per: CGFloat) {
-        sliderView.setCurrentTime(currTime.ly.toTimeString())
-        sliderView.setCurrent(currTime_per)
-        sliderView.setPlayable(playable_per)
+    func p_playerTimeChanged(totalTime: TimeInterval, currTime: TimeInterval, currTime_per: CGFloat, playable_per: CGFloat) {
+        if totalTime >= currTime {
+            sliderView.setCurrentTime(currTime.ly.toTimeString())
+            sliderView.setCurrent(currTime_per)
+            sliderView.setPlayable(playable_per)
+        }
     }
     
     override init(frame: CGRect) {
@@ -158,11 +163,11 @@ class TEFunTimePlayerView: UIView {
             self?.player.currentPlayTimePercent = TimeInterval(percent)
             
         }
-        player.playStateChanged = { [weak self] (state, totalTime) in
-            self?.p_playerStateChanged(state: state, totalTime: totalTime)
+        player.playStateChanged = { [weak self] (state) in
+            self?.p_playerStateChanged(state: state)
         }
-        player.playTimeChanged = { [weak self] (curr_time, curr_per, playable_per) in
-            self?.p_playerTimeChanged(currTime: curr_time,  currTime_per: curr_per, playable_per: playable_per)
+        player.playTimeChanged = { [weak self] (totalTime, curr_time, curr_per, playable_per) in
+            self?.p_playerTimeChanged(totalTime: totalTime, currTime: curr_time,  currTime_per: curr_per, playable_per: playable_per)
         }
         
         downloadBtn = LYFrameButton.init(frame: CGRect.init(x: self.width - kFitCeilWid(44), y: 0, width: kFitCeilWid(44), height: kFitCeilWid(44)))
