@@ -48,9 +48,12 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detail = TEFunTimeDetailVC()
-        detail.funTimeModel = cellModels[indexPath.row]
-        self.navigationController?.pushViewController(detail, animated: true)
+//        let detail = TEFunTimeDetailVC()
+//        detail.funTimeModel = cellModels[indexPath.row]
+//        self.navigationController?.pushViewController(detail, animated: true)
+        
+        let rxTest = LYRxTestVC()
+        self.navigationController?.pushViewController(rxTest, animated: true)
     }
     
     // MARK: - ********* 网络数据

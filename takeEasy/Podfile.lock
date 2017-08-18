@@ -4,6 +4,9 @@ PODS:
   - Kingfisher (3.10.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -12,6 +15,8 @@ DEPENDENCIES:
   - Kingfisher
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - YYModel
 
 SPEC CHECKSUMS:
@@ -20,8 +25,10 @@ SPEC CHECKSUMS:
   Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 2aa41ce4e6e4c992dfe353b160ce7a9b4b912d72
+PODFILE CHECKSUM: 4ea90c74ac04fd75f1adfd37849edbbfb3e8d735
 
 COCOAPODS: 1.2.1

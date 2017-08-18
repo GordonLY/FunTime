@@ -85,6 +85,7 @@
 		F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */; };
 		F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */; };
 		F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */; };
+		F8AF25611F453E87008E886E /* LYRxTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF25601F453E87008E886E /* LYRxTestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +177,7 @@
 		F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYBaseViewC.swift; sourceTree = "<group>"; };
 		F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYHitTestView.swift; sourceTree = "<group>"; };
 		F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+LYDevelop.swift"; sourceTree = "<group>"; };
+		F8AF25601F453E87008E886E /* LYRxTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LYRxTestVC.swift; path = "轻松一刻/LYRxTestVC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 		F8AC41B71F31A45D007BFD8C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F8AF25601F453E87008E886E /* LYRxTestVC.swift */,
 				F8AC42481F3207AF007BFD8C /* 轻松一刻 */,
 			);
 			path = Classes;
@@ -612,6 +615,7 @@
 				F8037A1E1F3C95DC006503D7 /* Int+LYDevelop.swift in Sources */,
 				F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */,
 				F8037A141F3C5A0C006503D7 /* LYPlayerOption.swift in Sources */,
+				F8AF25611F453E87008E886E /* LYRxTestVC.swift in Sources */,
 				F8AC42331F31BCED007BFD8C /* LYTransitionPushPopManger.swift in Sources */,
 				F8AC42221F31BCED007BFD8C /* Optional+Wrap.swift in Sources */,
 				F8AC42411F31BE4E007BFD8C /* LYSwiftMacro.swift in Sources */,
