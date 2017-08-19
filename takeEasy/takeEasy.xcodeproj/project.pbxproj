@@ -86,6 +86,7 @@
 		F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */; };
 		F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */; };
 		F8AF25611F453E87008E886E /* LYRxTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF25601F453E87008E886E /* LYRxTestVC.swift */; };
+		F8AF25631F47E419008E886E /* FuntimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF25621F47E419008E886E /* FuntimeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,7 @@
 		F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYHitTestView.swift; sourceTree = "<group>"; };
 		F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8AF25601F453E87008E886E /* LYRxTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LYRxTestVC.swift; path = "轻松一刻/LYRxTestVC.swift"; sourceTree = "<group>"; };
+		F8AF25621F47E419008E886E /* FuntimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuntimeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +476,7 @@
 		F8AC424C1F3207AF007BFD8C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F8AF25621F47E419008E886E /* FuntimeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				F8AC42261F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift in Sources */,
 				F8AC42281F31BCED007BFD8C /* UIView+Rect.swift in Sources */,
 				F8AC42381F31BCED007BFD8C /* LYRefreshHeader.swift in Sources */,
+				F8AF25631F47E419008E886E /* FuntimeViewModel.swift in Sources */,
 				F8AC423B1F31BD44007BFD8C /* LYLocalDataMng.swift in Sources */,
 				F8AC42291F31BCED007BFD8C /* LYAlertView.swift in Sources */,
 				F842A3371F32FA3200B9BE4F /* TEFunTimeCell.swift in Sources */,
