@@ -56,7 +56,7 @@ class TEFunTimeDetailVC: LYBaseViewC {
         self.navigationItem.title = "轻松一刻语音版"
     }
     func p_initSubviews() {
-        let imgView = UIImageView.init(frame: CGRect.init(x: 0, y: 64, width: kScreenWid(), height: kFitWid(64)))
+        let imgView = UIImageView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kFitWid(64)))
         imgView.backgroundColor = UIColor.white
         imgView.contentMode = .scaleAspectFit
         imgView.image = UIImage.init(named: "ft_detail_img")

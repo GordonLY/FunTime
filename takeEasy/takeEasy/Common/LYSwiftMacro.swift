@@ -8,7 +8,31 @@
 
 import UIKit
 
-import UIKit
+// MARK: - ****** iPhone x nav适配 ******
+func kNavBottom() -> CGFloat {
+    if isIphoneX() {
+        return 88
+    }
+    return 64
+}
+func kNavTop() -> CGFloat {
+    if isIphoneX() {
+        return 44
+    }
+    return 20
+}
+func kBtmSafeHei() -> CGFloat {
+    if isIphoneX() {
+        return 34
+    }
+    return 0
+}
+func isIphoneX() -> Bool {
+    if LYDevelopExtern.shared.lyScreenHeight == 812 {
+        return true
+    }
+    return false
+}
 
 // MARK: - ****** 尺寸相关 ******
 // frame

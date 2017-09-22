@@ -89,7 +89,7 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
     }
 
     func p_initSubviews() {
-        tableView = UITableView.init(frame: CGRect.init(x: 0, y: 64, width: kScreenWid(), height: kScreenHei() - 64), style: .plain)
+        tableView = UITableView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kScreenHei() - kNavBottom()), style: .plain)
         tableView.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self

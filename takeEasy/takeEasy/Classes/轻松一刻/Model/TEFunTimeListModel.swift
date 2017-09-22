@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+@objcMembers
 class TEFunTimeListModel: NSObject {
 
     /// id

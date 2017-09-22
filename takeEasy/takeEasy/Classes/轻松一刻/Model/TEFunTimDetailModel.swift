@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objcMembers
 class TEFunTimDetailModel: NSObject {
 
     /// 音频地址
