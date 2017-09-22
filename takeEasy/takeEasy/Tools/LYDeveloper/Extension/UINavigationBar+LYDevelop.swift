@@ -37,8 +37,8 @@ extension LYDevelop where Base: UINavigationBar {
     func updateNavBar(font:UIFont, titleColor:UIColor, barBgColor: UIColor) {
         
         base.titleTextAttributes =
-            [NSFontAttributeName: font,
-             NSForegroundColorAttributeName: titleColor]
+            [.font: font,
+             .foregroundColor: titleColor]
         base.backgroundColor = barBgColor
     }
     

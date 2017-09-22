@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 class FuntimeViewModel: NSObject {
 

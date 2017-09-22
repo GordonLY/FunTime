@@ -15,8 +15,8 @@ class LYNavigationController: UINavigationController {
         
         // 设置导航栏字体大小及颜色
         self.navigationBar.titleTextAttributes =
-            [NSFontAttributeName: kNaviFont(),
-             NSForegroundColorAttributeName: kTitleColor()]
+            [.font: kNaviFont(),
+             .foregroundColor: kTitleColor()]
         
         self.navigationBar.ly.setNavBar(bgColor: UIColor.white, shadowColor: kSeparateLineColor())
     }
@@ -34,7 +34,7 @@ class LYNavigationController: UINavigationController {
         self.interactivePopGestureRecognizer?.delegate = viewController as? UIGestureRecognizerDelegate
     }
     
-    func p_backBtnOnClick() {
+    @objc func p_backBtnOnClick() {
         self.popViewController(animated: true)
     }
     private func p_createBackBtn() -> UIButton {

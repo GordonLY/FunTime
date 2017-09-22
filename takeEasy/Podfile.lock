@@ -1,34 +1,27 @@
 PODS:
   - Alamofire (4.5.0)
   - FDFullscreenPopGesture (1.1)
-  - Kingfisher (3.10.2)
+  - Kingfisher (4.0.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
-  - RxCocoa (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxSwift (3.6.1)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
+  - Alamofire
   - FDFullscreenPopGesture (= 1.1)
-  - Kingfisher
+  - Kingfisher (~> 4.0.1)
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh
-  - RxCocoa (~> 3.0)
-  - RxSwift (~> 3.0)
   - YYModel
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
+  Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 4ea90c74ac04fd75f1adfd37849edbbfb3e8d735
+PODFILE CHECKSUM: 7967a3f59b376172c2fcde722959dbe0f6dc3a3e
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

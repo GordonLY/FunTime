@@ -191,7 +191,7 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     // MARK: - ********* Private Method
-    func p_actionDoneBtn() {
+    @objc func p_actionDoneBtn() {
         self.hide()
         let selDateStr = String.init(format: "%d-%02d-%02d", selDateArr[0],selDateArr[1],selDateArr[2])
         if let callBack = selectCallBack {
@@ -261,7 +261,7 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         }
         return 0
     }
-    func p_actionTapGesture(tap: UITapGestureRecognizer) {
+    @objc func p_actionTapGesture(tap: UITapGestureRecognizer) {
         self.hide()
     }
     func p_initSubviews() {

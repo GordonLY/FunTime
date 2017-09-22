@@ -37,30 +37,35 @@ class LYNoDataView: UIView {
     }
 }
 
+
 extension UITableView {
+    static let noDataViewTag = 1212121
+}
+extension LYDevelop where Base: UITableView {
     
-    static let noDataViewTag = 121212
-    func ly_addNoDataView(tips: String) {
-        let noDataView = LYNoDataView.init(frame: self.bounds)
+    func addNoDataView(tips: String) {
+        let noDataView = LYNoDataView.init(frame: base.bounds)
         noDataView.backgroundColor = kBgColorF5()
         noDataView.tipsTitle.text = tips
         noDataView.isHidden = true
         noDataView.tag = UITableView.noDataViewTag
-        self.addSubview(noDataView)
+        base.addSubview(noDataView)
     }
     
-    func ly_setNoDataViewOffset(_ offsetY: CGFloat) {
-        guard let noDataView = self.viewWithTag(UITableView.noDataViewTag) as? LYNoDataView else {
+    func setNoDataViewOffset(_ offsetY: CGFloat) {
+        guard let noDataView = base.viewWithTag(UITableView.noDataViewTag) as? LYNoDataView else {
             return
         }
         noDataView.imgView.top = offsetY
         noDataView.tipsTitle.top = noDataView.imgView.bottom + kFitWid(12)
     }
-    func ly_isNoDataHidden(_ hidden: Bool) {
-        guard let noDataView = self.viewWithTag(UITableView.noDataViewTag) as? LYNoDataView else {
+    func isNoDataHidden(_ hidden: Bool) {
+        guard let noDataView = base.viewWithTag(UITableView.noDataViewTag) as? LYNoDataView else {
             return
         }
         noDataView.isHidden = hidden
     }
 }
+
+
 

@@ -51,12 +51,12 @@ class LYDevelopExtern: NSObject {
     
 
     private func p_refreshIfNeeded() {
-        guard UIScreen.main.bounds.size.equalTo(CGSize.init(width: screenWidth, height: screenHeight)) else {
+        guard UIScreen.main.bounds.size.equalTo(CGSize(width: screenWidth, height: screenHeight)) else {
             self.p_refreshData()
             return
         }
     }
-    //  默认参考size = (320,568)
+
     //  默认参考size = (375,667)
     private let designSize = CGSize.init(width: 375, height: 667)
     private var screenWidth: CGFloat = 1

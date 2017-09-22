@@ -102,14 +102,14 @@ class LYContentPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     // MARK: - ********* Private Method
-    func p_actionDoneBtn() {
+    @objc func p_actionDoneBtn() {
         self.hide()
         if let callBack = selectCallBack {
             callBack(seletedStr)
         }
     }
     
-    func p_actionTapGesture(tap: UITapGestureRecognizer) {
+    @objc func p_actionTapGesture(tap: UITapGestureRecognizer) {
         self.hide()
     }
     func p_initSubviews() {

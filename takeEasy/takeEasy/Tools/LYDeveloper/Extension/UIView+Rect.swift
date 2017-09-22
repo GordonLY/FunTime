@@ -188,7 +188,7 @@ extension UIView {
         }
     }
     
-    var ly_origin: CGPoint  {
+    var origin_: CGPoint  {
         
         get {
             
@@ -203,7 +203,7 @@ extension UIView {
         }
     }
     
-    var ly_size: CGSize  {
+    var size_: CGSize  {
         
         get {
             

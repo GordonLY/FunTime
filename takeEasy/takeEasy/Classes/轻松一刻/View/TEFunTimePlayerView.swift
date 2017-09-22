@@ -58,7 +58,7 @@ class TEFunTimePlayerView: UIView {
     private var sliderView: LYPlaySlider!
     // MARK: - ********* Actions
     // MARK: - ********* 点击播放/暂停
-    func p_actionPlayBtn() {
+    @objc func p_actionPlayBtn() {
         if detailModel.url_m3u8 == "" { return }
         playBtn.isSelected = !playBtn.isSelected
         if playBtn.isSelected {
@@ -70,7 +70,7 @@ class TEFunTimePlayerView: UIView {
         }
     }
     // MARK: - ********* 点击下载
-    func p_actionDownloadBtn() {
+    @objc func p_actionDownloadBtn() {
         
         if detailModel.url_m3u8 == "" { return }
         downloadBtn.isUserInteractionEnabled = false
@@ -122,7 +122,7 @@ class TEFunTimePlayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.ly_size = CGSize.init(width: kScreenWid(), height: kFitCeilWid(188))
+        self.size_ = CGSize.init(width: kScreenWid(), height: kFitCeilWid(188))
         self.backgroundColor = UIColor.white
         self.clipsToBounds = true
         

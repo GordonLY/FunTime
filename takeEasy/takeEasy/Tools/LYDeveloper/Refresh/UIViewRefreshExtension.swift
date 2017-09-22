@@ -8,19 +8,19 @@
 
 import UIKit
 
-extension UITableView {
+extension LYDevelop where Base: UITableView {
     
     ///  给 tableView 添加 refreshHeader
-    func ly_AddTableViewHeader(block:@escaping () -> Void) {
+    func addTableViewHeader(block:@escaping () -> Void) {
         let header = LYRefreshHeader(refreshingBlock: block)
         p_setRefreshHeader(header!)
-        self.mj_header = header
+        base.mj_header = header
     }
     ///  给 tableView 添加 refreshFooter
-    func ly_AddTableViewFooter(block:@escaping () -> Void) {
+    func addTableViewFooter(block:@escaping () -> Void) {
         let footer = LYRefreshFooter(refreshingBlock: block)
         p_setRefreshFooter(footer!)
-        self.mj_footer = footer
+        base.mj_footer = footer
     }
     // MARK: - ********* Private Method
     private func p_setRefreshHeader(_ header:LYRefreshHeader) {
@@ -31,19 +31,19 @@ extension UITableView {
     }
 }
 
-extension UICollectionView {
+extension LYDevelop where Base: UICollectionView {
     
     ///  给 collectionView 添加 refreshHeader
-    func ly_AddCollectionViewHeader(block:@escaping () -> Void) {
+    func addCollectionViewHeader(block:@escaping () -> Void) {
         let header = LYRefreshHeader(refreshingBlock: block)
         p_setRefreshHeader(header!)
-        self.mj_header = header
+        base.mj_header = header
     }
     ///  给 collectionView 添加 refreshFooter
-    func ly_AddCollectionViewFooter(block:@escaping () -> Void) {
+    func addCollectionViewFooter(block:@escaping () -> Void) {
         let footer = LYRefreshFooter(refreshingBlock: block)
         p_setRefreshFooter(footer!)
-        self.mj_footer = footer
+        base.mj_footer = footer
     }
     // MARK: - ********* Private Method
     private func p_setRefreshHeader(_ header:LYRefreshHeader) {

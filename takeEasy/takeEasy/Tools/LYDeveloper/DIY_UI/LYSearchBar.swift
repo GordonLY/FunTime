@@ -26,7 +26,7 @@ class LYSearchBar: UITextField {
         self.enablesReturnKeyAutomatically = true
     }
     
-    func p_actionClearBtn() {
+    @objc func p_actionClearBtn() {
         self.text = ""
         self.sendActions(for: .editingChanged)
     }

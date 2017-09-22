@@ -25,12 +25,12 @@ extension LYDevelop where Base == String {
             return attrStr
         }
         let range = NSMakeRange(0, attrStr.length)
-        attrStr.addAttributes([NSFontAttributeName: font,
-                               NSForegroundColorAttributeName: color], range: range)
+        attrStr.addAttributes([.font: font,
+                               .foregroundColor: color], range: range)
         guard wordSpacing != 0 else {
             return attrStr
         }
-        attrStr.addAttribute(NSKernAttributeName, value: wordSpacing, range: NSMakeRange(0, attrStr.length - 1))
+        attrStr.addAttribute(.kern, value: wordSpacing, range: NSMakeRange(0, attrStr.length - 1))
         return attrStr
     }
     
@@ -50,7 +50,7 @@ extension LYDevelop where Base == String {
         let paragrapnStyle = NSMutableParagraphStyle()
         paragrapnStyle.lineSpacing = CGFloat(lineSpacing)
         paragrapnStyle.alignment = lineAlignment
-        attr.addAttribute(NSParagraphStyleAttributeName, value: paragrapnStyle, range: NSMakeRange(0, attr.length))
+        attr.addAttribute(.paragraphStyle, value: paragrapnStyle, range: NSMakeRange(0, attr.length))
         return attr
     }
     

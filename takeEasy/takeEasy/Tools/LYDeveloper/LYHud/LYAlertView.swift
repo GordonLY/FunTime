@@ -78,21 +78,21 @@ class LYAlertView: UIView {
         
     }
     // MARK: *** 点击 确定
-    func p_confirmOnClick() {
+    @objc func p_confirmOnClick() {
         if completeCallBack != nil {
             completeCallBack!(.confirm)
         }
         self.p_hide()
     }
     // MARK: *** 点击 取消
-    func p_cancelOnClick() {
+    @objc func p_cancelOnClick() {
         if completeCallBack != nil {
             completeCallBack!(.cancel)
         }
         self.p_hide()
     }
     // MARK: *** 点击 我知道了
-    func p_okBtnOnClick() {
+    @objc func p_okBtnOnClick() {
         if okBtnCallBack != nil {
             okBtnCallBack!()
         }
@@ -226,7 +226,7 @@ class LYShowView: UIView {
     
     // MARK: - ********* Private Method
     // MARK: *** 点击整个页面
-    func p_viewOnTap(tap: UITapGestureRecognizer) {
+    @objc func p_viewOnTap(tap: UITapGestureRecognizer) {
         self.p_hide()
     }
     

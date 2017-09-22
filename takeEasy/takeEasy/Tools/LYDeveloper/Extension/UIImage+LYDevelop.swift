@@ -46,4 +46,46 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return img!
     }
+//    static func ==(lhs: UIImage, rhs: UIImage) -> Bool  {
+//        return isEqual(lhs: self, rhs: rhs)
+//    }
+    
+    
+    static func isEqual (lhs: UIImage, rhs: UIImage) -> Bool {
+        guard let data1 = UIImagePNGRepresentation(lhs),
+            let data2 = UIImagePNGRepresentation(rhs) else {
+                return false
+        }
+        
+        return data1 == data2
+    }
 }
+
+extension LYDevelop where Base: UIImage {
+    
+    private func fixPictureSize(newSize: CGSize) -> CGRect {
+        let ratio = max(newSize.width / base.size.width,
+                        newSize.height / base.size.height)
+        let width = base.size.width * ratio
+        let height = base.size.height * ratio
+        let scaledRect = CGRect(x: 0, y: 0,
+                                width: width, height: height)
+        
+        return scaledRect
+    }
+    func scale(to newSize: CGSize) -> UIImage {
+        guard base.size != newSize else {
+            return base
+        }
+        
+        let scaledRect = fixPictureSize(newSize: newSize)
+        
+        UIGraphicsBeginImageContextWithOptions(scaledRect.size, false, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        
+        base.draw(in: scaledRect)
+        
+        return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    }
+}
+

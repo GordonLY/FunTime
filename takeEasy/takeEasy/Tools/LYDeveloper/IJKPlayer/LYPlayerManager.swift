@@ -70,7 +70,7 @@ class LYPlayerManager: UIResponder  {
             self.perform(#selector(p_setCurrentPlaybackTime), with: nil, afterDelay: 0.3)
         }
     }
-    func p_setCurrentPlaybackTime() {
+    @objc func p_setCurrentPlaybackTime() {
         guard let play = player else {
             return
         }
@@ -109,7 +109,7 @@ class LYPlayerManager: UIResponder  {
     }
     
     // MARK: === 更新时间（每秒钟更新一次）
-    func p_updateTime() {
+    @objc func p_updateTime() {
         if let play = player, play.isPlaying(),
             let timeChanged = playTimeChanged {
             
@@ -140,7 +140,7 @@ class LYPlayerManager: UIResponder  {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowInfo
     }
     // MARK: - ********* remote Control
-    func p_remoteControlReceived(noti: Notification) {
+    @objc func p_remoteControlReceived(noti: Notification) {
         guard let info = noti.userInfo as? [String: UIEventSubtype],
                 let type = info["type"] else {
             return
@@ -170,7 +170,7 @@ class LYPlayerManager: UIResponder  {
     // MARK: - ********* IJKPlayer 监听相关方法
     // MARK: === 加载状态改变
     ///  Posted when the network load state changes.
-    func p_loadStateChanged(noti: Notification) {
+    @objc func p_loadStateChanged(noti: Notification) {
         guard let play = player,
                 let stateChanged = playStateChanged else {
             return
@@ -194,12 +194,12 @@ class LYPlayerManager: UIResponder  {
     }
     // MARK: === IsPreparedToPlay
     /// Posted when the prepared state changes of an object conforming to the MPMediaPlayback protocol changes.
-    func p_isPreparedToPlay(noti: Notification) {
+    @objc func p_isPreparedToPlay(noti: Notification) {
         d_print("=== noti : isPreparedToPlay")
     }
     // MARK: === 播放状态改变
     /// Posted when the playback state changes, either programatically or by the user.
-    func p_playStateChanged(noti: Notification) {
+    @objc func p_playStateChanged(noti: Notification) {
         guard let play = player else {
                 return
         }
@@ -220,7 +220,7 @@ class LYPlayerManager: UIResponder  {
     }
     // MARK: === 播放完成状态改变
     /// Posted when movie playback ends or a user exits playback.
-    func p_playFinishStateChanged(noti: Notification) {
+    @objc func p_playFinishStateChanged(noti: Notification) {
         d_print("=== noti : PlayBackFinish")
         guard let stateChanged = playStateChanged,
             let reason = noti.userInfo?[IJKMPMoviePlayerPlaybackDidFinishReasonUserInfoKey] as? NSNumber,

@@ -57,12 +57,12 @@ class LYNavBgView: UIView {
         self.addSubview(rightView)
     }
     
-    func p_ActionleftView() {
+    @objc func p_ActionleftView() {
         if (leftClickCallBack != nil) {
             leftClickCallBack!()
         }
     }
-    func p_ActionRightView() {
+    @objc func p_ActionRightView() {
         if (rightClickCallBack != nil) {
             rightClickCallBack!()
         }
