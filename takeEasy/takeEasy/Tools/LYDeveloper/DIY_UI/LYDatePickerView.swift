@@ -17,6 +17,12 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     weak var delegate: LYDatePickerViewDelegate?
     var selectCallBack: (([Int],String) -> Void)?
     
+    var title = "" {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
     private var yearArr = [Int]()
     private var monthArr = [Int]()
     private var dayArr = [Int]()
@@ -35,10 +41,20 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     private var dateView:   UIView!
     private var datePicker: UIPickerView!
     private var doneBtn:    LYFrameButton!
+    private var startDate = 1900
     
     
+    /// 初始化一个开始时间(年)
+    init(startDate start: Int) {
+        super.init(frame: CGRect.zero)
+        startDate = start
+        self.p_init()
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.p_init()
+    }
+    func p_init() {
         self.frame = CGRect.init(x: 0, y: 0, width: kScreenWid(), height: kScreenHei())
         self.backgroundColor = UIColor.init(white: 0, alpha: 0.6)
         self.p_initSubviews()
@@ -52,7 +68,7 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         keyWindow?.addSubview(self)
         UIView.animate(withDuration: 0.3) {
             self.backgroundColor = UIColor.init(white: 0, alpha: 0.6)
-            self.containerView.top = self.height - kFitCeilWid(250)
+            self.containerView.top = self.height - kFitCeilWid(250) - kBtmSafeHei()
         }
     }
     func hide() {
@@ -91,7 +107,7 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func ly_setSelectedDateStr(_ str: String?) {
         
-        if let dateStr = str, dateStr.characters.count == 10 {
+        if let dateStr = str, dateStr.count == 10 {
             selDateStr = dateStr
             let arr = selDateStr.components(separatedBy: "-")
             if arr.count == 3,
@@ -206,7 +222,7 @@ class LYDatePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         currentMonth = date.component(.month) ?? 1
         currentDay = date.component(.day) ?? 1
         selDateArr = [currentYear,currentMonth,currentDay]
-        for idx in 1860...currentYear {
+        for idx in startDate...currentYear {
             yearArr.append(idx)
         }
         _ = self.p_reloadMonthFrom(year: currentYear)

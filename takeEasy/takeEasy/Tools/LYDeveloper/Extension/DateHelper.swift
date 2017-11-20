@@ -35,10 +35,10 @@ public extension Date {
                 let interval = Double(dateString)! / 1000.0
                 self.init(timeIntervalSince1970: interval)
                 return
-//            case .rss, .altRSS:
-//                if string.hasSuffix("Z") {
-//                    string = string.substring(to: string.index(string.endIndex, offsetBy: -1)).appending("GMT")
-//                }
+            case .rss, .altRSS:
+                if string.hasSuffix("Z") {
+                    string = string[string.startIndex...string.index(string.endIndex, offsetBy: -1)].appending("GMT")
+                }
             default:
                 break
         }

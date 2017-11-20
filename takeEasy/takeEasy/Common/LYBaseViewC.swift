@@ -11,7 +11,6 @@ import Kingfisher
 
 class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManagerDelegate {
     
-    
     lazy var netMng: LYRequestManager = {
         let net = LYRequestManager()
         net.delegate = self
@@ -61,4 +60,7 @@ class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManag
     }
     func ly_netReponseFailed(urlStr: String, error: LYError?) {
     }
+    
+    
 }
+

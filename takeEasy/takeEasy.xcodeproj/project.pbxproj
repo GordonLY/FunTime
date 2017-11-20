@@ -43,10 +43,11 @@
 		F8748C4D1F358D8400EF9E90 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F8748C4C1F358D8400EF9E90 /* UIImage+ImageEffects.m */; };
 		F8748C4F1F35958300EF9E90 /* CAGradientLayer+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8748C4E1F35958300EF9E90 /* CAGradientLayer+LYDevelop.swift */; };
 		F8748C5A1F384C9000EF9E90 /* LYCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8748C591F384C9000EF9E90 /* LYCircleProgressView.swift */; };
+		F88E2B041FC2C60D00F51688 /* UIView+LYRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E2B031FC2C60D00F51688 /* UIView+LYRefresh.swift */; };
+		F88E2B081FC2C6C900F51688 /* LYTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E2B051FC2C6C800F51688 /* LYTableView.swift */; };
 		F8AC41C41F31A45D007BFD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */; };
 		F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */; };
 		F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */; };
-		F8AC41DB1F31BCE3007BFD8C /* LYNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */; };
 		F8AC42131F31BCED007BFD8C /* LYContentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */; };
 		F8AC42141F31BCED007BFD8C /* LYDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41DF1F31BCED007BFD8C /* LYDatePickerView.swift */; };
 		F8AC42151F31BCED007BFD8C /* LYFrameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41E01F31BCED007BFD8C /* LYFrameButton.swift */; };
@@ -63,7 +64,6 @@
 		F8AC42251F31BCED007BFD8C /* UIImage+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41F61F31BCED007BFD8C /* UIImage+LYDevelop.swift */; };
 		F8AC42261F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41F71F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift */; };
 		F8AC42271F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41F81F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift */; };
-		F8AC42281F31BCED007BFD8C /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41F91F31BCED007BFD8C /* UIView+Rect.swift */; };
 		F8AC42291F31BCED007BFD8C /* LYAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41FB1F31BCED007BFD8C /* LYAlertView.swift */; };
 		F8AC422A1F31BCED007BFD8C /* LYToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41FC1F31BCED007BFD8C /* LYToastView.swift */; };
 		F8AC422E1F31BCED007BFD8C /* LYInteractiveAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42051F31BCED007BFD8C /* LYInteractiveAnimator.swift */; };
@@ -77,7 +77,6 @@
 		F8AC42361F31BCED007BFD8C /* LYRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC420E1F31BCED007BFD8C /* LYRequestManager.swift */; };
 		F8AC42371F31BCED007BFD8C /* LYRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42101F31BCED007BFD8C /* LYRefreshFooter.swift */; };
 		F8AC42381F31BCED007BFD8C /* LYRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42111F31BCED007BFD8C /* LYRefreshHeader.swift */; };
-		F8AC42391F31BCED007BFD8C /* UIViewRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42121F31BCED007BFD8C /* UIViewRefreshExtension.swift */; };
 		F8AC423B1F31BD44007BFD8C /* LYLocalDataMng.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC423A1F31BD44007BFD8C /* LYLocalDataMng.swift */; };
 		F8AC423D1F31BDD9007BFD8C /* LYNavBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC423C1F31BDD9007BFD8C /* LYNavBgView.swift */; };
 		F8AC423F1F31BE1D007BFD8C /* LYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC423E1F31BE1D007BFD8C /* LYNavigationController.swift */; };
@@ -87,6 +86,8 @@
 		F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */; };
 		F8AF25631F47E419008E886E /* FuntimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF25621F47E419008E886E /* FuntimeViewModel.swift */; };
 		F8AF258B1F56A8E8008E886E /* Sequence+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF258A1F56A8E8008E886E /* Sequence+LYDevelop.swift */; };
+		F8BE5D001FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */; };
+		F8BE5D021FA9746F00FBA5A2 /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,12 +133,13 @@
 		F8748C4C1F358D8400EF9E90 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		F8748C4E1F35958300EF9E90 /* CAGradientLayer+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8748C591F384C9000EF9E90 /* LYCircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYCircleProgressView.swift; sourceTree = "<group>"; };
+		F88E2B031FC2C60D00F51688 /* UIView+LYRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LYRefresh.swift"; sourceTree = "<group>"; };
+		F88E2B051FC2C6C800F51688 /* LYTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYTableView.swift; sourceTree = "<group>"; };
 		F8AC419E1F31A1C8007BFD8C /* takeEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = takeEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8AC41BD1F31A45D007BFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8AC41C11F31A45D007BFD8C /* takeEasy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "takeEasy-Bridging-Header.h"; sourceTree = "<group>"; };
-		F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYNoDataView.swift; sourceTree = "<group>"; };
 		F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYContentPickerView.swift; sourceTree = "<group>"; };
 		F8AC41DF1F31BCED007BFD8C /* LYDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYDatePickerView.swift; sourceTree = "<group>"; };
 		F8AC41E01F31BCED007BFD8C /* LYFrameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYFrameButton.swift; sourceTree = "<group>"; };
@@ -156,7 +158,6 @@
 		F8AC41F61F31BCED007BFD8C /* UIImage+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8AC41F71F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ScrollIndicator.swift"; sourceTree = "<group>"; };
 		F8AC41F81F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+LYDevelop.swift"; sourceTree = "<group>"; };
-		F8AC41F91F31BCED007BFD8C /* UIView+Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
 		F8AC41FB1F31BCED007BFD8C /* LYAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYAlertView.swift; sourceTree = "<group>"; };
 		F8AC41FC1F31BCED007BFD8C /* LYToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYToastView.swift; sourceTree = "<group>"; };
 		F8AC42051F31BCED007BFD8C /* LYInteractiveAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYInteractiveAnimator.swift; sourceTree = "<group>"; };
@@ -170,7 +171,6 @@
 		F8AC420E1F31BCED007BFD8C /* LYRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYRequestManager.swift; sourceTree = "<group>"; };
 		F8AC42101F31BCED007BFD8C /* LYRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYRefreshFooter.swift; sourceTree = "<group>"; };
 		F8AC42111F31BCED007BFD8C /* LYRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYRefreshHeader.swift; sourceTree = "<group>"; };
-		F8AC42121F31BCED007BFD8C /* UIViewRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRefreshExtension.swift; sourceTree = "<group>"; };
 		F8AC423A1F31BD44007BFD8C /* LYLocalDataMng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYLocalDataMng.swift; sourceTree = "<group>"; };
 		F8AC423C1F31BDD9007BFD8C /* LYNavBgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYNavBgView.swift; sourceTree = "<group>"; };
 		F8AC423E1F31BE1D007BFD8C /* LYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYNavigationController.swift; sourceTree = "<group>"; };
@@ -180,6 +180,8 @@
 		F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8AF25621F47E419008E886E /* FuntimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuntimeViewModel.swift; sourceTree = "<group>"; };
 		F8AF258A1F56A8E8008E886E /* Sequence+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+LYDevelop.swift"; sourceTree = "<group>"; };
+		F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+EmptyTips.swift"; sourceTree = "<group>"; };
+		F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +310,6 @@
 				F8AC423E1F31BE1D007BFD8C /* LYNavigationController.swift */,
 				F8AC42401F31BE4E007BFD8C /* LYSwiftMacro.swift */,
 				F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */,
-				F8AC41D31F31BCE3007BFD8C /* LYNoDataView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -350,6 +351,7 @@
 		F8AC41DD1F31BCED007BFD8C /* DIY_UI */ = {
 			isa = PBXGroup;
 			children = (
+				F88E2B051FC2C6C800F51688 /* LYTableView.swift */,
 				F8AC41DE1F31BCED007BFD8C /* LYContentPickerView.swift */,
 				F8AC41DF1F31BCED007BFD8C /* LYDatePickerView.swift */,
 				F8AC41E01F31BCED007BFD8C /* LYFrameButton.swift */,
@@ -369,11 +371,13 @@
 		F8AC41E81F31BCED007BFD8C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */,
 				F8748C4A1F358D8400EF9E90 /* UIImage+ImageEffects */,
 				F8579F6E1F330CD2000579DB /* LYDevelop.swift */,
 				F8AC41EC1F31BCED007BFD8C /* LYDevelopExtern.swift */,
 				F8AC41E91F31BCED007BFD8C /* CALayer+LYDevelop.swift */,
 				F8748C4E1F35958300EF9E90 /* CAGradientLayer+LYDevelop.swift */,
+				F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */,
 				F8AC41EA1F31BCED007BFD8C /* DateHelper.swift */,
 				F8AC41EB1F31BCED007BFD8C /* Dictionary+LYDevelop.swift */,
 				F8AC41F31F31BCED007BFD8C /* Optional+Wrap.swift */,
@@ -382,7 +386,6 @@
 				F8AC41F61F31BCED007BFD8C /* UIImage+LYDevelop.swift */,
 				F8AC41F71F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift */,
 				F8AC41F81F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift */,
-				F8AC41F91F31BCED007BFD8C /* UIView+Rect.swift */,
 				F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */,
 				F842A3381F33028C00B9BE4F /* NSObject+LYDevelop.swift */,
 				F8037A1B1F3C9561006503D7 /* TimeInterval+LYDevelop.swift */,
@@ -430,7 +433,7 @@
 			children = (
 				F8AC42101F31BCED007BFD8C /* LYRefreshFooter.swift */,
 				F8AC42111F31BCED007BFD8C /* LYRefreshHeader.swift */,
-				F8AC42121F31BCED007BFD8C /* UIViewRefreshExtension.swift */,
+				F88E2B031FC2C60D00F51688 /* UIView+LYRefresh.swift */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -516,7 +519,7 @@
 				TargetAttributes = {
 					F8AC419D1F31A1C8007BFD8C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = UQD2DDWCBK;
+						DevelopmentTeam = H65JWXLNYF;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -603,6 +606,8 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/WMPlayer/WMPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -612,6 +617,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +635,7 @@
 			files = (
 				F8AC42371F31BCED007BFD8C /* LYRefreshFooter.swift in Sources */,
 				F8AC42361F31BCED007BFD8C /* LYRequestManager.swift in Sources */,
+				F8BE5D021FA9746F00FBA5A2 /* UIView+Rect.swift in Sources */,
 				F8AC42311F31BCED007BFD8C /* LYTransitionLikePop.swift in Sources */,
 				F8AC42241F31BCED007BFD8C /* UIColor+LYDevelop.swift in Sources */,
 				F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */,
@@ -640,6 +648,7 @@
 				F8037A1C1F3C9561006503D7 /* TimeInterval+LYDevelop.swift in Sources */,
 				F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */,
 				F842A3391F33028C00B9BE4F /* NSObject+LYDevelop.swift in Sources */,
+				F88E2B041FC2C60D00F51688 /* UIView+LYRefresh.swift in Sources */,
 				F8AC421C1F31BCED007BFD8C /* DateHelper.swift in Sources */,
 				F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */,
 				F8AC421D1F31BCED007BFD8C /* Dictionary+LYDevelop.swift in Sources */,
@@ -649,13 +658,14 @@
 				F8AC42231F31BCED007BFD8C /* String+LYDevelop.swift in Sources */,
 				F8AC42141F31BCED007BFD8C /* LYDatePickerView.swift in Sources */,
 				F8AC42151F31BCED007BFD8C /* LYFrameButton.swift in Sources */,
-				F8AC41DB1F31BCE3007BFD8C /* LYNoDataView.swift in Sources */,
 				F8579F711F333023000579DB /* TEFunTimeDetailVC.swift in Sources */,
 				F8AC42191F31BCED007BFD8C /* LYTextView.m in Sources */,
 				F8748C5A1F384C9000EF9E90 /* LYCircleProgressView.swift in Sources */,
+				F88E2B081FC2C6C900F51688 /* LYTableView.swift in Sources */,
 				F80379EB1F3BEFF4006503D7 /* LYPlayerManager.swift in Sources */,
 				F8748C4D1F358D8400EF9E90 /* UIImage+ImageEffects.m in Sources */,
 				F8AC42301F31BCED007BFD8C /* LYInteractiveDelegate.swift in Sources */,
+				F8BE5D001FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift in Sources */,
 				F8AC421E1F31BCED007BFD8C /* LYDevelopExtern.swift in Sources */,
 				F8AC42341F31BCED007BFD8C /* LYNetWorkRequest.swift in Sources */,
 				F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */,
@@ -667,7 +677,6 @@
 				F8AC421A1F31BCED007BFD8C /* UICountingLabel.m in Sources */,
 				F8AC42271F31BCED007BFD8C /* UINavigationBar+LYDevelop.swift in Sources */,
 				F8AC422F1F31BCED007BFD8C /* LYInteractiveController.swift in Sources */,
-				F8AC42391F31BCED007BFD8C /* UIViewRefreshExtension.swift in Sources */,
 				F8037A1A1F3C8CFB006503D7 /* MSWeakTimer.m in Sources */,
 				F8037A201F3D3542006503D7 /* LYPlaySlider.swift in Sources */,
 				F8AC422A1F31BCED007BFD8C /* LYToastView.swift in Sources */,
@@ -680,7 +689,6 @@
 				F8AC423F1F31BE1D007BFD8C /* LYNavigationController.swift in Sources */,
 				F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */,
 				F8AC42261F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift in Sources */,
-				F8AC42281F31BCED007BFD8C /* UIView+Rect.swift in Sources */,
 				F8AC42381F31BCED007BFD8C /* LYRefreshHeader.swift in Sources */,
 				F8AF25631F47E419008E886E /* FuntimeViewModel.swift in Sources */,
 				F8AF258B1F56A8E8008E886E /* Sequence+LYDevelop.swift in Sources */,
@@ -752,7 +760,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -803,7 +811,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -818,14 +826,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = UQD2DDWCBK;
+				DEVELOPMENT_TEAM = H65JWXLNYF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = takeEasy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ly.wxx.takeEasy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taikanglife.lytest00;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "takeEasy/Support/takeEasy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -844,14 +852,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = UQD2DDWCBK;
+				DEVELOPMENT_TEAM = H65JWXLNYF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = takeEasy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ly.wxx.takeEasy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taikanglife.lytest00;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "takeEasy/Support/takeEasy-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;

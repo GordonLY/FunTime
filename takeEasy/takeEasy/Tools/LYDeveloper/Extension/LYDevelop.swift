@@ -32,5 +32,4 @@ extension CALayer: LYDevelopCompatible { }
 extension TimeInterval: LYDevelopCompatible { }
 extension Int: LYDevelopCompatible { }
 extension UIImage: LYDevelopCompatible{ }
-extension UITableView: LYDevelopCompatible{ }
-extension UICollectionView: LYDevelopCompatible{ }
+

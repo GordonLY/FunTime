@@ -15,11 +15,12 @@ class LYHitTestScrollView: UIScrollView {
         guard let currentView = view else {
             return view
         }
-        if currentView.isKind(of: UITextView.self) || currentView.isKind(of: UITextField.self) {
+        if currentView.isKind(of: UITextView.self) || currentView.isKind(of: UITextField.self) ||
+            currentView.isKind(of: UIButton.self) {
             return currentView
         } else {
             self.endEditing(true)
-            return view
+            return currentView
         }
     }
 }

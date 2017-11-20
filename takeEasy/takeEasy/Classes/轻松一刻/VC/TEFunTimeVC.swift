@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
 
     private var tableView: UITableView!
@@ -31,7 +30,6 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
     }
     
     // MARK: - ********* UITableView delegate and dataSource
@@ -97,6 +95,6 @@ class TEFunTimeVC: LYBaseViewC, UITableViewDelegate, UITableViewDataSource {
         tableView.tableFooterView = UIView()
         tableView.register(TEFunTimeCell.self, forCellReuseIdentifier: TEFunTimeCell.CellReuseId)
         self.view.addSubview(tableView)
+        
     }
-
 }

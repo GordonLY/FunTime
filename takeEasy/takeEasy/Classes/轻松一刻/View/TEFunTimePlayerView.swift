@@ -122,7 +122,7 @@ class TEFunTimePlayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.size_ = CGSize.init(width: kScreenWid(), height: kFitCeilWid(188))
+        self.ly_size = CGSize.init(width: kScreenWid(), height: kFitCeilWid(188))
         self.backgroundColor = UIColor.white
         self.clipsToBounds = true
         

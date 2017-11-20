@@ -13,7 +13,7 @@ class LYSearchBar: UITextField {
     var placeholderColor = kSeparateLineColor()
     var placeholderTxt = "" {
         didSet {
-            self.attributedPlaceholder = placeholderTxt.ly.attributeStr(font: self.font ?? kRegularFitFont(size: 11), color: self.placeholderColor, wordSpacing: 0)
+            self.attributedPlaceholder = placeholderTxt.ly.attributeStr(font: self.font ?? kRegularFitFont(size: 11), color: self.placeholderColor)
         }
     }
     
@@ -34,7 +34,7 @@ class LYSearchBar: UITextField {
         guard self.isFirstResponder else {
             return CGRect.zero
         }
-        guard let txt = self.text, txt.characters.count > 0 else {
+        guard let txt = self.text, txt.count > 0 else {
             return CGRect.zero
         }
         return CGRect.init(x: self.width - self.height, y: 0, width: self.height, height: self.height)
