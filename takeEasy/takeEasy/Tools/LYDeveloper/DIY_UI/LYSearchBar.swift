@@ -24,6 +24,7 @@ class LYSearchBar: UITextField {
         self.returnKeyType = .search
         self.autocorrectionType = .no
         self.enablesReturnKeyAutomatically = true
+        
     }
     
     @objc func p_actionClearBtn() {

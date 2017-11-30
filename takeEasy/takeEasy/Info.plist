@@ -25,6 +25,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>come on 用一下📷</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -48,5 +50,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

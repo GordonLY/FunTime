@@ -13,7 +13,7 @@ enum LYError: Error {
     
     case netError(String?)
     
-    func ly_errorInfo() -> String {
+    func errorInfo() -> String {
         switch self {
         case .netError(let info):
             if let info = info {
@@ -239,27 +239,21 @@ class func ly_baseRequest(httpMethod:HTTPMethod, urlStr:String, dict:Dictionary<
         LYToastView.hideLoading()
         // 打印结果
         d_print(String.init(format: "\n=======================================================\n### 响应结果: \n  <responseUrl> : %@ \n  <response>    : %@ ", urlStr,response.result.value as? Dictionary<String, Any> ?? "no response data"))
-        if let success = success, response.result.isSuccess,
-            let result = response.result.value as? Dictionary<String, Any>,
-            result.keys.contains("code") {
-            // success
+         if let success = success, response.result.isSuccess,let result = response.result.value as? Dictionary<String, Any>, result.keys.contains("code") {
+             // success
              // 缓存 (只缓存成功的数据)
-             if fileCachePath != nil {
-                 let data = (result as NSDictionary).yy_modelToJSONData()
-                 do {
-                 try data?.write(to: URL.init(fileURLWithPath: fileCachePath!))
-                 } catch {
-                 d_print("*** write to file failed ***")
+             if let code = result["code"] as? String, code == "0" {
+                 if fileCachePath != nil {
+                 (result as NSDictionary).write(toFile: fileCachePath!, atomically: true)
                  }
+                 success(result)
+             } else {
+                 //  code = 0，not success
+                 if let notSuccess = notSuccess, let msg = result["mes"] as? String {
+                 notSuccess(msg)
+                }
              }
-             success(result)
-            } else {
-                 //  code != 0 ，not success
-                 if let notSuccess = notSuccess, let msg = result["mes"] as? String, let code = result["code"] as? Int {
-                    notSuccess(code,msg)
-                 }
-            }
-        } else {
+         } else {
             // failure
             if let failure = failure,
                 let error = response.result.error {

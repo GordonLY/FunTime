@@ -32,6 +32,14 @@
 		F8037A251F3D6B3E006503D7 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8037A241F3D6B3E006503D7 /* AVKit.framework */; };
 		F8037A2A1F3DDD1C006503D7 /* NotiName+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8037A291F3DDD1C006503D7 /* NotiName+LYDevelop.swift */; };
 		F8037A2D1F3ED6BF006503D7 /* LYPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8037A2C1F3ED6BF006503D7 /* LYPlayerModel.swift */; };
+		F811691A1FCE9D2C00942DA6 /* QRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81169191FCE9D2C00942DA6 /* QRCodeVC.swift */; };
+		F81169231FCEA3F600942DA6 /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811691C1FCEA3F600942DA6 /* LBXScanNetAnimation.swift */; };
+		F81169241FCEA3F600942DA6 /* LBXScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811691D1FCEA3F600942DA6 /* LBXScanView.swift */; };
+		F81169251FCEA3F600942DA6 /* LBXScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811691E1FCEA3F600942DA6 /* LBXScanViewController.swift */; };
+		F81169261FCEA3F600942DA6 /* LBXScanLineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811691F1FCEA3F600942DA6 /* LBXScanLineAnimation.swift */; };
+		F81169271FCEA3F600942DA6 /* LBXScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81169201FCEA3F600942DA6 /* LBXScanViewStyle.swift */; };
+		F81169281FCEA3F600942DA6 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81169211FCEA3F600942DA6 /* LBXPermissions.swift */; };
+		F81169291FCEA3F600942DA6 /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81169221FCEA3F600942DA6 /* LBXScanWrapper.swift */; };
 		F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */; };
 		F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */; };
 		F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */; };
@@ -45,6 +53,7 @@
 		F8748C5A1F384C9000EF9E90 /* LYCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8748C591F384C9000EF9E90 /* LYCircleProgressView.swift */; };
 		F88E2B041FC2C60D00F51688 /* UIView+LYRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E2B031FC2C60D00F51688 /* UIView+LYRefresh.swift */; };
 		F88E2B081FC2C6C900F51688 /* LYTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E2B051FC2C6C800F51688 /* LYTableView.swift */; };
+		F88E2B0C1FC2D5DB00F51688 /* TETimeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E2B0B1FC2D5DB00F51688 /* TETimeListModel.swift */; };
 		F8AC41C41F31A45D007BFD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */; };
 		F8AC41C51F31A45D007BFD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */; };
 		F8AC41C61F31A45D007BFD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AC41BC1F31A45D007BFD8C /* LaunchScreen.storyboard */; };
@@ -84,7 +93,6 @@
 		F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */; };
 		F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */; };
 		F8AC42471F31DC65007BFD8C /* FileManager+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */; };
-		F8AF25631F47E419008E886E /* FuntimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF25621F47E419008E886E /* FuntimeViewModel.swift */; };
 		F8AF258B1F56A8E8008E886E /* Sequence+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF258A1F56A8E8008E886E /* Sequence+LYDevelop.swift */; };
 		F8BE5D001FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */; };
 		F8BE5D021FA9746F00FBA5A2 /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */; };
@@ -120,6 +128,14 @@
 		F8037A241F3D6B3E006503D7 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		F8037A291F3DDD1C006503D7 /* NotiName+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotiName+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8037A2C1F3ED6BF006503D7 /* LYPlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYPlayerModel.swift; sourceTree = "<group>"; };
+		F81169191FCE9D2C00942DA6 /* QRCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeVC.swift; sourceTree = "<group>"; };
+		F811691C1FCEA3F600942DA6 /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
+		F811691D1FCEA3F600942DA6 /* LBXScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanView.swift; sourceTree = "<group>"; };
+		F811691E1FCEA3F600942DA6 /* LBXScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewController.swift; sourceTree = "<group>"; };
+		F811691F1FCEA3F600942DA6 /* LBXScanLineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanLineAnimation.swift; sourceTree = "<group>"; };
+		F81169201FCEA3F600942DA6 /* LBXScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewStyle.swift; sourceTree = "<group>"; };
+		F81169211FCEA3F600942DA6 /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
+		F81169221FCEA3F600942DA6 /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
 		F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeVC.swift; sourceTree = "<group>"; };
 		F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimeListModel.swift; sourceTree = "<group>"; };
 		F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TEFunTimDetailModel.swift; sourceTree = "<group>"; };
@@ -135,6 +151,7 @@
 		F8748C591F384C9000EF9E90 /* LYCircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYCircleProgressView.swift; sourceTree = "<group>"; };
 		F88E2B031FC2C60D00F51688 /* UIView+LYRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LYRefresh.swift"; sourceTree = "<group>"; };
 		F88E2B051FC2C6C800F51688 /* LYTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYTableView.swift; sourceTree = "<group>"; };
+		F88E2B0B1FC2D5DB00F51688 /* TETimeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TETimeListModel.swift; sourceTree = "<group>"; };
 		F8AC419E1F31A1C8007BFD8C /* takeEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = takeEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AC41BA1F31A45D007BFD8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8AC41BB1F31A45D007BFD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,7 +195,6 @@
 		F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYBaseViewC.swift; sourceTree = "<group>"; };
 		F8AC42441F31C7C6007BFD8C /* LYHitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYHitTestView.swift; sourceTree = "<group>"; };
 		F8AC42461F31DC65007BFD8C /* FileManager+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+LYDevelop.swift"; sourceTree = "<group>"; };
-		F8AF25621F47E419008E886E /* FuntimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuntimeViewModel.swift; sourceTree = "<group>"; };
 		F8AF258A1F56A8E8008E886E /* Sequence+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+EmptyTips.swift"; sourceTree = "<group>"; };
 		F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
@@ -256,6 +272,20 @@
 			path = IJKPlayer;
 			sourceTree = "<group>";
 		};
+		F811691B1FCEA3F600942DA6 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				F811691C1FCEA3F600942DA6 /* LBXScanNetAnimation.swift */,
+				F811691D1FCEA3F600942DA6 /* LBXScanView.swift */,
+				F811691E1FCEA3F600942DA6 /* LBXScanViewController.swift */,
+				F811691F1FCEA3F600942DA6 /* LBXScanLineAnimation.swift */,
+				F81169201FCEA3F600942DA6 /* LBXScanViewStyle.swift */,
+				F81169211FCEA3F600942DA6 /* LBXPermissions.swift */,
+				F81169221FCEA3F600942DA6 /* LBXScanWrapper.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		F8748C4A1F358D8400EF9E90 /* UIImage+ImageEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +359,7 @@
 		F8AC41C31F31A45D007BFD8C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F811691B1FCEA3F600942DA6 /* QRCode */,
 				F8AC41DC1F31BCED007BFD8C /* LYDeveloper */,
 			);
 			path = Tools;
@@ -442,7 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				F8AC424A1F3207AF007BFD8C /* VC */,
-				F8AC424C1F3207AF007BFD8C /* ViewModel */,
 				F8AC424B1F3207AF007BFD8C /* View */,
 				F8AC42491F3207AF007BFD8C /* Model */,
 			);
@@ -453,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				F842A3321F32B3B000B9BE4F /* TEFunTimeListModel.swift */,
+				F88E2B0B1FC2D5DB00F51688 /* TETimeListModel.swift */,
 				F842A3341F32B3CA00B9BE4F /* TEFunTimDetailModel.swift */,
 			);
 			path = Model;
@@ -463,6 +494,7 @@
 			children = (
 				F842A3301F32B38900B9BE4F /* TEFunTimeVC.swift */,
 				F8579F701F333023000579DB /* TEFunTimeDetailVC.swift */,
+				F81169191FCE9D2C00942DA6 /* QRCodeVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -474,14 +506,6 @@
 				F8748C441F3563D000EF9E90 /* TEFunTimePlayerView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F8AC424C1F3207AF007BFD8C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F8AF25621F47E419008E886E /* FuntimeViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,8 +630,6 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/WMPlayer/WMPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -617,8 +639,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,8 +661,10 @@
 				F842A3351F32B3CA00B9BE4F /* TEFunTimDetailModel.swift in Sources */,
 				F8037A1E1F3C95DC006503D7 /* Int+LYDevelop.swift in Sources */,
 				F842A3331F32B3B000B9BE4F /* TEFunTimeListModel.swift in Sources */,
+				F88E2B0C1FC2D5DB00F51688 /* TETimeListModel.swift in Sources */,
 				F8037A141F3C5A0C006503D7 /* LYPlayerOption.swift in Sources */,
 				F8AC42331F31BCED007BFD8C /* LYTransitionPushPopManger.swift in Sources */,
+				F81169251FCEA3F600942DA6 /* LBXScanViewController.swift in Sources */,
 				F8AC42221F31BCED007BFD8C /* Optional+Wrap.swift in Sources */,
 				F8AC42411F31BE4E007BFD8C /* LYSwiftMacro.swift in Sources */,
 				F8037A1C1F3C9561006503D7 /* TimeInterval+LYDevelop.swift in Sources */,
@@ -651,25 +673,31 @@
 				F88E2B041FC2C60D00F51688 /* UIView+LYRefresh.swift in Sources */,
 				F8AC421C1F31BCED007BFD8C /* DateHelper.swift in Sources */,
 				F8AC42451F31C7C6007BFD8C /* LYHitTestView.swift in Sources */,
+				F81169271FCEA3F600942DA6 /* LBXScanViewStyle.swift in Sources */,
+				F81169261FCEA3F600942DA6 /* LBXScanLineAnimation.swift in Sources */,
 				F8AC421D1F31BCED007BFD8C /* Dictionary+LYDevelop.swift in Sources */,
 				F8AC42131F31BCED007BFD8C /* LYContentPickerView.swift in Sources */,
 				F8AC422E1F31BCED007BFD8C /* LYInteractiveAnimator.swift in Sources */,
 				F8579F6F1F330CD2000579DB /* LYDevelop.swift in Sources */,
 				F8AC42231F31BCED007BFD8C /* String+LYDevelop.swift in Sources */,
+				F81169281FCEA3F600942DA6 /* LBXPermissions.swift in Sources */,
 				F8AC42141F31BCED007BFD8C /* LYDatePickerView.swift in Sources */,
 				F8AC42151F31BCED007BFD8C /* LYFrameButton.swift in Sources */,
+				F81169231FCEA3F600942DA6 /* LBXScanNetAnimation.swift in Sources */,
 				F8579F711F333023000579DB /* TEFunTimeDetailVC.swift in Sources */,
 				F8AC42191F31BCED007BFD8C /* LYTextView.m in Sources */,
 				F8748C5A1F384C9000EF9E90 /* LYCircleProgressView.swift in Sources */,
 				F88E2B081FC2C6C900F51688 /* LYTableView.swift in Sources */,
 				F80379EB1F3BEFF4006503D7 /* LYPlayerManager.swift in Sources */,
 				F8748C4D1F358D8400EF9E90 /* UIImage+ImageEffects.m in Sources */,
+				F811691A1FCE9D2C00942DA6 /* QRCodeVC.swift in Sources */,
 				F8AC42301F31BCED007BFD8C /* LYInteractiveDelegate.swift in Sources */,
 				F8BE5D001FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift in Sources */,
 				F8AC421E1F31BCED007BFD8C /* LYDevelopExtern.swift in Sources */,
 				F8AC42341F31BCED007BFD8C /* LYNetWorkRequest.swift in Sources */,
 				F8AC42431F31BF26007BFD8C /* LYBaseViewC.swift in Sources */,
 				F8037A2D1F3ED6BF006503D7 /* LYPlayerModel.swift in Sources */,
+				F81169241FCEA3F600942DA6 /* LBXScanView.swift in Sources */,
 				F8AC42351F31BCED007BFD8C /* LYRequestConfig.swift in Sources */,
 				F8037A221F3D3EE6006503D7 /* LYPlayerView.swift in Sources */,
 				F8AC42251F31BCED007BFD8C /* UIImage+LYDevelop.swift in Sources */,
@@ -689,8 +717,8 @@
 				F8AC423F1F31BE1D007BFD8C /* LYNavigationController.swift in Sources */,
 				F842A3311F32B38900B9BE4F /* TEFunTimeVC.swift in Sources */,
 				F8AC42261F31BCED007BFD8C /* UIImageView+ScrollIndicator.swift in Sources */,
+				F81169291FCEA3F600942DA6 /* LBXScanWrapper.swift in Sources */,
 				F8AC42381F31BCED007BFD8C /* LYRefreshHeader.swift in Sources */,
-				F8AF25631F47E419008E886E /* FuntimeViewModel.swift in Sources */,
 				F8AF258B1F56A8E8008E886E /* Sequence+LYDevelop.swift in Sources */,
 				F8AC423B1F31BD44007BFD8C /* LYLocalDataMng.swift in Sources */,
 				F8AC42291F31BCED007BFD8C /* LYAlertView.swift in Sources */,

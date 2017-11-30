@@ -13,7 +13,7 @@ extension LYDevelop where Base: UINavigationBar {
     func setNavBar(bgColor:UIColor, shadowColor:UIColor) {
         base.isTranslucent = true;
         let shadowImg = UIImage.ly_image(color: shadowColor, size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
-        let bgImg = UIImage.ly_image(color: bgColor, size: CGSize.init(width: kScreenWid(), height: 64), cornerRadius: 0)
+        let bgImg = UIImage.ly_image(color: bgColor, size: CGSize.init(width: kScreenWid(), height: kNavBottom()), cornerRadius: 0)
         base.shadowImage = shadowImg
         base.setBackgroundImage(bgImg, for: .default)
     }
@@ -22,8 +22,8 @@ extension LYDevelop where Base: UINavigationBar {
     func setNavBarFullClear() {
         
         base.isTranslucent = true;
-        base.shadowImage = UIImage.ly_image(color: UIColor.init(white: 0, alpha: 0), size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
-        base.setBackgroundImage(UIImage.ly_image(color: UIColor.init(white: 0, alpha: 0), size: CGSize.init(width: kScreenWid(), height: 64), cornerRadius: 0), for: .default)
+        base.shadowImage = UIImage.ly_image(color: UIColor.clear, size: CGSize.init(width: kScreenWid(), height: 0.5), cornerRadius: 0)
+        base.setBackgroundImage(UIImage.ly_image(color: UIColor.clear, size: CGSize.init(width: kScreenWid(), height: kNavBottom()), cornerRadius: 0), for: .default)
     }
     
     

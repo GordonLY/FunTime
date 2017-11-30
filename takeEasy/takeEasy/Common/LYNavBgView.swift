@@ -22,8 +22,9 @@ class LYNavBgView: UIView {
         case share
     }
     
-    private var leftView: UIButton!
-    private var rightView: UIButton!
+    var leftView: UIButton!
+    var rightView: UIButton!
+    var line: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +33,7 @@ class LYNavBgView: UIView {
         self.backgroundColor = UIColor.white
         
         
-        let line = UIView.init(frame: CGRect.init(x: 0, y: 63.5, width: kScreenWid(), height: 0.5))
+        line = UIView.init(frame: CGRect.init(x: 0, y: 63.5, width: kScreenWid(), height: 0.5))
         line.backgroundColor = kSeparateLineColor()
         self.addSubview(line)
         
@@ -43,8 +44,8 @@ class LYNavBgView: UIView {
         self.addSubview(titleLabel)
         
         leftView = UIButton.init(frame: CGRect.init(x: 0, y: 20, width: 48, height: 44))
-        leftView.setImage(UIImage.init(named: "km_back"), for: .normal)
-        leftView.setImage(UIImage.init(named: "km_back")?.ly_image(tintColor: kTitleColorHalf()), for: .highlighted)
+        leftView.setImage(UIImage.init(named: "common_back"), for: .normal)
+        leftView.setImage(UIImage.init(named: "common_back")?.ly_image(tintColor: kTitleColorHalf()), for: .highlighted)
         leftView.isHidden = true
         leftView.addTarget(self, action: #selector(p_ActionleftView), for: .touchUpInside)
         self.addSubview(leftView)
@@ -73,8 +74,8 @@ class LYNavBgView: UIView {
         leftClickCallBack = callBack
         switch style {
         case .back:
-            leftView.setImage(UIImage.init(named: "km_back"), for: .normal)
-            leftView.setImage(UIImage.init(named: "km_back")?.ly_image(tintColor: kSubTitleColorHalf()), for: .highlighted)
+            leftView.setImage(UIImage.init(named: "common_back"), for: .normal)
+            leftView.setImage(UIImage.init(named: "common_back")?.ly_image(tintColor: kSubTitleColorHalf()), for: .highlighted)
         case .close:
             leftView.setImage(UIImage.init(named: "home_close"), for: .normal)
             leftView.setImage(UIImage.init(named: "home_close")?.ly_image(tintColor: kSubTitleColorHalf()), for: .highlighted)
