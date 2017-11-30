@@ -11,12 +11,12 @@ import Kingfisher
 
 class TEFunTimeCell: UITableViewCell {
 
-    var model = TEFunTimeListModel() {
+    var data = TETimeListData() {
         didSet {
-            titleLabel?.text = model.title
+            titleLabel?.text = data.title
             titleLabel.sizeToFit()
-            imgView?.kf.setImage(with: URL.init(string: model.imgsrc))
-            dateLabel.text = model.time_show
+            imgView?.kf.setImage(with: URL.init(string: data.imgsrc))
+            dateLabel.text = data.time_show
         }
     }
     

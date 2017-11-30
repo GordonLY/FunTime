@@ -12,10 +12,10 @@ import MediaPlayer
 
 class TEFunTimePlayerView: UIView {
 
-    var funTimeModel = TEFunTimeListModel() {
+    var funTimeData = TETimeListData() {
         didSet {
             
-            guard let imgUrl = URL.init(string: funTimeModel.imgsrc) else {
+            guard let imgUrl = URL.init(string: funTimeData.imgsrc) else {
                 d_print("imgSrc is illegal")
                 return
             }
@@ -40,8 +40,8 @@ class TEFunTimePlayerView: UIView {
             }
             let model = LYPlayerModel()
             model.cover_img = coverImg
-            model.title = funTimeModel.title
-            model.artist = funTimeModel.source
+            model.title = funTimeData.title
+            model.artist = funTimeData.source
             model.url = url
             player.model = model
         }

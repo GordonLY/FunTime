@@ -20,9 +20,10 @@ extension NSObject {
         
         var modelsArr = [Any?]()
         for kv in keyValues {
-            modelsArr.append(self.yy_model(with: kv))
+            if let model = self.yy_model(with: kv) {
+                modelsArr.append(model)
+            }
         }
         return modelsArr
     }
-    
 }

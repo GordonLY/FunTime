@@ -8,13 +8,54 @@
 
 import UIKit
 
-class TETimeListModel: NSObject {
+class TETimeListModel: LYBaseModel {
+    
+    weak var vc: TEFunTimeVC?
+    private var data = [TETimeListData]()
+    private var callBack: (([TETimeListData]) -> Void)?
+    // MARK: - ********* data request
+    func getTimeList(_ callBack: @escaping ([TETimeListData]) -> Void) {
+        self.callBack = callBack
+        if let cacheDic = netMng.ly_LoaclCache(urlStr: kNet_funtimeList, param: nil),
+            let needRefresh = cacheDic["needRefresh"] as? Bool {
+            ly_netReponseSuccess(urlStr: kNet_funtimeList, result: cacheDic)
+            if needRefresh {
+                netMng.ly_getRequset(urlStr: kNet_funtimeList, param: nil)
+            }
+        } else {
+            netMng.ly_getRequset(urlStr: kNet_funtimeList, param: nil)
+        }
+    }
+    
+    // MARK: - ********* data response
+     override func ly_netReponseSuccess(urlStr: String, result: Dictionary<String, Any>?) {
+        if let _data = result?["S1426236711448"] as? [String: Any],
+            let topics = _data["topics"] as? [[String: Any]],
+             let first = topics.first,
+              let docs = first["docs"] as? [[String: Any]],
+               let models = TETimeListData.ly_objArray(with: docs) as? [TETimeListData]
+        {
+            data = models
+            callBack?(data)
+        } else {
+            callBack?([])
+        }
+    }
+    override func ly_netReponseIncorrect(urlStr: String, code: Int, message: String?) {
+        
+    }
+    override func ly_netReponseFailed(urlStr: String, error: LYError?) {
+        
+    }
+}
 
+// MARK: - ********* vc methods
+extension TETimeListModel {
     
 }
 
 
-
+@objcMembers
 class TETimeListData: NSObject {
     
     /// id

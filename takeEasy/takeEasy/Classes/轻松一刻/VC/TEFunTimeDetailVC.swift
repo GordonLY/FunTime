@@ -10,7 +10,7 @@ import UIKit
 
 class TEFunTimeDetailVC: LYBaseViewC {
 
-    var funTimeModel = TEFunTimeListModel()
+    var funTimeData = TETimeListData()
     private var detailModel = TEFunTimDetailModel()
     private var playView: TEFunTimePlayerView!
     // MARK: view cycle
@@ -34,7 +34,7 @@ class TEFunTimeDetailVC: LYBaseViewC {
     
     // MARK: - ********* 网络数据
     override func ly_netReponseSuccess(urlStr: String, result: Dictionary<String, Any>?) {
-        if let data = result?[funTimeModel.postid] as? [String: Any],
+        if let data = result?[funTimeData.postid] as? [String: Any],
             let video = data["video"] as? [[String: Any]],
             let first = video.first,
             let model = TEFunTimDetailModel.yy_model(with: first)
@@ -48,7 +48,7 @@ class TEFunTimeDetailVC: LYBaseViewC {
     }
     // MARK: === 网络请求
     func p_startNetWorkRequest() {
-        let urlStr = kNet_funtimeDetail + funTimeModel.postid + "/full.html"
+        let urlStr = kNet_funtimeDetail + funTimeData.postid + "/full.html"
         netMng.ly_getRequset(urlStr: urlStr, param: nil)
     }
     // MARK: - ********* Private Method
@@ -71,14 +71,14 @@ class TEFunTimeDetailVC: LYBaseViewC {
         title.textAlignment = .left
         title.font = kBoldFitFont(size: 22)
         title.numberOfLines = 0
-        title.text = funTimeModel.title
+        title.text = funTimeData.title
         title.sizeToFit()
         self.view.addSubview(title)
         
         let subTitle = UILabel.init(frame: CGRect.init(x: kFitCeilWid(16), y: title.bottom + kFitCeilWid(10), width: kScreenWid() - kFitCeilWid(32), height: kFitCeilWid(13)))
         subTitle.font = kRegularFitFont(size: 12)
         subTitle.textColor = kSubTitleColor()
-        subTitle.text = funTimeModel.source + " " + funTimeModel.ptime
+        subTitle.text = funTimeData.source + " " + funTimeData.ptime
         self.view.addSubview(subTitle)
         
         let detail = UILabel.init(frame: CGRect.init(x: subTitle.left, y: subTitle.bottom + kFitCeilWid(30), width: subTitle.width, height: 0))
@@ -90,7 +90,7 @@ class TEFunTimeDetailVC: LYBaseViewC {
         self.view.addSubview(detail)
         
         playView = TEFunTimePlayerView.init(frame: CGRect.init(x: 0, y: detail.bottom + kFitCeilWid(20), width: 0, height: 0))
-        playView.funTimeModel = funTimeModel
+        playView.funTimeData = funTimeData
         self.view.addSubview(playView)
         
     }
