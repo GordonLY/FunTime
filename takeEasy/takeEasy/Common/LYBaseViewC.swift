@@ -28,6 +28,7 @@ class LYBaseViewC: UIViewController, UIGestureRecognizerDelegate, LYRequestManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = kBgColorF5()
         self.automaticallyAdjustsScrollViewInsets = false
     }
     override func viewDidDisappear(_ animated: Bool) {
