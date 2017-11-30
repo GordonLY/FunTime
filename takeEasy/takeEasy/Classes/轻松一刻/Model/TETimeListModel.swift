@@ -11,7 +11,7 @@ import UIKit
 class TETimeListModel: LYBaseModel {
     
     weak var vc: TEFunTimeVC?
-    private var data = [TETimeListData]()
+    var data = [TETimeListData]()
     private var callBack: (([TETimeListData]) -> Void)?
     // MARK: - ********* data request
     func getTimeList(_ callBack: @escaping ([TETimeListData]) -> Void) {
@@ -49,9 +49,44 @@ class TETimeListModel: LYBaseModel {
     }
 }
 
+// MARK: - ********* UITableView delegate and dataSource
+extension TETimeListModel: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return kFitCeilWid(90)
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = TEFunTimeCell.cellWithTableView(tableView, indexPath: indexPath)
+        cell.data = data[indexPath.row]
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detail = TEFunTimeDetailVC()
+        detail.funTimeData = data[indexPath.row]
+        vc?.navigationController?.pushViewController(detail, animated: true)
+    }
+}
+
 // MARK: - ********* vc methods
 extension TETimeListModel {
-    
+    func vc_scanQRCode() {
+        let qrCode = QRCodeVC()
+        var style = LBXScanViewStyle()
+        style.color_NotRecoginitonArea = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.4)
+        style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle.Inner;
+        style.photoframeLineW = 4.0;
+        style.photoframeAngleW = 16;
+        style.photoframeAngleH = 16;
+        style.isNeedShowRetangle = false;
+        style.anmiationStyle = LBXScanViewAnimationStyle.NetGrid;
+        style.animationImage = UIImage(named: "qrcode_scan_full_net")
+        qrCode.scanStyle = style
+        vc?.navigationController?.pushViewController(qrCode, animated: true)
+    }
 }
 
 

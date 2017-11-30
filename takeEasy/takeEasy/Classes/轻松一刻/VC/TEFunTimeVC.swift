@@ -15,6 +15,7 @@ class TEFunTimeVC: LYBaseViewC {
     // MARK: view cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        model.vc = self
         self.view.backgroundColor = kBgColorF5()
         self.p_setUpNav()
         self.p_initSubviews()
@@ -52,40 +53,7 @@ extension TEFunTimeVC {
     }
     // MARK: === 点击扫描二维码
     @objc fileprivate func p_actionLeft() {
-        let qrCode = QRCodeVC()
-        var style = LBXScanViewStyle()
-        style.color_NotRecoginitonArea = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.4)
-        style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle.Inner;
-        style.photoframeLineW = 4.0;
-        style.photoframeAngleW = 16;
-        style.photoframeAngleH = 16;
-        style.isNeedShowRetangle = false;
-        style.anmiationStyle = LBXScanViewAnimationStyle.NetGrid;
-        style.animationImage = UIImage(named: "qrcode_scan_full_net")
-        qrCode.scanStyle = style
-        self.navigationController?.pushViewController(qrCode, animated: true)
-    }
-}
-
-// MARK: - ********* UITableView delegate and dataSource
-extension TEFunTimeVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.data.count
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return kFitCeilWid(90)
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TEFunTimeCell.cellWithTableView(tableView, indexPath: indexPath)
-        cell.data = model.data[indexPath.row]
-        return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let detail = TEFunTimeDetailVC()
-        detail.funTimeData = model.data[indexPath.row]
-        self.navigationController?.pushViewController(detail, animated: true)
+        model.vc_scanQRCode()
     }
 }
 
@@ -95,8 +63,8 @@ extension TEFunTimeVC {
     fileprivate func p_initSubviews() {
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kScreenHei() - kNavBottom()), style: .plain)
         tableView.backgroundColor = UIColor.white
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate = model
+        tableView.dataSource = model
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
         tableView.register(TEFunTimeCell.self, forCellReuseIdentifier: TEFunTimeCell.CellReuseId)

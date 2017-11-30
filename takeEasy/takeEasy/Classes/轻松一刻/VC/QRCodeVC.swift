@@ -28,14 +28,19 @@ class QRCodeVC: LBXScanViewController {
         
         let result:LBXScanResult = arrayResult[0]
         let resultStr = result.strScanned ?? ""
-        LYAlertView.showTip(attrTitle: resultStr.ly.attributeStr(font: kRegularFitFont(size: 14), color: kTitleColor()), know: "打开链接") { [weak self] () in
+        LYAlertView.show(title: resultStr, confirm: "打开链接", cancel: "取消") { [weak self](option) in
             guard let url = URL.init(string: resultStr) else {
                 LYToastView.showMessage("URL无效")
                 self?.startScan()
                 return
             }
-            UIApplication.shared.openURL(url)
-            _ = self?.navigationController?.popViewController(animated: true)
+            switch option {
+            case .confirm:
+                UIApplication.shared.openURL(url)
+                _ = self?.navigationController?.popViewController(animated: true)
+            case .cancel:
+                self?.startScan()
+            }
         }
     }
 }
