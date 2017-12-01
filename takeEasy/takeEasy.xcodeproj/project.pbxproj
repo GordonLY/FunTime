@@ -95,7 +95,6 @@
 		F8AF258B1F56A8E8008E886E /* Sequence+LYDevelop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF258A1F56A8E8008E886E /* Sequence+LYDevelop.swift */; };
 		F8BE5D001FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */; };
 		F8BE5D021FA9746F00FBA5A2 /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */; };
-		F8E421C51FCFDB64000C0262 /* LYBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E421C41FCFDB64000C0262 /* LYBaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,7 +196,6 @@
 		F8AF258A1F56A8E8008E886E /* Sequence+LYDevelop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+LYDevelop.swift"; sourceTree = "<group>"; };
 		F8BE5CFF1FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+EmptyTips.swift"; sourceTree = "<group>"; };
 		F8BE5D011FA9746F00FBA5A2 /* UIView+Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
-		F8E421C41FCFDB64000C0262 /* LYBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LYBaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,7 +338,6 @@
 				F8AC423E1F31BE1D007BFD8C /* LYNavigationController.swift */,
 				F8AC42401F31BE4E007BFD8C /* LYSwiftMacro.swift */,
 				F8AC42421F31BF26007BFD8C /* LYBaseViewC.swift */,
-				F8E421C41FCFDB64000C0262 /* LYBaseModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -689,7 +686,6 @@
 				F88E2B081FC2C6C900F51688 /* LYTableView.swift in Sources */,
 				F80379EB1F3BEFF4006503D7 /* LYPlayerManager.swift in Sources */,
 				F8748C4D1F358D8400EF9E90 /* UIImage+ImageEffects.m in Sources */,
-				F8E421C51FCFDB64000C0262 /* LYBaseModel.swift in Sources */,
 				F811691A1FCE9D2C00942DA6 /* QRCodeVC.swift in Sources */,
 				F8AC42301F31BCED007BFD8C /* LYInteractiveDelegate.swift in Sources */,
 				F8BE5D001FA973E200FBA5A2 /* UIScrollView+EmptyTips.swift in Sources */,
