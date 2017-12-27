@@ -35,9 +35,9 @@ extension LYDevelop where Base: UIImageView {
         }
         KingfisherManager.shared.retrieveImage(with: resource, options: options, progressBlock: progressBlock) { [weak base](image, error, cacheType, url) in
             guard let sBase = base else { return }
-            
+            let size = sBase.bounds.size
             DispatchQueue.global().async {
-                let img = image?.ly.drawRectWithRoundedCorner(radius: cornerRadius, sBase.bounds.size)
+                let img = image?.ly.drawRectWithRoundedCorner(radius: cornerRadius, size)
                 DispatchQueue.main.async {
                     sBase.image = img
                 }
