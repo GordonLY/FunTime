@@ -1,6 +1,8 @@
 PODS:
   - Alamofire (4.5.0)
+  - Bugly (2.5.0)
   - FDFullscreenPopGesture (1.1)
+  - Hero (1.0.1)
   - Kingfisher (4.0.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -8,7 +10,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - Bugly
   - FDFullscreenPopGesture (= 1.1)
+  - Hero
   - Kingfisher (~> 4.0.1)
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh
@@ -16,12 +20,14 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Bugly: 00c8701f2bebab4887771ba43afbf51334009742
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Hero: cee286821578e170d8c0c9c9cda7897357401112
   Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 5fed59a7da581b8bbd3700f9e7b34813244bd544
+PODFILE CHECKSUM: 6b07f1043658939643b82d688331a855f18f1783
 
 COCOAPODS: 1.3.1

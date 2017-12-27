@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Hero
 
 class LYNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.isHeroEnabled = true
         // 设置导航栏字体大小及颜色
         self.navigationBar.titleTextAttributes =
             [.font: kNaviFont(),

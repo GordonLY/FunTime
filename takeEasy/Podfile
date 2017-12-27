@@ -13,7 +13,9 @@ target :takeEasy do
   pod 'YYModel'
   pod 'Kingfisher', '~> 4.0.1'
   pod 'MJRefresh'
-
+  pod 'Hero'
+  pod 'Bugly'
+  
 end
 
 

@@ -56,13 +56,21 @@ extension UIImage {
             let data2 = UIImagePNGRepresentation(rhs) else {
                 return false
         }
-        
         return data1 == data2
     }
 }
 
 extension LYDevelop where Base: UIImage {
     
+    /// 缩小图片大小
+    func scale(to newSize: CGSize) -> UIImage {
+        guard base.size != newSize else { return base }
+        let scaledRect = fixPictureSize(newSize: newSize)
+        UIGraphicsBeginImageContextWithOptions(scaledRect.size, false, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        base.draw(in: scaledRect)
+        return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    }
     private func fixPictureSize(newSize: CGSize) -> CGRect {
         let ratio = max(newSize.width / base.size.width,
                         newSize.height / base.size.height)
@@ -70,21 +78,21 @@ extension LYDevelop where Base: UIImage {
         let height = base.size.height * ratio
         let scaledRect = CGRect(x: 0, y: 0,
                                 width: width, height: height)
-        
         return scaledRect
     }
-    func scale(to newSize: CGSize) -> UIImage {
-        guard base.size != newSize else {
-            return base
-        }
-        
-        let scaledRect = fixPictureSize(newSize: newSize)
-        
-        UIGraphicsBeginImageContextWithOptions(scaledRect.size, false, 0.0)
+    
+    /// 给图片切圆角
+    func drawRectWithRoundedCorner(radius: CGFloat, _ sizetoFit: CGSize) -> UIImage {
+        guard radius > 0 else { return base }
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: sizetoFit)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        let path = UIBezierPath.init(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: CGSize.init(width: radius, height: radius)).cgPath
+        context.addPath(path)
+        context.clip()
+        base.draw(in: rect)
+        context.drawPath(using: .fillStroke)
         defer { UIGraphicsEndImageContext() }
-        
-        base.draw(in: scaledRect)
-        
         return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     }
 }

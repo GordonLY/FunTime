@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Hero
 
 class TEFunTimeDetailVC: LYBaseViewC {
 
+    init(_ callBack: @escaping () -> Void) {
+        self.callBack = callBack
+        super.init(nibName: nil, bundle: nil)
+    }
+    var callBack: () -> Void
     var funTimeData = TETimeListData()
     private var detailModel = TEFunTimDetailModel()
     private var playView: TEFunTimePlayerView!
@@ -17,20 +23,17 @@ class TEFunTimeDetailVC: LYBaseViewC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        self.isHeroEnabled = true
         self.p_setUpNav()
         self.p_initSubviews()
         self.p_startNetWorkRequest()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
+    override func viewDidDisappear(_ animated: Bool) {
+        callBack()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    
     
     // MARK: - ********* 网络数据
     override func ly_netReponseSuccess(urlStr: String, result: Dictionary<String, Any>?) {
@@ -54,6 +57,19 @@ class TEFunTimeDetailVC: LYBaseViewC {
     // MARK: - ********* Private Method
     func p_setUpNav() {
         self.navigationItem.title = "轻松一刻语音版"
+
+        let navSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: self, action: #selector(p_actionLeft))
+        let left = UIButton.init(type: .custom)
+        left.frame = CGRect.init(x: 0, y: 0, width: 44, height: 44)
+        left.setImage(UIImage.init(named: "common_back"), for: .normal)
+        left.setImage(UIImage.init(named: "common_back")?.ly_image(tintColor: UIColor.init(white: 0, alpha: 0.5)), for: .highlighted)
+        left.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        left.addTarget(self, action: #selector(p_actionLeft), for: .touchUpInside)
+        let leftItem = UIBarButtonItem.init(customView: left)
+        self.navigationItem.leftBarButtonItems = [navSpacer,leftItem]
+    }
+    @objc func p_actionLeft() {
+        self.navigationController?.popViewController(animated: true)
     }
     func p_initSubviews() {
         let imgView = UIImageView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kFitWid(64)))
@@ -67,6 +83,7 @@ class TEFunTimeDetailVC: LYBaseViewC {
         imgView.addSubview(line)
         
         let title = UILabel.init(frame: CGRect.init(x: kFitCeilWid(16), y: imgView.bottom + kFitCeilWid(20), width: kScreenWid() - kFitCeilWid(32), height: 0))
+        title.heroID = "funTimeListCell_title"
         title.textColor = UIColor.ly_color(0x111111)
         title.textAlignment = .left
         title.font = kBoldFitFont(size: 22)
@@ -91,8 +108,8 @@ class TEFunTimeDetailVC: LYBaseViewC {
         
         playView = TEFunTimePlayerView.init(frame: CGRect.init(x: 0, y: detail.bottom + kFitCeilWid(20), width: 0, height: 0))
         playView.funTimeData = funTimeData
+        playView.heroID = "funTimeListCell_imgView"
         self.view.addSubview(playView)
         
     }
-    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class TEFunTimeVC: LYBaseViewC {
 
@@ -57,14 +58,43 @@ extension TEFunTimeVC {
     }
 }
 
+// MARK: - ********* UITableView delegate and dataSource
+extension TEFunTimeVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.data.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return kFitCeilWid(90)
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = TEFunTimeCell.cellWithTableView(tableView, indexPath: indexPath)
+        cell.data = model.data[indexPath.row]
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        _ = model.data[1000]
+        let cell = tableView.cellForRow(at: indexPath) as? TEFunTimeCell
+        cell?.imgView?.heroID = "funTimeListCell_imgView"
+        cell?.titleLabel.heroID = "funTimeListCell_title"
+        let detail = TEFunTimeDetailVC {
+            cell?.imgView?.heroID = nil
+            cell?.titleLabel.heroID = nil
+        }
+        detail.funTimeData = model.data[indexPath.row]
+        self.navigationController?.pushViewController(detail, animated: true)
+    }
+}
+
 // MARK: - ********* UI init
 extension TEFunTimeVC {
     
     fileprivate func p_initSubviews() {
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kScreenHei() - kNavBottom()), style: .plain)
         tableView.backgroundColor = UIColor.white
-        tableView.delegate = model
-        tableView.dataSource = model
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
         tableView.register(TEFunTimeCell.self, forCellReuseIdentifier: TEFunTimeCell.CellReuseId)
