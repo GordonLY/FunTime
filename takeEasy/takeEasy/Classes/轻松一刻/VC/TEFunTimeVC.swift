@@ -11,7 +11,7 @@ import Hero
 
 class TEFunTimeVC: LYBaseViewC {
 
-    private var tableView: UITableView!
+    private var tableView: LYTableView!
     private let model = TETimeListModel()
     // MARK: view cycle
     override func viewDidLoad() {
@@ -74,7 +74,6 @@ extension TEFunTimeVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        _ = model.data[1000]
         let cell = tableView.cellForRow(at: indexPath) as? TEFunTimeCell
         cell?.imgView?.heroID = "funTimeListCell_imgView"
         cell?.titleLabel.heroID = "funTimeListCell_title"
@@ -91,7 +90,7 @@ extension TEFunTimeVC: UITableViewDelegate, UITableViewDataSource {
 extension TEFunTimeVC {
     
     fileprivate func p_initSubviews() {
-        tableView = UITableView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kScreenHei() - kNavBottom()), style: .plain)
+        tableView = LYTableView.init(frame: CGRect.init(x: 0, y: kNavBottom(), width: kScreenWid(), height: kScreenHei() - kNavBottom()), style: .plain)
         tableView.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self

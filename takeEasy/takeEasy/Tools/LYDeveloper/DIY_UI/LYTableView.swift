@@ -15,6 +15,9 @@ class LYTableView: UITableView {
 //        if #available(iOS 11.0, *) {
 //            self.contentInsetAdjustmentBehavior = .never
 //        }
+        self.estimatedRowHeight = 0
+        self.estimatedSectionHeaderHeight = 0
+        self.estimatedSectionFooterHeight = 0
     }
     
     

@@ -15,7 +15,7 @@ class TEFunTimeCell: UITableViewCell {
         didSet {
             titleLabel?.text = data.title
             titleLabel.sizeToFit()
-            imgView.ly.setImage(with: URL.init(string: data.imgsrc), cornerRadius: kFitWid(10))
+            imgView.ly.setImage(with: URL.init(string: data.imgsrc), cornerRadius: kFitWid(5))
             dateLabel.text = data.time_show
         }
     }
