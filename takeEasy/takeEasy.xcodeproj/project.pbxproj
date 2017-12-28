@@ -320,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				F8AC41B81F31A45D007BFD8C /* Common */,
-				F8AC41C31F31A45D007BFD8C /* Tools */,
 				F8AC41B71F31A45D007BFD8C /* Classes */,
+				F8AC41C31F31A45D007BFD8C /* Tools */,
 				F8AC41B91F31A45D007BFD8C /* Support */,
 			);
 			path = takeEasy;

@@ -67,6 +67,7 @@ class TEFunTimeCell: UITableViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
+        imgView.ly.cancelDownloadTask()
         titleLabel.frame = CGRect.init(x: imgView.right + kFitCeilWid(8), y: imgView.top, width: kScreenWid() - kFitCeilWid(130), height: kFitCeilWid(40))
     }
 }
