@@ -7,36 +7,33 @@
 //
 
 import UIKit
+import LYQRCodeScan
 
-class QRCodeVC: LBXScanViewController {
+class QRCodeVC: ScanBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.p_setUpNav()
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.isHidden = false
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
-    override func handleCodeResult(arrayResult: [LBXScanResult]) {
-        
-        let result:LBXScanResult = arrayResult[0]
-        let resultStr = result.strScanned ?? ""
-        LYAlertView.show(title: resultStr, confirm: "打开链接", cancel: "取消") { [weak self](option) in
-            guard let url = URL.init(string: resultStr) else {
+    override func codeScanFinished(result: ScanResult?) {
+        guard let result = result else { return }
+        LYAlertView.show(title: result.content, confirm: "打开链接", cancel: "取消") { [weak self](option) in
+            guard let url = URL.init(string: result.content) else {
                 LYToastView.showMessage("URL无效")
                 self?.startScan()
                 return
             }
             switch option {
             case .confirm:
-                UIApplication.shared.openURL(url)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 _ = self?.navigationController?.popViewController(animated: true)
             case .cancel:
                 self?.startScan()
