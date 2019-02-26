@@ -23,18 +23,8 @@ class TETimeListModel: NSObject {
 // MARK: - ********* vc methods
 extension TETimeListModel {
     func vc_scanQRCode() {
-        let qrCode = QRCodeVC()
-        var style = LBXScanViewStyle()
-        style.color_NotRecoginitonArea = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.4)
-        style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle.Inner;
-        style.photoframeLineW = 4.0;
-        style.photoframeAngleW = 16;
-        style.photoframeAngleH = 16;
-        style.isNeedShowRetangle = false;
-        style.anmiationStyle = LBXScanViewAnimationStyle.NetGrid;
-        style.animationImage = UIImage(named: "qrcode_scan_full_net")
-        qrCode.scanStyle = style
-        vc?.navigationController?.pushViewController(qrCode, animated: true)
+        let scan = QRCodeVC()
+        vc?.navigationController?.pushViewController(scan, animated: true)
     }
 }
 
